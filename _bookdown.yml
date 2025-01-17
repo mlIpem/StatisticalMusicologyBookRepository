@@ -1,0 +1,30 @@
+book_filename: "ExploringMusicInteractions"
+rmd_files: ["index.Rmd", 
+"02_chapTheory.Rmd",
+"03_chapModelling.Rmd",
+"04_chapListener.Rmd",
+"05_chapDancer.Rmd",
+"06_chapViolinist.Rmd",
+"07_chapExoskeletonsDummy.Rmd",
+"08_chapTappers.Rmd",
+"09_chapTappers_2.Rmd",
+"10_chapConclusion.Rmd",
+"11_References.Rmd"
+]
+
+new_session: true
+delete_merged_file: true
+language:
+  label:
+    fig: "Figure "
+    tab: "Table "
+  ui:
+    edit: "Edit"
+    chapter_name: "Chapter "
+output: 
+  pdf_document:
+    extra_dependencies: ["float"]
+runtime: shiny
+    
+    
+    

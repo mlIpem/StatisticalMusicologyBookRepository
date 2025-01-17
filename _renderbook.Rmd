@@ -1,0 +1,32 @@
+---
+title: "render book"
+author: "ML"
+date: "2024-01-06"
+output: html_document
+---
+
+bookdown::render_book("index.Rmd", "bookdown::gitbook")
+bookdown::render_book("index.Rmd", "bookdown::pdf_book")
+bookdown::render_book("index.Rmd")
+
+
+
+
+preview_chapter("02_chapTheory.Rmd")
+
+rmarkdown::render("index.Rmd", output_format = "pdf_document")
+rmarkdown::render("02_chapTheory.Rmd", output_format = "pdf_document")
+rmarkdown::render("03_chapModelling.Rmd", output_format = "pdf_document")
+rmarkdown::render("04_chapListener.Rmd", output_format = "pdf_document")
+preview_chapter("04_chapListener.Rmd")
+rmarkdown::render("05_chapDancer.Rmd", output_format = "pdf_document")
+preview_chapter("05_chapDancer.Rmd")
+rmarkdown::render("06_chapViolinist.Rmd", output_format = "pdf_document")
+preview_chapter("06_chapViolinist.Rmd")
+rmarkdown::render("07_chapExoskeletons.Rmd", output_format = "pdf_document")
+preview_chapter("07_chapExoskeletons.Rmd")
+rmarkdown::render("08_chapTappers.Rmd", output_format = "pdf_document")
+preview_chapter("08_chapTappers.Rmd")
+rmarkdown::render("09_chapTappers_2.Rmd", output_format = "pdf_document")
+preview_chapter("09_chapTappers_2.Rmd")
+
