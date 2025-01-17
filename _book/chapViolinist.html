@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 5 Violin player visual feedback | Exploring music interactions</title>
+<meta name="author" content="Marc Leman">
+<meta name="description" content="While in the previous chapter we looked at the effect of musical structure on the micro-timing of dancers during a solo-dance, here we look at the effect of visual feedback on instrumental...">
+<meta name="generator" content="bookdown 0.41 with bs4_book()">
+<meta property="og:title" content="Chapter 5 Violin player visual feedback | Exploring music interactions">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://www.ugent.be/chapViolinist.html">
+<meta property="og:image" content="https://www.ugent.be/images/cover.jpeg">
+<meta property="og:description" content="While in the previous chapter we looked at the effect of musical structure on the micro-timing of dancers during a solo-dance, here we look at the effect of visual feedback on instrumental...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 5 Violin player visual feedback | Exploring music interactions">
+<meta name="twitter:description" content="While in the previous chapter we looked at the effect of musical structure on the micro-timing of dancers during a solo-dance, here we look at the effect of visual feedback on instrumental...">
+<meta name="twitter:image" content="https://www.ugent.be/images/cover.jpeg">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><link href="libs/Lato-0.4.9/font.css" rel="stylesheet">
+<link href="libs/Roboto_Mono-0.4.9/font.css" rel="stylesheet">
+<link href="libs/Montserrat-0.4.9/font.css" rel="stylesheet">
+<script src="libs/bs3compat-0.8.0/transition.js"></script><script src="libs/bs3compat-0.8.0/tabs.js"></script><script src="libs/bs3compat-0.8.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+<script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-99618359-1', 'auto');
+      ga('send', 'pageview');
+
+    </script><!-- Google tag (gtag.js) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-CDTTJLM7N4"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-CDTTJLM7N4');
+    </script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="style/style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h2>
+        <a href="index.html" title="">Exploring music interactions</a>
+      </h2>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome</a></li>
+<li><a class="" href="preface.html">Preface</a></li>
+<li><a class="" href="chapTheory.html"><span class="header-section-number">1</span> Theory</a></li>
+<li><a class="" href="chapModelling.html"><span class="header-section-number">2</span> Modelling</a></li>
+<li><a class="" href="chapListener.html"><span class="header-section-number">3</span> Listener appreciation</a></li>
+<li><a class="" href="chapDancer.html"><span class="header-section-number">4</span> Dancer synchronization</a></li>
+<li><a class="active" href="chapViolinist.html"><span class="header-section-number">5</span> Violin player visual feedback</a></li>
+<li><a class="" href="chapExoskeletons.html"><span class="header-section-number">6</span> Two violin players’ haptic feedback</a></li>
+<li><a class="" href="chapTappers1.html"><span class="header-section-number">7</span> Two finger tappers’ entrainment (Part 1)</a></li>
+<li><a class="" href="chapTappers2.html"><span class="header-section-number">8</span> Two finger tappers’ entrainment (Part 2)</a></li>
+<li><a class="" href="chapConclusion.html"><span class="header-section-number">9</span> Conclusion</a></li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/mlIpem/ExploringMusicInteractionWithR">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="chapViolinist" class="section level1" number="5">
+<h1>
+<span class="header-section-number">5</span> Violin player visual feedback<a class="anchor" aria-label="anchor" href="#chapViolinist"><i class="fas fa-link"></i></a>
+</h1>
+<p>While in the previous chapter we looked at the effect of musical structure on the micro-timing of dancers during a solo-dance, here we look at the effect of visual feedback on instrumental learning.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Thanks to input and feedback from A. Campo and A. Michalko&lt;/p&gt;"><sup>25</sup></a></p>
+<p>Imagine an orchestra and its string section. Typically, the members of the string section, the violinists, have their bowing movements going up and down in synchronized manner, so that they appear as one single organism moving together. Less experienced violinists have to learn how to play in sync with the principal violinist of the section. They need to learn the bowing gestures as well as the particular expression associated with it.</p>
+<p>Now, imagine an audiovisual play-along system with a visual representation of the principal violinist of the orchestra as teacher-avatar. Wouldn’t that be a cool system to train with, for a violinist? And what happens if the teacher-avatar would be visible in 3D, with a Hololens? Would that be of any benefit to learning?</p>
+<p>The ultimate goal of the present chapter is to check the effectiveness of a 3D play-back system for learning to play in an orchestra, compared to a 2D play-back system.
+To figure that out is not an easy matter, due the entire setup and resources available. Typically, we deal with a small number of participants and different levels of musical experience.</p>
+<p>Owing to these and other reasons, not at least the novelty and highly technical character of the study, this chapter is highly exploratory.
+It shows the flexibility of Bayesian statistical modelling is studies were time is important, even when focusing on individual musicians.</p>
+<p>Learning to perform as a violinist in an orchestra is a multifaceted process that involves structured practice, anticipatory behavior, collaborative engagement, and continuous feedback. These elements work together to create a self-augmented interaction, where the violinist’s skills and abilities are continually enhanced through their engagement with the orchestra.</p>
+<p>The modelling techniques introduced in the previous chapter are partly repeated in the present chapter. Data for this chapter can be found in Campo et al. (2023a, 2023b), with software available at Campo et al. (2024). See also Michalko et al. (submitted).
+The code can be found in the following scripts for data preparation and plotting, modelling and plotting, and contrast analysis and plotting:</p>
+<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="st">"Code/chapAll_00_Initialization.R"</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="st">"Code/chapAll_01_Functions.R"</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="st">"Code/chapViolinist/chapViolinist_02_DataPreparation.R"</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="st">"Code/chapViolinist/chapViolinist_03_DataPlotting.R"</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="st">"Code/chapViolinist/chapViolinist_04_Modelling.R"</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="st">"Code/chapViolinist/chapViolinist_05_ModelPlotting.R"</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="st">"Code/chapViolinist/chapViolinist_06_Contrasts.R"</span><span class="op">)</span></span></code></pre></div>
+<div id="theory-2" class="section level2" number="5.1">
+<h2>
+<span class="header-section-number">5.1</span> Theory<a class="anchor" aria-label="anchor" href="#theory-2"><i class="fas fa-link"></i></a>
+</h2>
+<p>Why would we believe that a music playback system with 3D teacher-avatar would be more efficient for learning than its 2D version?
+The reason is probably that 3D offers a richer feedback for motor-control.</p>
+<p>This hypothesis can be tested in an <em>augmented reality</em> setting with violinists wearing a Hololens.
+Its unique capabilities allow <em>parallax</em>, or visual changes of the visual scene by small head movements, similar to what we do in everyday life when we see an object from different angles and estimate its size by considering close versus nearby features changing due to head movements. The bowing gestures of a violin teacher observed under these circumstances enables a more nuanced interpretation than when parallax is not possible, thus providing a better feedback for the control of the own bowing gestures. Parallax is not possible when the avatar is seen in 2D because in that condition, the teacher-avatar is just projected on a screen.
+Using the Hololens the same bowing gestures can seen with or without parallax, depending on whether the scene is presented in 2D or 3D augmented reality.</p>
+<p>Accordingly, the augmented reality setting offers a perfect environment for testing whether parallax is a necessary component in the visual modality for its feedback on motor control.
+Figure <a href="chapViolinist.html#fig:chapViolinistTeacherAvatar1">5.1</a> shows a typical measurement setup of a student (a, b), with teacher-avatar seen from the viewpoint of the student through a Hololens in 2D (c), and in 3D (d).</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:chapViolinistTeacherAvatar1"></span>
+<img src="Figures/chapViolinist_TeacherAvatar.jpg" alt="View on the teacher-avatar in 2D and in 3D: (a) student violinist equipped with Hololens and motion tracking suit, (b) stick figure extracted, teacher-avatar in 2D, and (c, d) teacher-avatar in 2D and 3D, as seen through the Hololens" width="100%"><p class="caption">
+Figure 5.1: View on the teacher-avatar in 2D and in 3D: (a) student violinist equipped with Hololens and motion tracking suit, (b) stick figure extracted, teacher-avatar in 2D, and (c, d) teacher-avatar in 2D and 3D, as seen through the Hololens
+</p>
+</div>
+</div>
+<div id="experiment-1" class="section level2" number="5.2">
+<h2>
+<span class="header-section-number">5.2</span> Experiment<a class="anchor" aria-label="anchor" href="#experiment-1"><i class="fas fa-link"></i></a>
+</h2>
+<p>In the experiment, eleven participants were recruited, all members from the Ghent Universitary Student Orchestra GUSO.
+They were engaged in four practice trials spaced evenly over the course of a month, with each student experiencing both conditions (2D, 3D). Like in real orchestral playing, where members of the string section follow the principal violinist, students were instructed to closely imitate the teacher-avatar’s bowing gestures, encompassing bowings, articulations, and dynamics.</p>
+<p>Due to the limited amount of students, the design is somewhat peculiar in the sense that
+each participant takes part in two conditions (2D and 3D), with four trials per condition (T1, T2, T3, T4).
+However, conditions apply to different pieces (F1, F2, F3, F4), with F1 and F2 for first violin players, and F3 and F4 for second violin players. There are two teacher-avatars, one for the principal violinist of the first violin players,
+and one for the principal violinist of the second violin players.
+The structure is shown in the table below.</p>
+<div class="inline-table"><table class="table table-striped" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:chapViolinistDesign1">Table 5.1: </span>Experimental design
+</caption>
+<thead><tr>
+<th style="text-align:left;">
+subject
+</th>
+<th style="text-align:left;">
+condition
+</th>
+<th style="text-align:left;">
+piece
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+P004
+</td>
+<td style="text-align:left;">
+2D
+</td>
+<td style="text-align:left;">
+F1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+P006
+</td>
+<td style="text-align:left;">
+2D
+</td>
+<td style="text-align:left;">
+F1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+P009
+</td>
+<td style="text-align:left;">
+2D
+</td>
+<td style="text-align:left;">
+F1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+P001
+</td>
+<td style="text-align:left;">
+3D
+</td>
+<td style="text-align:left;">
+F1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+P002
+</td>
+<td style="text-align:left;">
+3D
+</td>
+<td style="text-align:left;">
+F1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+P010
+</td>
+<td style="text-align:left;">
+3D
+</td>
+<td style="text-align:left;">
+F1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+P001
+</td>
+<td style="text-align:left;">
+2D
+</td>
+<td style="text-align:left;">
+F2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+P002
+</td>
+<td style="text-align:left;">
+2D
+</td>
+<td style="text-align:left;">
+F2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+P010
+</td>
+<td style="text-align:left;">
+2D
+</td>
+<td style="text-align:left;">
+F2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+P004
+</td>
+<td style="text-align:left;">
+3D
+</td>
+<td style="text-align:left;">
+F2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+P006
+</td>
+<td style="text-align:left;">
+3D
+</td>
+<td style="text-align:left;">
+F2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+P009
+</td>
+<td style="text-align:left;">
+3D
+</td>
+<td style="text-align:left;">
+F2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+P003
+</td>
+<td style="text-align:left;">
+2D
+</td>
+<td style="text-align:left;">
+F3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+P005
+</td>
+<td style="text-align:left;">
+2D
+</td>
+<td style="text-align:left;">
+F3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+P007
+</td>
+<td style="text-align:left;">
+3D
+</td>
+<td style="text-align:left;">
+F3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+P008
+</td>
+<td style="text-align:left;">
+3D
+</td>
+<td style="text-align:left;">
+F3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+P011
+</td>
+<td style="text-align:left;">
+3D
+</td>
+<td style="text-align:left;">
+F3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+P007
+</td>
+<td style="text-align:left;">
+2D
+</td>
+<td style="text-align:left;">
+F4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+P008
+</td>
+<td style="text-align:left;">
+2D
+</td>
+<td style="text-align:left;">
+F4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+P011
+</td>
+<td style="text-align:left;">
+2D
+</td>
+<td style="text-align:left;">
+F4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+P003
+</td>
+<td style="text-align:left;">
+3D
+</td>
+<td style="text-align:left;">
+F4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+P005
+</td>
+<td style="text-align:left;">
+3D
+</td>
+<td style="text-align:left;">
+F4
+</td>
+</tr>
+</tbody>
+</table></div>
+<p>Unfortunately, this design does not allow us to check conditions per student and per piece. as students played one piece in 2D and another piece in 3D.
+However, for each piece, we can compare students playing with 2D with students playing with 3D.
+For example, for piece F1, we have student P004, P006 and P009 playing in the 2D condition and we have student P001, P002, and P0010 playing in the 3D condition.
+Moreover, each subject played four trials, spread over four weeks.
+The two groups, formed by condition, can be compared per piece.</p>
+<p>Eleven subjects is not much. The reason is that experiments are very time-consuming and that subjects, such as those who play in an orchestra, are few and sometimes hard to find, especially for participation in longitudinal studies. Nevertheless, thanks to the four trials, which we consider here as repeated measures, we are just on the border of having enough statistical power.</p>
+</div>
+<div id="data-1" class="section level2" number="5.3">
+<h2>
+<span class="header-section-number">5.3</span> Data<a class="anchor" aria-label="anchor" href="#data-1"><i class="fas fa-link"></i></a>
+</h2>
+<p>A study has already been published in Campo et al. (2023a) and the bowing gesture events can be downloaded from Campo et al. (2023b) with software available at Campo et al. (2024).
+Here we focus on aspects of statistical modelling that are not explicitly contained in the above publications.</p>
+<p>Our data comes from the publicly available dataset (Campo et al., 2023a). It describes the similarity of student and teacher in terms of <em>events</em>, that is, the identification of a bowing gesture and the subsequent calculation of a bowing similarity feature between student and teacher. The similarity feature is based on the <em>Procustus distance (PD)</em>, which quantifies the extent of deformation needed to transform one gesture into the other gesture. It is based on the scaling, rotating, and translating of the student’s bowing gesture. Smaller PD values indicate greater similarity between bowing gestures.</p>
+<p>To facilitate the statistical fitting, we use the scaled log of PD and call it log_PD. Note that in some cases it was is hard to define bowing events. Accordingly, several passages could not be taken into account in the analysis.
+We use the dataset specified in the following table.
+The original dataset also contains motion capture, audio, and questionnaire data from violinists.</p>
+<div class="inline-table"><table class="table table-striped" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:chapViolinistDesign2">Table 5.2: </span>Data with procustus distance (PD)
+</caption>
+<thead><tr>
+<th style="text-align:right;">
+PD
+</th>
+<th style="text-align:right;">
+logPD
+</th>
+<th style="text-align:right;">
+startIndex
+</th>
+<th style="text-align:right;">
+endIndex
+</th>
+<th style="text-align:right;">
+time
+</th>
+<th style="text-align:left;">
+subject
+</th>
+<th style="text-align:left;">
+trial
+</th>
+<th style="text-align:left;">
+condition
+</th>
+<th style="text-align:left;">
+piece
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+0.09
+</td>
+<td style="text-align:right;">
+-0.84
+</td>
+<td style="text-align:right;">
+3.59
+</td>
+<td style="text-align:right;">
+4.30
+</td>
+<td style="text-align:right;">
+3.59
+</td>
+<td style="text-align:left;">
+P001
+</td>
+<td style="text-align:left;">
+T1
+</td>
+<td style="text-align:left;">
+3D
+</td>
+<td style="text-align:left;">
+F1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+0.09
+</td>
+<td style="text-align:right;">
+-0.84
+</td>
+<td style="text-align:right;">
+3.59
+</td>
+<td style="text-align:right;">
+4.30
+</td>
+<td style="text-align:right;">
+3.89
+</td>
+<td style="text-align:left;">
+P001
+</td>
+<td style="text-align:left;">
+T1
+</td>
+<td style="text-align:left;">
+3D
+</td>
+<td style="text-align:left;">
+F1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+0.09
+</td>
+<td style="text-align:right;">
+-0.84
+</td>
+<td style="text-align:right;">
+3.59
+</td>
+<td style="text-align:right;">
+4.30
+</td>
+<td style="text-align:right;">
+4.19
+</td>
+<td style="text-align:left;">
+P001
+</td>
+<td style="text-align:left;">
+T1
+</td>
+<td style="text-align:left;">
+3D
+</td>
+<td style="text-align:left;">
+F1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+0.21
+</td>
+<td style="text-align:right;">
+0.26
+</td>
+<td style="text-align:right;">
+4.30
+</td>
+<td style="text-align:right;">
+5.33
+</td>
+<td style="text-align:right;">
+4.30
+</td>
+<td style="text-align:left;">
+P001
+</td>
+<td style="text-align:left;">
+T1
+</td>
+<td style="text-align:left;">
+3D
+</td>
+<td style="text-align:left;">
+F1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+0.21
+</td>
+<td style="text-align:right;">
+0.26
+</td>
+<td style="text-align:right;">
+4.30
+</td>
+<td style="text-align:right;">
+5.33
+</td>
+<td style="text-align:right;">
+4.60
+</td>
+<td style="text-align:left;">
+P001
+</td>
+<td style="text-align:left;">
+T1
+</td>
+<td style="text-align:left;">
+3D
+</td>
+<td style="text-align:left;">
+F1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+0.21
+</td>
+<td style="text-align:right;">
+0.26
+</td>
+<td style="text-align:right;">
+4.30
+</td>
+<td style="text-align:right;">
+5.33
+</td>
+<td style="text-align:right;">
+4.90
+</td>
+<td style="text-align:left;">
+P001
+</td>
+<td style="text-align:left;">
+T1
+</td>
+<td style="text-align:left;">
+3D
+</td>
+<td style="text-align:left;">
+F1
+</td>
+</tr>
+</tbody>
+</table></div>
+<p>The first three columns contain the metrics of the Procustus Distance, <code>PD</code>, its (scaled) logarithm <code>logPD</code>.
+The columns <code>startIndex</code> and <code>endIndex</code> contain the start and end times of a bowing gesture in seconds.
+The sample times are indicated in <code>time</code> and bowing gestures are sampled every .3 seconds.
+The other columns <code>subject</code>, <code>trial</code>, <code>condition</code>, <code>piece</code> are factors having levels (11 subjects, 4 trials, 2 conditions, 4 pieces).</p>
+</div>
+<div id="data-plotting" class="section level2" number="5.4">
+<h2>
+<span class="header-section-number">5.4</span> Data plotting<a class="anchor" aria-label="anchor" href="#data-plotting"><i class="fas fa-link"></i></a>
+</h2>
+<p>Basically, a good performance is here defined as a performance where the student’s bowing gestures are in sync with the teacher’s bowing gestures. The lower the PD, the more similar the bowing gesture resembles the teacher’s bowing gesture.</p>
+<p>A histogram of all data of the PD metric reveals a Poisson-like distribution of the PD values, as shown in the left panel of figure <a href="chapViolinist.html#fig:chapViolinistPDhist">5.2</a>.
+The right panel shows the logarithmic transformation of the PD values. Low values get a bit more stretched, and high values get squeezed but the distribution is still slightly skewed due to data with high PD values, especially in the 2D condition.
+Interestingly, difference between 2D and 3D are mainly seen at higher values, where 3D has fewer such values, indicating better alignment.
+The dotted lines show the medians for each condition. It looks as if 3D is lower than 2D.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:chapViolinistPDhist"></span>
+<img src="Figures/chapViolinist_PD_NewData_p1_hist.png" alt="Density of PD for 2D and 3D" width="49%"><img src="Figures/chapViolinist_PD_NewData_p2_hist.png" alt="Density of PD for 2D and 3D" width="49%"><p class="caption">
+Figure 5.2: Density of PD for 2D and 3D
+</p>
+</div>
+<p>However, there may be differences between pieces and sections.
+Figure <a href="chapViolinist.html#fig:chapViolinistPDdata">5.3</a> shows the data over time, with four different pieces (F1,F2,F3,F4) and two conditions (2D, 3D).
+The vertical axis shows the logPD.
+The horizontal axis shows the time.
+Each dot represents a sample logPD value.</p>
+<!-- As mentioned, a bowing gestures have samples corresponding to the duration of the played note(s). Accordingly, longer bowing gestures are represented as a sequence of dots having equal logPD. -->
+<!-- But that's difficult to see on this picture. -->
+<!-- The white gaps reveal silence (no bowing gesture). -->
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:chapViolinistPDdata"></span>
+<img src="Figures/chapViolinist_PD_NewData_p3_data.png" alt="Data of four pieces in two conditions" width="100%"><p class="caption">
+Figure 5.3: Data of four pieces in two conditions
+</p>
+</div>
+<p>Differences between 2D and 3D are subtle but some things can already be observed by visual inspection. For example, in the first column (piece F1), first row (condition 2D), there are quite some dots above 2 in the 2D condition, whereas only a few dots above 2 in the 3D condition. This suggests a better alignment in 3D. However, in the second column (piece F2), at about 75 seconds, it looks as if the higher logPD values occur in 3D, compared to 2D.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:chapViolinistF1score"></span>
+<img src="Figures/chapViolinist_Score_F1.jpg" alt="Score excerpt of the first piece (F1), with time indication in seconds." width="100%"><p class="caption">
+Figure 5.4: Score excerpt of the first piece (F1), with time indication in seconds.
+</p>
+</div>
+</div>
+<div id="smooth-regression-2" class="section level2" number="5.5">
+<h2>
+<span class="header-section-number">5.5</span> Smooth regression<a class="anchor" aria-label="anchor" href="#smooth-regression-2"><i class="fas fa-link"></i></a>
+</h2>
+<p>Having our focus on the performance over time, we develop an analysis based on smooth regression. In that approach, we estimate the similarity/synchronization metric in terms of smooths over time. These smooths represent a floating mean and variance over time.
+The smooth regression can be specified as follows:</p>
+<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">form</span> <span class="op">=</span> <span class="fu">bf</span><span class="op">(</span><span class="va">logPD</span> <span class="op">~</span> <span class="fl">1</span> <span class="op">+</span> <span class="va">condition</span> <span class="op">+</span> <span class="fu">s</span><span class="op">(</span><span class="va">time</span>,k<span class="op">=</span><span class="fl">30</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>            <span class="fu">s</span><span class="op">(</span><span class="va">time</span>,by<span class="op">=</span><span class="va">condition</span>,k<span class="op">=</span><span class="fl">30</span><span class="op">)</span> <span class="op">+</span>  <span class="op">(</span><span class="fl">1</span> <span class="op">|</span> <span class="va">subject</span> <span class="op">+</span> <span class="va">trial</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">fam</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/family.html">gaussian</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p>This expression says that <code>logPD</code> is modeled by a general intercept (represented by “1”) for the two levels of <code>condition</code> (2D, 3D), and a smooth over <code>time</code> for the levels of <code>condition</code>, using a basis of 30 splines. Each value of <code>logPD</code> at a certain point in time is a weighted sum of the spline basis functions. Furthermore, <code>trial</code> and <code>subject</code> are defined as group-level variables, whose variance is extracted such that the estimates for the other variables don’t contain this variance. Given the fact that both PD and 1-R show a Poisson-like distribution, we take the log and apply scaling such that the mean of all data is zero. This allows us to apply a gaussian link function of calculated mean and variance to the data.</p>
+<p>This smooth regression is implemented in the R-package <code>brms</code> but it comes with a high computational cost, due to the algorithms for optimization. Alternatively, the R-package <code>mgcv</code> can be used. However, <code>brms</code> is more flexible than <code>mgcv</code> as it offers a better grip on the fitted model.</p>
+<p>Based on the fitted model using <code>brms</code>, we extract samples from the posterior. In particular, we generate a <em>posterior predictive distribution</em> and a <em>posterior difference distribution</em>, similar to the way we did it in chapter <a href="chapDancer.html#chapDancer">4</a>. The posterior predictive distribution can be generated using a newly defined data grid in which <code>time</code> is sampled, say at .5 seconds, and all other variables in the model are accordingly sampled. This entire posterior prediction contains one posterior predictive distribution per specified time point, and we can then easily extract the distributions for the 2D and 3D condition and subtract them to get the posterior difference distribution.</p>
+<p>The probability mass above or below zero can be calculated and used in support of the difference in posterior predictive distribution (2D - 3D). A probability mass of 90% above zero would give strong support for 2D being distinct from 3D. Note that we will have this posterior at each time instance, so that the performance in 2D versus 3D can be contrasted over time. Obviously, we can also summarize them over time intervals.</p>
+<p>To summarize the steps: (i) run the smooth regression model, (ii) generate a model-based prediction using a dataset with a counterfactual time (e.g. sampling at every .5 seconds), (iii) contrast 2D and 3D predictions at each sampled time.</p>
+</div>
+<div id="contrasts-2" class="section level2" number="5.6">
+<h2>
+<span class="header-section-number">5.6</span> Contrasts<a class="anchor" aria-label="anchor" href="#contrasts-2"><i class="fas fa-link"></i></a>
+</h2>
+<p>As we compare performances with a visual scene in 2D with those in 3D, we develop a contrast analysis that shows us all contrasts over time.</p>
+<div id="posterior-over-time" class="section level3 unnumbered">
+<h3>Posterior over time<a class="anchor" aria-label="anchor" href="#posterior-over-time"><i class="fas fa-link"></i></a>
+</h3>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:chapViolinistPDdiff1"></span>
+<img src="Figures/chapViolinist_Diff_model_F1.png" alt="Piece F1 with audio (top panel), logPD and posterior predictions for 2D and 3D conditions (middle panel), and posterior difference of 2D and 3D (bottom panel). Vertical lines show the regions of interest." width="100%"><p class="caption">
+Figure 5.5: Piece F1 with audio (top panel), logPD and posterior predictions for 2D and 3D conditions (middle panel), and posterior difference of 2D and 3D (bottom panel). Vertical lines show the regions of interest.
+</p>
+</div>
+<p>Figure <a href="chapViolinist.html#fig:chapViolinistPDdiff1">5.5</a> shows audio and posterior distributions of the first piece used in this experiment.
+The top panel shows the audio waveform of the teacher’s performance. We use it here mainly as a reference, to check rests and fragments that could not be analysed because bow gestures could not be identified. The blocks, marked by vertical lines, show the relevant sections where bow gesture events could be identified. The gray zones show the zones that were bowing gesture events could not be easily defined. Therefore, these events have been deleted in the analysis.</p>
+<p>The middle panel shows the logPD of the bowing gestures of the 2D and 3D performances for all subjects and trials in this piece, see the above table.
+The smooths (2D in gray, 3D in ocre) show the <em>posterior predictive distribution</em> calculated at each .5 seconds, indicating the mean and its uncertainty for each condition over subjects.
+Note that the smooths show only 25% of the distribution’s probability mass (the critical interval at 25%, or CI-25%). Taking CI-90% would have resulted in too much overlap and a less clear picture.</p>
+<p>The bottom panel shows the <em>posterior difference distribution</em>.
+At each point in time, 1000 samples are randomly drawn from the (2D, 3D) posterior predictive distributions. Then, for each draw, the number from <span class="math inline">\(2D\)</span> and the corresponding number from <span class="math inline">\(3D\)</span> are subtracted (as in: <span class="math inline">\(2D-3D\)</span>), giving 1000 new values used to build a new distribution, called the <em>posterior difference distribution</em>.
+Note that in this calculation the entire distribution is used, rather than the CI-25% shown in the middle panel.</p>
+<p>This calculation is then applied to all points in time, leading to the <em>posterior difference distribution</em> with its its CI-90%.
+The red dots on the horizontal line (at 2D-3D = 0), just indicate whether data samples are available at that point in time.</p>
+<p>Note that the <em>posterior difference distribution</em> is possible because it is based on the smooths from the <em>posterior predictive distribution</em>. A distribution based on data points (rather than smooths) would face the problem that bow strokes have no common onset and offset. And therefore, they cannot be compared. The smooth allows for the contrast!</p>
+<p>As in the previous chapter, the key trick is to define a new data grid with counterfactual time, and then use the model that generalizes over time to extract the samples. The R-code is based on the following expressions (see: `Code/chapViolinist/chapViolinist_05_ModelPlotting.R```):</p>
+<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">newdat</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op">%&gt;%</span> <span class="fu">data_grid</span><span class="op">(</span>time <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="va">time_begin</span>, <span class="va">time_end</span>,by<span class="op">=</span><span class="fl">.5</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">post_pred_distr</span> <span class="op">&lt;-</span> <span class="fu">epred_draws</span><span class="op">(</span><span class="va">fit</span>, <span class="va">newdat</span>, scale <span class="op">=</span> <span class="st">"response"</span>, re_formula <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span> </span></code></pre></div>
+<p>Given this approach, we can check the probability direction at each sampled time for any defined interval over time.
+If, at a certain point in time, this gray band is completely above zero, then, there is a strong support for 3D having a lower logPD than 2D, which means: 3D offers better alignment with the teacher.</p>
+<p>If this gray band is completely below zero, then there is a strong support for 2D having a lower logPD value than 3D, which means: 2D offers a better alignment with the teacher.
+If it crosses zero, then it depends on how much of the probability mass is different from zero. If it is still 70%, one could argue for a very weak trend, but 50% would certainly indicate no difference.</p>
+<p>In short, when the gray band is above zero it is possible to conclude that the student’s bowing gestures are better lined up with the 3D teacher’s bowing gestures, confirming the theory that parallax might offer a distinctive feedback on the sensorimotor control needed for bowing.</p>
+<p>The bottom panel shows a contrast analysis per time point.
+The graph seems to suggest that the alignment is in favor of 3D, meaning that 3D works better than 2D.
+Not at all time instances, but at many.</p>
+</div>
+<div id="considering-blocks" class="section level3 unnumbered">
+<h3>Considering blocks<a class="anchor" aria-label="anchor" href="#considering-blocks"><i class="fas fa-link"></i></a>
+</h3>
+<p>It is useful to look at the data in blocks.
+In figure <a href="chapViolinist.html#fig:chapViolinistPDdiff1">5.5</a> these blocks have marked time intervals of
+<span class="math inline">\([3.6, 38.7]\)</span>,
+<span class="math inline">\([53, 88]\)</span>,
+<span class="math inline">\([97.3, 99]\)</span>,
+<span class="math inline">\([127,145]\)</span>,
+and <span class="math inline">\([165, 180.5]\)</span> seconds, as indicated by the vertical red lines.</p>
+<p>First consider block one and two.
+The reference is still the bottom panel of figure <a href="chapViolinist.html#fig:chapViolinistPDdiff1">5.5</a>.
+See also the score in figure <a href="chapViolinist.html#fig:chapViolinistF1score">5.4</a>, with a rudimentary indication of time.
+In both blocks, a sudden short peak appears at about 26 and at 77 seconds, corresponding to the ending of a phrase where longer notes are played.
+The first block is almost everywhere significantly different, while the second block, more gray parts can be observed, for instance at about 63 seconds.</p>
+<p>A distribution of these two blocks can be plotted with density plots, as shown in figures <a href="chapViolinist.html#fig:chapViolinistContrastblock1a">5.6</a> and <a href="chapViolinist.html#fig:chapViolinistContrastblock1b">5.7</a>.
+As mentioned, it can be concluded that there is a contrast in condition for block 1 but not for block 2.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:chapViolinistContrastblock1a"></span>
+<img src="Figures/chapViolinist_ContrastBlock_1.png" alt="Contrast of block1 [3.6,26]s" width="49%"><p class="caption">
+Figure 5.6: Contrast of block1 [3.6,26]s
+</p>
+</div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:chapViolinistContrastblock1b"></span>
+<img src="Figures/chapViolinist_ContrastBlock_2.png" alt="Contrast of block 2 [53,77]s" width="49%"><p class="caption">
+Figure 5.7: Contrast of block 2 [53,77]s
+</p>
+</div>
+<p>Based on the posterior with smooths, it is possible to summarize the blocks over time.
+Table <a href="chapViolinist.html#tab:chapViolinistBlockContrasts1">5.3</a> shows the result.
+The label on the left indicates the piece and the selected interval in seconds, followed by the mean of the posterior difference distribution for PD, and its CI-95% as indicated by the min and max, followed by the probability of direction (pd).</p>
+<p>It can be observed that almost all contrasts are positive, suggesting that 2D has higher logPD values than 3D and thus 2D is overall less well aligned compared to 3D. However, the pd shows that only few sections have strong evidence for a contrast. A logPD difference of 0.5 is at least needed for strong evidence of a contrast. The calculation is found in <code>Code/chapViolinist/chapViolinist_06_Contrasts.R</code>.</p>
+<div class="inline-table"><table class="table table-striped" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:chapViolinistBlockContrasts1">Table 5.3: </span>Contrasts of in defined segments of different Pieces (F1,..,F4)
+</caption>
+<thead><tr>
+<th style="text-align:left;">
+Piece[Interval]
+</th>
+<th style="text-align:right;">
+PDdiff
+</th>
+<th style="text-align:right;">
+PDdiff_min
+</th>
+<th style="text-align:right;">
+PDdiff_max
+</th>
+<th style="text-align:right;">
+pd
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+F1[3.6,38.7]
+</td>
+<td style="text-align:right;">
+1.00
+</td>
+<td style="text-align:right;">
+-0.19
+</td>
+<td style="text-align:right;">
+2.52
+</td>
+<td style="text-align:right;">
+96
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+F1[53,88]
+</td>
+<td style="text-align:right;">
+0.56
+</td>
+<td style="text-align:right;">
+-0.56
+</td>
+<td style="text-align:right;">
+2.86
+</td>
+<td style="text-align:right;">
+83
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+F1[97.3,99]
+</td>
+<td style="text-align:right;">
+0.72
+</td>
+<td style="text-align:right;">
+-0.27
+</td>
+<td style="text-align:right;">
+1.93
+</td>
+<td style="text-align:right;">
+95
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+F1[127,145]
+</td>
+<td style="text-align:right;">
+0.55
+</td>
+<td style="text-align:right;">
+-0.55
+</td>
+<td style="text-align:right;">
+1.85
+</td>
+<td style="text-align:right;">
+88
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+F1[165,180.5]
+</td>
+<td style="text-align:right;">
+1.12
+</td>
+<td style="text-align:right;">
+0.11
+</td>
+<td style="text-align:right;">
+2.40
+</td>
+<td style="text-align:right;">
+98
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+F2[23,33.5]
+</td>
+<td style="text-align:right;">
+-0.23
+</td>
+<td style="text-align:right;">
+-1.73
+</td>
+<td style="text-align:right;">
+0.53
+</td>
+<td style="text-align:right;">
+27
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+F2[45,93]
+</td>
+<td style="text-align:right;">
+-0.19
+</td>
+<td style="text-align:right;">
+-1.94
+</td>
+<td style="text-align:right;">
+1.02
+</td>
+<td style="text-align:right;">
+40
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+F2[110,131]
+</td>
+<td style="text-align:right;">
+-0.24
+</td>
+<td style="text-align:right;">
+-1.98
+</td>
+<td style="text-align:right;">
+0.50
+</td>
+<td style="text-align:right;">
+26
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+F2[145.7,180]
+</td>
+<td style="text-align:right;">
+-0.93
+</td>
+<td style="text-align:right;">
+-2.61
+</td>
+<td style="text-align:right;">
+0.03
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+F3[14.5,32.5]
+</td>
+<td style="text-align:right;">
+0.19
+</td>
+<td style="text-align:right;">
+-0.87
+</td>
+<td style="text-align:right;">
+0.87
+</td>
+<td style="text-align:right;">
+66
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+F3[39,68.5]
+</td>
+<td style="text-align:right;">
+0.07
+</td>
+<td style="text-align:right;">
+-0.89
+</td>
+<td style="text-align:right;">
+0.93
+</td>
+<td style="text-align:right;">
+55
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+F3[110,133]
+</td>
+<td style="text-align:right;">
+0.06
+</td>
+<td style="text-align:right;">
+-0.90
+</td>
+<td style="text-align:right;">
+0.70
+</td>
+<td style="text-align:right;">
+54
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+F3[145,156]
+</td>
+<td style="text-align:right;">
+-0.16
+</td>
+<td style="text-align:right;">
+-1.05
+</td>
+<td style="text-align:right;">
+0.53
+</td>
+<td style="text-align:right;">
+38
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+F3[183,188.5]
+</td>
+<td style="text-align:right;">
+0.03
+</td>
+<td style="text-align:right;">
+-0.80
+</td>
+<td style="text-align:right;">
+0.63
+</td>
+<td style="text-align:right;">
+53
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+F4[20,28]
+</td>
+<td style="text-align:right;">
+0.63
+</td>
+<td style="text-align:right;">
+0.12
+</td>
+<td style="text-align:right;">
+0.94
+</td>
+<td style="text-align:right;">
+99
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+F4[73,96.6]
+</td>
+<td style="text-align:right;">
+0.01
+</td>
+<td style="text-align:right;">
+-0.46
+</td>
+<td style="text-align:right;">
+0.45
+</td>
+<td style="text-align:right;">
+51
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+F4[140,179]
+</td>
+<td style="text-align:right;">
+0.14
+</td>
+<td style="text-align:right;">
+-0.57
+</td>
+<td style="text-align:right;">
+0.55
+</td>
+<td style="text-align:right;">
+68
+</td>
+</tr>
+</tbody>
+</table></div>
+<p>Considering the block defined by <span class="math inline">\([3.6,38.7]s\)</span>, there is evidence in favor of a contrast. The value pd, of direction of probability, says that 96% of the distribution is above zero. And being above zero (with a logPD value of 1.00) means that in the 3D condition, the student’s performance is much better aligned with the teacher.</p>
+<p>Considering the block defined by <span class="math inline">\([53,88]s\)</span>. Here there is no evidence for a contrast because the value of pd is 83%. One could argue that there is a trend but it is certainly not distinctive enough. In fact, a careful visual inspection of these blocks in <a href="chapViolinist.html#fig:chapViolinistPDdiff1">5.5</a> already suggested this result.
+Now we have it in numbers!</p>
+<p>The overall conclusion is that the student’s alignment with the teacher, in terms of bowing gestures, works better in 3D than in 2D but the sections showing strong support for this contrast are rare: only 4 out of 17 sections. Moreover, it seems that most of the evidence is found in piece F1.</p>
+<p>At this point, a qualitative analysis of score and bow strokes would be needed.
+For example, at some time instances, especially when long notes are played at the ending of a block, the difference is suddenly more prominent. Score and associated performance analysis would be needed to further investigate the origin of sudden (dis)alignments between student and teacher.</p>
+<p>The major point made in this chapter is methodological. The above analysis illustrates the flexibility of the statistical modelling approach and this flexibility is of great value for future work in this domain.</p>
+</div>
+<div id="individual-violinists" class="section level3 unnumbered">
+<h3>Individual violinists<a class="anchor" aria-label="anchor" href="#individual-violinists"><i class="fas fa-link"></i></a>
+</h3>
+<p>Here we illustrate the flexibility of this type of modelling in an analysis of individual violinists, where we can look at the performance of each violinist.
+Figure <a href="chapViolinist.html#fig:chapViolinistIndividual1">5.8</a> shows how each individual violinist can be visualized.
+Each line represents the smooth over the data per trial, for subject P009 only.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:chapViolinistIndividual1"></span>
+<img src="Figures/chapViolinist_smooths_piece_F1_condition_2D_subject_P009.png" alt="Piece F1 with audio (top panel), logPD and posterior predictions " width="100%"><p class="caption">
+Figure 5.8: Piece F1 with audio (top panel), logPD and posterior predictions
+</p>
+</div>
+</div>
+</div>
+<div id="continuous-metric" class="section level2" number="5.7">
+<h2>
+<span class="header-section-number">5.7</span> Continuous metric<a class="anchor" aria-label="anchor" href="#continuous-metric"><i class="fas fa-link"></i></a>
+</h2>
+<p>In what follows, we show some results with a different metric.
+The metric itself will be discussed in more detail in the next chapter (chapter <a href="chapExoskeletons.html#chapExoskeletons">6</a>).</p>
+<p>It suffices here to say that it is based on a continuous comparison of the bowing movements, using using time differences between student and teacher captured as relative phase. The metric is ignorant of bowing gesture events because it is a continuous metric. That’s an advantage. The disadvantage is that passages in which both the bowing of the teacher and student are at rest shows the highest synchronization because they don’t differ in timing. Obviously, these passages of rest can be easily extracted from the audio and should be taken into account to mark the performance.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:GUSO2A2model2conditionspieceF1"></span>
+<img src="Figures/chapViolinist_GUSO2_A2model_2conditions_piece_F1.rds.png" alt="Piece F1 with audio (top panel), logPD and posterior predictions (middle panel), and posterior difference of 2D and 3D. Vertical lines show the regions of interest" width="100%"><p class="caption">
+Figure 5.9: Piece F1 with audio (top panel), logPD and posterior predictions (middle panel), and posterior difference of 2D and 3D. Vertical lines show the regions of interest
+</p>
+</div>
+<p>In figure <a href="chapViolinist.html#fig:GUSO2A2model2conditionspieceF1">5.9</a> we clearly see that the contrast (lowest panel) is in favour of 3D, except for passages that indicate rest. They indicate that at those points, no difference can be made between 2D and 3D. Ideally, student and teacher don’t move the bow and therefore, they are most in sync at those points, so the contrast is zero. See the second panel where the log(1-R) measure is lowest in regions where no audio occurs.</p>
+<p>Figures <a href="chapViolinist.html#fig:GUSO2A2model2conditionspieceF2a">5.10</a> and <a href="chapViolinist.html#fig:GUSO2A2model2conditionspieceF2b">5.11</a> show the two metrics (Procustus and relative phase) next to each other, now applied to the second piece (F2).</p>
+<p>At the beginning of the piece, 3D offers a better synchronization than 2D. However, towards the end of the piece, the roles are reversed and 2D offers a better synchronization than 3D. We see this trend reflected in both figures. The reason may be due to the fact that the score is different towards the end. Accordingly, this type of analysis calls for a deeper musicological analysis based on additional score analysis. This book is not the place to provide such analysis. We merely show that some statistical representation of the music performance may be of interest for future work to be done in this domain.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:GUSO2A2model2conditionspieceF2a"></span>
+<img src="Figures/chapViolinist_Diff_model_F2.png" alt="Comparison of Procustus metric for piece F2" width="100%"><p class="caption">
+Figure 5.10: Comparison of Procustus metric for piece F2
+</p>
+</div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:GUSO2A2model2conditionspieceF2b"></span>
+<img src="Figures/chapViolinist_GUSO2_A2model_2conditions_piece_F2.rds.png" alt="Comparison of relative phase metric" width="100%"><p class="caption">
+Figure 5.11: Comparison of relative phase metric
+</p>
+</div>
+</div>
+<div id="discussion-1" class="section level2" number="5.8">
+<h2>
+<span class="header-section-number">5.8</span> Discussion<a class="anchor" aria-label="anchor" href="#discussion-1"><i class="fas fa-link"></i></a>
+</h2>
+<p>Several noteworthy aspects merit attention when discussing teachers and their bow gestures. These gestures vary in expressiveness, ranging from those that effectively convey a clear intention to those that are less expressive and fail to effectively communicate the intended message. At times, a gesture may be readily anticipated and comprehended by the student, facilitating synchronization between teacher and student. However, there are instances when the gesture is unprepared, plausibly resulting in diminished anticipation and understanding on the part of the student.</p>
+<p>Treating all gestures equally, irrespective of their level of anticipation, – as we do in the modelling – could potentially impact the analysis and interpretation of specific effects. Difference in the teachers’ expressiveness can consequently result in disparate communicative values, influencing how students perceive and respond to gestures.</p>
+<p>Moreover, the student’s attention resources likely fluctuate over time due to multitasking, encompassing activities such as playing the instrument, consulting the musical score, and observing the teacher. Given this dynamic, it remains uncertain where the student directs their attention and how attention is distributed among these tasks. Although technologies such as eye-trackers and EEG measurements could provide insights, integrating them would significantly augment the volume of data and introduce numerous challenges for subsequent data analysis and statistical modeling.</p>
+<p>Furthermore, additional sources of variability arise from variations in educational backgrounds and the complexity levels of musical compositions. Students exhibit diverse playing skills and varying levels of experience within the orchestra. Moreover, musical pieces themselves present differing degrees of difficulty, further contributing to the complexity of the situation.</p>
+<p>The multitude of factors contributing to uncertainty in our data inevitably impacts the outcomes of statistical modeling. Given these limitations, it would be unrealistic to anticipate statistical modeling as a panacea for resolving these issues. Instead, the objective of this chapter is to apply statistical modeling to our available data and assess the extent of our findings within the context of these limitations.</p>
+<p>Primarily, this chapter demonstrates the efficacy of smooth regression and the adaptability of Bayesian statistical modeling. While the results may not yield unequivocal conclusions due to the inherent uncertainties, the methodology presented herein is profoundly intriguing and holds substantial potential for future research in music performance analysis.</p>
+</div>
+<div id="conclusion-4" class="section level2" number="5.9">
+<h2>
+<span class="header-section-number">5.9</span> Conclusion<a class="anchor" aria-label="anchor" href="#conclusion-4"><i class="fas fa-link"></i></a>
+</h2>
+<p>Overall, we found a trend in favor of 3D, at least for piece F1.
+The ability to use parallax seems to help in particular circumstances related to the difficulty of the playing. However, 2D may offer already a decent good visual perception opportunity that is sufficient to control the bowing gestures.</p>
+<p>With this result, one may wonder whether the cost of a Hololens and addition equipment needed to play along with the teacher-avatar is really worth the effort. We merely see at least a trend in favour of 3D, which is in line with the suggestion that parallax is an important feature of the visual modality in order to work as feedback for the control of bowing gestures.</p>
+<p>Nevertheless, the analysis illustrates the flexibility of smooth regression in Bayesian statistics.
+It is possible to zoom in on sections, and get specific answers about whether on or the other condition works better in those sections.
+The main idea is that statistical modelling allows for predictions over equally sampled times. This is useful when events from one condition are not necessarily happing at the same time of events of another condition, and you want to compare both conditions assuming that there is correlation over time at short time intervals.</p>
+<!-- ## References -->
+<!-- Campo et al. (2023a, 2023b, 2024) -->
+
+</div>
+</div>
+
+  <div class="chapter-nav">
+<div class="prev"><a href="chapDancer.html"><span class="header-section-number">4</span> Dancer synchronization</a></div>
+<div class="next"><a href="chapExoskeletons.html"><span class="header-section-number">6</span> Two violin players’ haptic feedback</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <h2>Provide your feedback</h2>
+    <!--<p>Now is a great time to provide feedback</p>-->
+        <ul class="list-unstyled">
+<!--<li><a href="https://forms.gle/nq9RmbxJyZXQgc948">Provide feedback (5 min)</a></li>--><li><a href="https://www.ugent.be/lw/kunstwetenschappen/ipem/en/services/asil">art and science interaction lab</a></li>
+        </ul>
+<hr>
+<nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#chapViolinist"><span class="header-section-number">5</span> Violin player visual feedback</a></li>
+<li><a class="nav-link" href="#theory-2"><span class="header-section-number">5.1</span> Theory</a></li>
+<li><a class="nav-link" href="#experiment-1"><span class="header-section-number">5.2</span> Experiment</a></li>
+<li><a class="nav-link" href="#data-1"><span class="header-section-number">5.3</span> Data</a></li>
+<li><a class="nav-link" href="#data-plotting"><span class="header-section-number">5.4</span> Data plotting</a></li>
+<li><a class="nav-link" href="#smooth-regression-2"><span class="header-section-number">5.5</span> Smooth regression</a></li>
+<li>
+<a class="nav-link" href="#contrasts-2"><span class="header-section-number">5.6</span> Contrasts</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#posterior-over-time">Posterior over time</a></li>
+<li><a class="nav-link" href="#considering-blocks">Considering blocks</a></li>
+<li><a class="nav-link" href="#individual-violinists">Individual violinists</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#continuous-metric"><span class="header-section-number">5.7</span> Continuous metric</a></li>
+<li><a class="nav-link" href="#discussion-1"><span class="header-section-number">5.8</span> Discussion</a></li>
+<li><a class="nav-link" href="#conclusion-4"><span class="header-section-number">5.9</span> Conclusion</a></li>
+</ul>
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/mlIpem/ExploringMusicInteractionWithR/blob/main/06_chapViolinist.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/mlIpem/ExploringMusicInteractionWithR/edit/main/06_chapViolinist.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Exploring music interactions</strong>" was written by Marc Leman. It was last built on 2024-12-19.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

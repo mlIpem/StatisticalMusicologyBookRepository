@@ -1,0 +1,2111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 8 Two finger tappers’ entrainment (Part 2) | Exploring music interactions</title>
+<meta name="author" content="Marc Leman">
+<meta name="description" content="This chapter builds upon the previous chapter’s discussion of entrainment and its development of a state-space model. We now apply the state-space model to analyze entrainment in human finger...">
+<meta name="generator" content="bookdown 0.41 with bs4_book()">
+<meta property="og:title" content="Chapter 8 Two finger tappers’ entrainment (Part 2) | Exploring music interactions">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://www.ugent.be/chapTappers2.html">
+<meta property="og:image" content="https://www.ugent.be/images/cover.jpeg">
+<meta property="og:description" content="This chapter builds upon the previous chapter’s discussion of entrainment and its development of a state-space model. We now apply the state-space model to analyze entrainment in human finger...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 8 Two finger tappers’ entrainment (Part 2) | Exploring music interactions">
+<meta name="twitter:description" content="This chapter builds upon the previous chapter’s discussion of entrainment and its development of a state-space model. We now apply the state-space model to analyze entrainment in human finger...">
+<meta name="twitter:image" content="https://www.ugent.be/images/cover.jpeg">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><link href="libs/Lato-0.4.9/font.css" rel="stylesheet">
+<link href="libs/Roboto_Mono-0.4.9/font.css" rel="stylesheet">
+<link href="libs/Montserrat-0.4.9/font.css" rel="stylesheet">
+<script src="libs/bs3compat-0.8.0/transition.js"></script><script src="libs/bs3compat-0.8.0/tabs.js"></script><script src="libs/bs3compat-0.8.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+<script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-99618359-1', 'auto');
+      ga('send', 'pageview');
+
+    </script><!-- Google tag (gtag.js) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-CDTTJLM7N4"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-CDTTJLM7N4');
+    </script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="style/style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h2>
+        <a href="index.html" title="">Exploring music interactions</a>
+      </h2>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome</a></li>
+<li><a class="" href="preface.html">Preface</a></li>
+<li><a class="" href="chapTheory.html"><span class="header-section-number">1</span> Theory</a></li>
+<li><a class="" href="chapModelling.html"><span class="header-section-number">2</span> Modelling</a></li>
+<li><a class="" href="chapListener.html"><span class="header-section-number">3</span> Listener appreciation</a></li>
+<li><a class="" href="chapDancer.html"><span class="header-section-number">4</span> Dancer synchronization</a></li>
+<li><a class="" href="chapViolinist.html"><span class="header-section-number">5</span> Violin player visual feedback</a></li>
+<li><a class="" href="chapExoskeletons.html"><span class="header-section-number">6</span> Two violin players’ haptic feedback</a></li>
+<li><a class="" href="chapTappers1.html"><span class="header-section-number">7</span> Two finger tappers’ entrainment (Part 1)</a></li>
+<li><a class="active" href="chapTappers2.html"><span class="header-section-number">8</span> Two finger tappers’ entrainment (Part 2)</a></li>
+<li><a class="" href="chapConclusion.html"><span class="header-section-number">9</span> Conclusion</a></li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/mlIpem/ExploringMusicInteractionWithR">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="chapTappers2" class="section level1" number="8">
+<h1>
+<span class="header-section-number">8</span> Two finger tappers’ entrainment (Part 2)<a class="anchor" aria-label="anchor" href="#chapTappers2"><i class="fas fa-link"></i></a>
+</h1>
+<p>This chapter builds upon the previous chapter’s discussion of entrainment and its development of a state-space model. We now apply the state-space model to analyze entrainment in human finger tapping data. Our primary objective is to investigate whether the synchronized tapping of two individuals becomes influenced, or entrained, when they can see each other tapping, compared to when they cannot. Our goal is to gain a global perspective on the entrainment capabilities of the subjects.</p>
+<p>As a bonus, we show that the state-space model can explain earlier findings based on smooth regression and recurrence analysis.</p>
+<p>The code can be found in the following scripts for data preparation and plotting, modelling and plotting, and contrast analysis:</p>
+<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="st">"Code/chapAll_00_Initialization.R"</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="st">"Code/chapAll_01_Functions.R"</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="st">"Code/chapTappers2/chapTappers2_02_DataPreparation.R"</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="st">"Code/chapTappers2/chapTappers2_03_DataPlotting.R"</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="st">"Code/chapTappers2/chapTappers2_04_Modelling.R"</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="st">"Code/chapTappers2/chapTappers2_05_ModelPlotting.R"</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="st">"Code/chapTappers2/chapTappers2_06_Contrasts.R"</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="st">"Code/chapTappers2/chapTappers2_05_SSM_DataPreparation_Posterior.R"</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="st">"Code/chapTappers2/chapTappers2_06_SSM_Plotting.R"</span><span class="op">)</span></span></code></pre></div>
+<div id="theory-4" class="section level2" number="8.1">
+<h2>
+<span class="header-section-number">8.1</span> Theory<a class="anchor" aria-label="anchor" href="#theory-4"><i class="fas fa-link"></i></a>
+</h2>
+<p>Given the state-space model as defined in the previous chapter, we can define some interaction concepts in terms of its state and observation parameters.</p>
+<p>For example, <em>entrainment</em> can now be defined as depending on the coupling strength to the partner:
+<span class="math display">\[
+\begin{aligned}
+E_{s1} &amp;:= k_{s1s2} = 1 - k_{s1m1} \\
+E_{s2} &amp;:= k_{s2s1} = 1 - k_{s2m2}
+\end{aligned}
+\]</span>
+Entrainment in <span class="math inline">\(s1\)</span> <span class="math inline">\((E_{s1})\)</span> depends on the coupling strength to <span class="math inline">\(s2\)</span>.
+Entrainment in <span class="math inline">\(s2\)</span> <span class="math inline">\((E_{s2})\)</span> depends on the coupling strength to <span class="math inline">\(s1\)</span>.</p>
+<p>The definition involves two competing forces defined by the <em>entrainment-coupling strength</em> and the <em>adherence-coupling strength</em>. One could argue that the <em>adherence-coupling strength</em> (or coupling to the metronome) characterizes a volitional anti-entrainment force once a competing non-volitional entrainment force is pulling the synchronization. This distinction is relevant for ensemble playing. In search of a joint tempo, the tempo played by each individual musician may be influenced by the tempi perceived from other musicians. In that case, volitional action and non-volitional perception compete through the adherence-coupling and entrainment-coupling strengths.</p>
+<p>A <em>leader–follower</em> relation can be defined as the difference in entrainment-coupling strength between two subjects. This makes only sense in the coupled condition (C), as we don’t have a leader–follower relation in the uncoupled condition (U):
+<span class="math display">\[
+LF_{s1s2} := ks1s2 - ks2s1 =  ks2m2 - ks1m1
+\]</span>
+<span class="math inline">\(LF_{s1s2}\)</span> is positive or negative depending on whether <span class="math inline">\(s1\)</span> or <span class="math inline">\(s2\)</span> is leading.</p>
+<p>Note that the concept of leader–follower, defined in terms of the strength of coupling, does not really tell us who is locally leading in the tapping. In fact, at the start and early phase of the outphasing-inphasing cycle, <span class="math inline">\(s1\)</span> is typically leading, in the sense that <span class="math inline">\(s2\)</span> taps at a slower speed. And the roles are reversed when both subjects pass the anti-phase in their relative tapping. From that moment on, it appears as if <span class="math inline">\(s2\)</span> is leading because the shortest phase interval is now initiated by <span class="math inline">\(s2\)</span>. This is the anti-phase effect mentioned in the previous chapter. However, we interpret the concept of leader–follower in terms of adherence strength (or anti-entrainment). The leader is the one who better synchronizes with the own metronome, resisting entrainment. Or otherwise stated, the leader is the one having less entrainment.</p>
+<p>Another useful term is <em>anticipation</em>, or the anticipation bias of a subject. It is defined in terms of the phase delay to the metronome:</p>
+<p><span class="math display">\[
+\begin{aligned}
+A_{s1} &amp;:= d_{s1m1} \\
+A_{s2} &amp;:= d_{s2m2}
+\end{aligned}
+\]</span>
+When the value of the phase delay parameter is positive it means anticipation, otherwise it is delay. Anticipation is expected to be in line with previous studies on finger tapping (see chapter <a href="chapModelling.html#chapModelling">2</a>). Note that we also use the phase delay to the partner, defined as <span class="math inline">\(ds1s2\)</span> and <span class="math inline">\(ds2s1\)</span>. Due to the non-linearity of the equations, these phase delays are not necessarily identical and are mainly used to allow some flexibility in the state-space model.</p>
+<p>A final parameter of interest is <em>fluctuation</em>, which we can define as the standard deviation of the parameter that links the observations to the states. If the observations are close to the states, then the fluctuation is low. Fluctuation can be understood as the uncertainty of the observations given the states.</p>
+</div>
+<div id="setup" class="section level2" number="8.2">
+<h2>
+<span class="header-section-number">8.2</span> Setup<a class="anchor" aria-label="anchor" href="#setup"><i class="fas fa-link"></i></a>
+</h2>
+<p>We are now ready to have a look at the tapping data from the experiment described in Rosso et al. (2023). We thereby limit ourselves to the uncoupled (U) and coupled (C) conditions of that experiment.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;We are not including the conditions involving perspective taking, the so-called: swap conditions where subjects see the partner’s arm as their own arm, or their own arm as the partner’s arm.
+The U and C conditions are the socalled normal conditions, which apply to what people see in the natural condition, namely, the arm of the other person is seen from a second person perspective, then own arm from the first person perspective.&lt;/p&gt;"><sup>32</sup></a></p>
+<p>The experimental setup implements the drifting metronomes paradigm. In the <em>uncoupled</em> condition (U), subjects are requested to tap in sync with the metronome heard through headphones at 600 ms and 610 ms. In fact, the second metronome is not exactly 610 ms. It is 609.375 ms so that the outphasing-inphasing cycle is 39 seconds. Note that this period (609.375 ms) has been used in the state-space model that followins. Henceforth we’ll say: about 610 ms. In the <em>coupled</em> condition (C) subject 1 hears 600 ms and sees the hand of subject 2, presumably tapping at about 610 ms, and subject 2 hears about 610 ms and sees the hand of subject 1, presumably tapping at about 600 ms. This creates the <em>incongruency</em> and the subjects’ syncing may be influenced by seeing the partner tapping.</p>
+<div id="raw-tapping-data" class="section level3 unnumbered">
+<h3>Raw tapping data<a class="anchor" aria-label="anchor" href="#raw-tapping-data"><i class="fas fa-link"></i></a>
+</h3>
+<p>Figure <a href="chapTappers2.html#fig:chapTappers2RawAll1">8.1</a> shows the raw tapping data of all dyads in the two conditions.
+The finger tap times are subtracted from the metronome tick times, and represented as a proportion to the metronome tick intervals multiplied by <span class="math inline">\(2\pi\)</span>. The resulting <em>relative phase</em> is shown in the interval <span class="math inline">\([-\pi,+\pi]\)</span>.
+The calculation of the relative phase is found in <code>Code/chapTappers2/chapTappers2-02_DataPreparation.R</code>.
+Both subjects have zero relative phase when they tap exactly at the time of a tick of their own metronome.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:chapTappers2RawAll1"></span>
+<img src="Figures/chapTappers2_AllRawdata_U_d1.png" alt="Overview of all raw tapping data" width="80%"><img src="Figures/chapTappers2_AllRawdata_U_d2.png" alt="Overview of all raw tapping data" width="80%"><img src="Figures/chapTappers2_AllRawdata_C_d1.png" alt="Overview of all raw tapping data" width="80%"><img src="Figures/chapTappers2_AllRawdata_C_d2.png" alt="Overview of all raw tapping data" width="80%"><p class="caption">
+Figure 8.1: Overview of all raw tapping data
+</p>
+</div>
+<p>The figure gives a rough idea of the subjects’ capabilities in the uncoupled condition (U) and in the coupled condition (C). In U (first two panels), the dots are expected to fluctuate smoothly around zero, or a bit lower than zero due to anticipation.
+However, some subjects have severe fluctuation rather than smooth fluctuation.
+For example, dyad_1 (both subjects), dyad_6 (subject 1), dyad_14 (subject 2) seem to fluctuate severely over the entire performance (10 outphasing-inphasing cycles).
+In dyad_4 it seems as if subject 2 was distracted at cycle 6 and could only hardly match the metronome in later cycles. Overall, subjects can synchronize with the metronome but some subjects reveal more fluctuation than others.</p>
+<p>In C (panels three and four), the subjects are exposed to entrainment.
+When entrainment happens, we expect to see more change in the relative phase due to dynamic adaption. Overall, this change is seen in cycles of 39 seconds.
+However, some panels show a more extreme pattern, as with dyad_8 and some cycles of dyad_15 and dyad_13.</p>
+<!-- A rough measure of fluctuation is given by taking the standard deviation of the relative tapping over time. -->
+<!-- ```{r chapTappers2_tappingcap} -->
+<!-- tappingcap <- DTapping_RelativePhase %>% select(dyad,relphase,condition,names) %>%  -->
+<!--   mutate(dyad = factor(dyad, labels = all_dyads), -->
+<!--          condition = factor(condition)) %>% -->
+<!--   group_by(condition, dyad, names) %>% summarize(sd = sd(relphase)) -->
+<!-- p1 <- tappingcap %>% ggplot() + -->
+<!--   geom_point(aes(x=dyad,y = sd, color = names), shape = 1, size = 3) + -->
+<!--   theme_bw() +  -->
+<!--     scale_fill_manual(values=cbPalette) + -->
+<!--     scale_colour_manual(values=cbPalette) + -->
+<!--     theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) + -->
+<!--   facet_grid(~ condition) -->
+<!-- p2 <- tappingcap %>% ggplot() + -->
+<!--   stat_halfeye(aes(x = sd, y=names), shape = 1, size = 3) + -->
+<!--   theme_bw() +  -->
+<!--     scale_fill_manual(values=cbPalette) + -->
+<!--     scale_colour_manual(values=cbPalette) + -->
+<!--     theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) + -->
+<!--   facet_grid(~ condition) -->
+<!-- p1 / p2 -->
+<!-- # x = tappingcap %>% filter(condition == "1PU", names == "subject 1") %>% select(sd) -->
+<!-- # y = tappingcap %>% filter(condition == "2PC", names == "subject 1") %>% select(sd) -->
+<!-- # cor(x$sd,y$sd) -->
+<!-- #  -->
+<!-- # x = tappingcap %>% filter(condition == "1PU", names == "subject 2") %>% select(sd) -->
+<!-- # y = tappingcap %>% filter(condition == "2PC", names == "subject 2") %>% select(sd) -->
+<!-- # cor(x$sd,y$sd) -->
+<!-- ``` -->
+<p>To better see the structure over cycles, we can squeeze the sequence of ten outphasing-inphasing cycles into one single outphasing-inphasing cycle of 39 seconds, as in figure <a href="chapTappers2.html#fig:chapTappers2RawAllcycle">8.2</a>. It is now easier to see that dyads tend to entrain, despite the request to follow the own metronome. That is, they show some kind bubble, although it is still hard to see what happens exactly. We also see that the strange behavior of subject 2 in dyad_8 and dyad_15 was rather consistent over cycles. It shows a constant decrease for subject 2. Dyad_13 seems more or less similar, but we see it increasing for subject 1. As we’ll see, these drifts point to a total entrainment meaning that the subject is following the other subject, rather than the own metronome.</p>
+<p>However, a deeper analysis is needed to get a clearer view on these phenomena.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:chapTappers2RawAllcycle"></span>
+<img src="Figures/chapTappers2_AllRawdata0c_U_d1.png" alt="Overview of all raw tapping data, squeezed to one cycle, in the coupled condition (C)." width="80%"><img src="Figures/chapTappers2_AllRawdata0c_U_d2.png" alt="Overview of all raw tapping data, squeezed to one cycle, in the coupled condition (C)." width="80%"><img src="Figures/chapTappers2_AllRawdata0c_C_d1.png" alt="Overview of all raw tapping data, squeezed to one cycle, in the coupled condition (C)." width="80%"><img src="Figures/chapTappers2_AllRawdata0c_C_d2.png" alt="Overview of all raw tapping data, squeezed to one cycle, in the coupled condition (C)." width="80%"><p class="caption">
+Figure 8.2: Overview of all raw tapping data, squeezed to one cycle, in the coupled condition (C).
+</p>
+</div>
+<p>Overall, inspection of the raw data suggests that interaction outcomes vary among dyads and that subjects within dyads behave differently. Some subjects are not capable to sync with their own metronome in the uncoupled condition, and some subjects are apparently overwhelmed by the interaction in the coupled condition. That’s all we can say so far.</p>
+<p>With modelling we can go a step further.
+We can model the performance of each dyad and each cycle with a state-space model in order get the coupling and delay parameters, as well as observation noice.
+It will give us a clearer picture of the entrainment behaviour in this population.</p>
+</div>
+</div>
+<div id="data-from-state-space-model" class="section level2" number="8.3">
+<h2>
+<span class="header-section-number">8.3</span> Data from state-space model<a class="anchor" aria-label="anchor" href="#data-from-state-space-model"><i class="fas fa-link"></i></a>
+</h2>
+<p>We now proceed with the analysis based on the state-space model.
+Its configuration has been specified in figure <a href="chapTappers1.html#fig:chapTappers2ODEsystem">7.2</a>.</p>
+<p>We apply the same configuration for both interaction conditions U and C.
+This requires a word of explanation because using the same state-space model for both conditions implies a test for the modelling because we allow the state-space model to capture an interaction where there is none.
+Obviously, in U, the fitted models shouldn’t capture an interaction. The coupling strength parameter to the own metronome is expected to stay close to 1 (adherence to the metronome).</p>
+</div>
+<div id="running-a-single-model-with-stan" class="section level2 unnumbered">
+<h2>Running a single model with Stan<a class="anchor" aria-label="anchor" href="#running-a-single-model-with-stan"><i class="fas fa-link"></i></a>
+</h2>
+<p>The modelling with Stan is similar to what we did in the previous chapter, that is, one model per cycle (n= 10) of a dyad (n=19) of a given condition (n=2). In total, we have 380 models.</p>
+<p>Here we show how to run one single model, say <code>C_dyad_8_cycle_2</code>. It stands for cycle 2 of dyad 8 in condition C.</p>
+<p>First we filter the data for that model, from the tappings recorded during the experiment:</p>
+<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">datt</span> <span class="op">&lt;-</span> <span class="va">DTapping</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">codycy</span> <span class="op">==</span> <span class="st">"C.dyad_8.cycle_5"</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">arrange</span><span class="op">(</span><span class="va">time0c</span><span class="op">)</span></span></code></pre></div>
+<p>We also need the relative phase of the originally tapped data:</p>
+<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Note that we use the function do_calc_phase2 to calculate the relative phase based on time values</span></span>
+<span>  <span class="va">Dummy</span> <span class="op">&lt;-</span> <span class="va">datt</span> </span>
+<span>  <span class="kw">if</span><span class="op">(</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">w</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">Dummy</span><span class="op">$</span><span class="va">time0c</span><span class="op">==</span><span class="fl">0</span><span class="op">)</span><span class="op">)</span> <span class="op">&gt;</span> <span class="fl">0</span><span class="op">)</span> <span class="op">{</span><span class="va">Dummy</span> <span class="op">&lt;-</span> <span class="va">Dummy</span><span class="op">[</span><span class="op">-</span><span class="va">w</span>,<span class="op">]</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"----&gt;"</span>,<span class="va">w</span>,<span class="st">"is deleted"</span><span class="op">)</span><span class="op">)</span><span class="op">}</span></span>
+<span>  <span class="va">Om1</span> <span class="op">&lt;-</span> <span class="va">Dummy</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">names_indicator</span> <span class="op">==</span> <span class="fl">1</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">mutate</span><span class="op">(</span>time <span class="op">=</span> <span class="va">time0c</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">time</span>,<span class="va">names_indicator</span><span class="op">)</span></span>
+<span>  <span class="va">Os1</span> <span class="op">&lt;-</span> <span class="va">Dummy</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">names_indicator</span> <span class="op">==</span> <span class="fl">2</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">mutate</span><span class="op">(</span>time <span class="op">=</span> <span class="va">time0c</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">time</span>,<span class="va">names_indicator</span><span class="op">)</span></span>
+<span>  <span class="va">Om2</span> <span class="op">&lt;-</span> <span class="va">Dummy</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">names_indicator</span> <span class="op">==</span> <span class="fl">3</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">mutate</span><span class="op">(</span>time <span class="op">=</span> <span class="va">time0c</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">time</span>,<span class="va">names_indicator</span><span class="op">)</span></span>
+<span>  <span class="va">Os2</span> <span class="op">&lt;-</span> <span class="va">Dummy</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">names_indicator</span> <span class="op">==</span> <span class="fl">4</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">mutate</span><span class="op">(</span>time <span class="op">=</span> <span class="va">time0c</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">time</span>,<span class="va">names_indicator</span><span class="op">)</span></span>
+<span>  <span class="va">dummy_C1</span> <span class="op">&lt;-</span> <span class="fu">do_calc_phase2</span><span class="op">(</span><span class="va">Os1</span>,<span class="va">Om1</span><span class="op">)</span></span>
+<span>  <span class="va">dummy_C2</span> <span class="op">&lt;-</span> <span class="fu">do_calc_phase2</span><span class="op">(</span><span class="va">Os2</span>,<span class="va">Om2</span><span class="op">)</span></span>
+<span>  <span class="va">Observations_relphase</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span><span class="op">(</span><span class="va">dummy_C1</span>,<span class="va">dummy_C2</span><span class="op">)</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/rm.html">rm</a></span><span class="op">(</span><span class="va">Dummy</span>,<span class="va">Om1</span>,<span class="va">Os1</span>,<span class="va">Om2</span>,<span class="va">Os2</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/rm.html">rm</a></span><span class="op">(</span><span class="va">dummy_C1</span>,<span class="va">dummy_C2</span><span class="op">)</span></span></code></pre></div>
+<p>The relative phase is shown as:</p>
+<div class="sourceCode" id="cb62"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">p0</span> <span class="op">&lt;-</span> <span class="fu">ggplot</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu">geom_point</span><span class="op">(</span>data <span class="op">=</span> <span class="va">Observations_relphase</span>,</span>
+<span>             <span class="fu">aes</span><span class="op">(</span>x<span class="op">=</span><span class="va">time</span>,<span class="co">#%%aligned_beat_sec,</span></span>
+<span>                 y<span class="op">=</span><span class="va">relphase</span>,</span>
+<span>                 color <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">names_indicator</span><span class="op">)</span><span class="op">)</span>, </span>
+<span>             shape <span class="op">=</span> <span class="fl">1</span>, size <span class="op">=</span> <span class="fl">2</span>, alpha <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">theme_bw</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">scale_fill_manual</span><span class="op">(</span>values<span class="op">=</span><span class="va">cbPalette</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">scale_colour_manual</span><span class="op">(</span>labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"m1-s1"</span>, <span class="st">"m2-s2"</span><span class="op">)</span>, values<span class="op">=</span><span class="va">cbPalette</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">labs</span><span class="op">(</span>color <span class="op">=</span> <span class="st">""</span><span class="op">)</span>  <span class="co"># Change the legend label</span></span>
+<span></span>
+<span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">ggplot</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu">geom_point</span><span class="op">(</span>data <span class="op">=</span> <span class="va">Observations_relphase</span>,</span>
+<span>             <span class="fu">aes</span><span class="op">(</span>x<span class="op">=</span><span class="va">time</span>,<span class="co">#%%aligned_beat_sec,</span></span>
+<span>                 y<span class="op">=</span> <span class="fu">do_rotate</span><span class="op">(</span><span class="va">relphase</span><span class="op">)</span>,</span>
+<span>                 color <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">names_indicator</span><span class="op">)</span><span class="op">)</span>, </span>
+<span>             shape <span class="op">=</span> <span class="fl">1</span>, size <span class="op">=</span> <span class="fl">2</span>, alpha <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">theme_bw</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">scale_fill_manual</span><span class="op">(</span>values<span class="op">=</span><span class="va">cbPalette</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">scale_colour_manual</span><span class="op">(</span>labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"m1-s1"</span>, <span class="st">"m2-s2"</span><span class="op">)</span>, values<span class="op">=</span><span class="va">cbPalette</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">labs</span><span class="op">(</span>color <span class="op">=</span> <span class="st">""</span><span class="op">)</span>  <span class="co"># Change the legend label</span></span>
+<span></span>
+<span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="va">p0</span> <span class="op">/</span> <span class="va">p1</span></span>
+<span><span class="va">p</span></span>
+<span></span>
+<span><span class="co"># \@ref(fig:chapTappers2run3)</span></span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:chapTappers2run3"></span>
+<img src="09_chapTappers_2_files/figure-html/chapTappers2run3-1.png" alt="Top: relative phase. Bottom: same but with rotated phase" width="100%"><p class="caption">
+Figure 8.3: Top: relative phase. Bottom: same but with rotated phase
+</p>
+</div>
+<p>Next we define a function which first prepares our data for the state-space model and then runs the Stan engine with the code of the state-space model.</p>
+<div class="sourceCode" id="cb63"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">do_TapFitting_Stan</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">Dat</span>, <span class="va">fn</span><span class="op">)</span><span class="op">{</span></span>
+<span>  <span class="co"># Dat = datt</span></span>
+<span>  <span class="co"># fn = filenameFitted</span></span>
+<span>  <span class="co"># Define general variables needed in the StanData</span></span>
+<span>  <span class="va">n_gen_times</span> <span class="op">=</span> <span class="fl">100</span></span>
+<span>  <span class="va">time_gen</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">0.0001</span>,<span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">Dat</span><span class="op">$</span><span class="va">time0c</span><span class="op">)</span>, length.out <span class="op">=</span> <span class="va">n_gen_times</span><span class="op">)</span> <span class="co"># time generated</span></span>
+<span>  <span class="va">filename</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">fn</span>,<span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">Dat</span><span class="op">$</span><span class="va">codycy</span><span class="op">)</span>,<span class="st">".rds"</span>,sep<span class="op">=</span><span class="st">""</span><span class="op">)</span></span>
+<span>  <span class="co"># Organize our data for Stan</span></span>
+<span>  <span class="va">StanData</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
+<span>    n_times <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">Dat</span><span class="op">$</span><span class="va">time0c</span><span class="op">)</span>,</span>
+<span>    n_gen_times <span class="op">=</span> <span class="va">n_gen_times</span>, <span class="co"># number of model-generated times requested</span></span>
+<span>    time0 <span class="op">=</span> <span class="fl">0.0</span>,</span>
+<span>    observed <span class="op">=</span> <span class="va">Dat</span><span class="op">$</span><span class="va">phase</span>,</span>
+<span>    time <span class="op">=</span> <span class="va">Dat</span><span class="op">$</span><span class="va">time0c</span>,</span>
+<span>    time_gen <span class="op">=</span> <span class="va">time_gen</span>,</span>
+<span>    names_indicator <span class="op">=</span> <span class="va">Dat</span><span class="op">$</span><span class="va">names_indicator</span></span>
+<span>  <span class="op">)</span></span>
+<span>  <span class="va">fit</span> <span class="op">&lt;-</span> <span class="fu">rstan</span><span class="fu">::</span><span class="fu"><a href="https://mc-stan.org/rstan/reference/stan.html">stan</a></span><span class="op">(</span></span>
+<span>    data <span class="op">=</span> <span class="va">StanData</span>,</span>
+<span>    <span class="co">#  file = "../chapTappers/StateSpaceModel_2_oct2024.stan",</span></span>
+<span>    file <span class="op">=</span> <span class="st">"Code/chapTappers2/chapTappers2_StateSpaceModel.stan"</span>,</span>
+<span>    init <span class="op">=</span> <span class="fl">0</span>, thin <span class="op">=</span> <span class="fl">2</span>, iter <span class="op">=</span> <span class="fl">4000</span>,</span>
+<span>    warmup <span class="op">=</span> <span class="fl">1000</span>, cores <span class="op">=</span> <span class="fl">2</span>, chain <span class="op">=</span> <span class="fl">2</span></span>
+<span>  <span class="op">)</span></span>
+<span>  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">fit</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code></pre></div>
+<p>Here we show a routine that calls the above stan function when <code>run</code> is set to <code>TRUE</code>. However, we pre-calculated the model and stored the result as an <code>.rds</code> file, which we read.</p>
+<div class="sourceCode" id="cb64"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">run</span> <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span><span class="co">#run = TRUE</span></span>
+<span><span class="kw">if</span><span class="op">(</span><span class="va">run</span><span class="op">)</span><span class="op">{</span></span>
+<span><span class="va">fit</span> <span class="op">&lt;-</span> <span class="fu">do_TapFitting_Stan</span><span class="op">(</span><span class="va">datt</span>, <span class="va">filenameFitted</span><span class="op">)</span></span>
+<span><span class="op">}</span> <span class="kw">else</span> <span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="st">"readRDS a model"</span><span class="op">)</span></span>
+<span>  <span class="va">fit</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span><span class="op">(</span><span class="st">"Fitted/chapTappers2_C.dyad_8.cycle_8.rds"</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code></pre></div>
+<pre><code>## [1] "readRDS a model"</code></pre>
+<div class="sourceCode" id="cb66"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">run</span> <span class="op">=</span> <span class="cn">FALSE</span></span></code></pre></div>
+<p>In figure <a href="chapTappers2.html#fig:chapTappers2run6">8.4</a> we show a summary of the posterior of <code>fit.</code></p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:chapTappers2run6"></span>
+<img src="09_chapTappers_2_files/figure-html/chapTappers2run6-1.png" alt="Posterior distribution of major parameters of the state-space model" width="100%"><p class="caption">
+Figure 8.4: Posterior distribution of major parameters of the state-space model
+</p>
+</div>
+<p>The interpretation of these parameters is straightforward. The coupling parameter (<span class="math inline">\(k\)</span>), whose value goes from 0 to 1 reveals that <span class="math inline">\(s1\)</span> adheres to <span class="math inline">\(m1\)</span>, while <span class="math inline">\(s2\)</span> is clearly entrained because it is even below .4. <span class="math inline">\(s1\)</span> is clearly the leader.
+The phase delay parameters (<span class="math inline">\(d\)</span>), whose value goes from <span class="math inline">\(-\pi\)</span> to <span class="math inline">\(\pi\)</span> reveal that the delay of <span class="math inline">\(s1\)</span> to the metronome <span class="math inline">\(m1\)</span> is constant, altough it is slightly behind the metronome, while <span class="math inline">\(s2\)</span> has more uncertainty and seenms to be ahead of the metronome. Obviously, this distribution is taken over all states. The uncertainty in <span class="math inline">\(ds1s2\)</span> is huge compared to uncertainty in delay from <span class="math inline">\(s2\)</span> to <span class="math inline">\(s1\)</span> (<span class="math inline">\(ds2s1\)</span>).
+The observation_std, or fluctuation, reveals that the metronomes have no fluctuation, while <span class="math inline">\(s2\)</span> has slightly more fluctuation than <span class="math inline">\(s1\)</span>.</p>
+<p>We can retrieve the parameters more explicitly as:</p>
+<pre><code>## # A tibble: 12 × 8
+##    .variable            .value   .lower   .upper .width .point .interval names  
+##    &lt;chr&gt;                 &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;     &lt;fct&gt;  
+##  1 ds1m1               0.277    0.198    0.428     0.95 median qi        ds1m1  
+##  2 ds1s2              -0.188   -1.52     1.01      0.95 median qi        ds1s2  
+##  3 ds2m2              -0.635   -1.08    -0.193     0.95 median qi        ds2m2  
+##  4 ds2s1              -0.107   -0.216    0.00484   0.95 median qi        ds2s1  
+##  5 ks1m1               0.958    0.834    0.994     0.95 median qi        ks1m1  
+##  6 ks2m2               0.253    0.195    0.311     0.95 median qi        ks2m2  
+##  7 observation_std[1]  0.00815  0.00688  0.00979   0.95 median qi        observ…
+##  8 observation_std[2]  0.218    0.182    0.264     0.95 median qi        observ…
+##  9 observation_std[3]  0.00731  0.00615  0.00879   0.95 median qi        observ…
+## 10 observation_std[4]  0.352    0.295    0.431     0.95 median qi        observ…
+## 11 y0_s1               0.0290  -0.227    0.291     0.95 median qi        y0_s1  
+## 12 y0_s2              -0.0599  -0.322    0.207     0.95 median qi        y0_s2</code></pre>
+<p>Using <code>fit</code>, we can also retrieve the generated quantities explicitly (also called: posterior predictions) as:</p>
+<pre><code>## # A tibble: 6 × 8
+##    time  unit states_generated   .lower  .upper .width .point .interval
+##   &lt;int&gt; &lt;int&gt;            &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;    
+## 1     1     1          0.00105  0.00105 0.00105   0.75 median qi       
+## 2     1     2          0.0301  -0.115   0.180     0.75 median qi       
+## 3     1     3          0.00103  0.00103 0.00103   0.75 median qi       
+## 4     1     4         -0.0588  -0.215   0.0969    0.75 median qi       
+## 5     2     1          4.07     4.07    4.07      0.75 median qi       
+## 6     2     2          4.17     4.07    4.27      0.75 median qi</code></pre>
+<pre><code>## # A tibble: 6 × 8
+##    time  unit observations_generated   .lower  .upper .width .point .interval
+##   &lt;int&gt; &lt;int&gt;                  &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;    
+## 1     1     1               0.000894 -0.00863 0.0103    0.75 median qi       
+## 2     1     2               0.0343   -0.262   0.325     0.75 median qi       
+## 3     1     3               0.00125  -0.00759 0.00963   0.75 median qi       
+## 4     1     4              -0.0601   -0.495   0.382     0.75 median qi       
+## 5     2     1               4.07      4.06    4.08      0.75 median qi       
+## 6     2     2               4.17      3.89    4.44      0.75 median qi</code></pre>
+<p>Let us briefly reflect on what we have here.
+The columns <code>observations_generated</code> and <code>states_generated</code> represent phase values, for each <code>unit</code>, generated at 100 instances uniformly distributed over 39 seconds. Accordingly, to retrieve the real time, we have to multiply the column <code>time</code> by <span class="math inline">\(39/100\)</span>.</p>
+<p>In what follows, we show how to calculate the relative phase from <code>observations_generated</code>, showing a grey band that captures .75% of the uncertainty.
+The relative phase is calculated similar to what we did in chapter <a href="chapTappers1.html#chapTappers1">7</a>.
+The script is also very similar to what we did in chapTappers_05_ModelPlotting when we calculated the relative phase.</p>
+<div class="sourceCode" id="cb70"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span>  <span class="co"># From fit_ps (summary of posterior selecting parameters)</span></span>
+<span>  <span class="va">S</span> <span class="op">&lt;-</span> <span class="va">fit_ps</span> <span class="op">%&gt;%</span> </span>
+<span>    <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">.variable</span>,<span class="va">.value</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>    <span class="fu">mutate</span><span class="op">(</span>.value<span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">.value</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>    <span class="fu">rename</span><span class="op">(</span>parameter <span class="op">=</span> <span class="va">.variable</span>, fitted <span class="op">=</span> <span class="va">.value</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>    <span class="fu">arrange</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/match.html">match</a></span><span class="op">(</span><span class="va">parameter</span>,<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ds1m1"</span>,<span class="st">"ds2m2"</span>,<span class="st">"ds1s2"</span>,<span class="st">"ds2s1"</span>,<span class="st">"ks1m1"</span>,<span class="st">"ks2m2"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="op">)</span> </span>
+<span>  <span class="co"># Prepare string for plot</span></span>
+<span><span class="va">string_plot</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"k= "</span>, <span class="fu"><a href="https://rdrr.io/r/base/toString.html">toString</a></span><span class="op">(</span><span class="va">S</span><span class="op">$</span><span class="va">fitted</span><span class="op">[</span><span class="fl">5</span><span class="op">:</span><span class="fl">6</span><span class="op">]</span><span class="op">)</span>, </span>
+<span>                    <span class="st">"; d= "</span>, <span class="fu"><a href="https://rdrr.io/r/base/toString.html">toString</a></span><span class="op">(</span><span class="va">S</span><span class="op">$</span><span class="va">fitted</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span><span class="op">)</span>,<span class="st">"\n"</span>,</span>
+<span>                    <span class="st">"fluct= "</span>, <span class="fu"><a href="https://rdrr.io/r/base/toString.html">toString</a></span><span class="op">(</span><span class="va">S</span><span class="op">$</span><span class="va">fitted</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">8</span>,<span class="fl">10</span><span class="op">)</span><span class="op">]</span><span class="op">)</span>, sep<span class="op">=</span><span class="st">""</span><span class="op">)</span>                           </span>
+<span>  <span class="co"># aligned_beat_sec </span></span>
+<span>  <span class="va">aligned_beat_sec</span> <span class="op">=</span> <span class="fl">39</span></span>
+<span>  </span>
+<span>  <span class="co"># From post_observations (summary of posterior selecting generated quantities)</span></span>
+<span>  <span class="co"># we rotate the phase from [0, 2pi] to [-pi, pi] when plotting</span></span>
+<span>  <span class="va">m1</span> <span class="op">&lt;-</span> <span class="va">post_observations</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">unit</span> <span class="op">==</span> <span class="fl">1</span><span class="op">)</span> </span>
+<span>  <span class="va">s1</span> <span class="op">&lt;-</span> <span class="va">post_observations</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">unit</span> <span class="op">==</span> <span class="fl">2</span><span class="op">)</span></span>
+<span>  <span class="va">m2</span> <span class="op">&lt;-</span> <span class="va">post_observations</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">unit</span> <span class="op">==</span> <span class="fl">3</span><span class="op">)</span></span>
+<span>  <span class="va">s2</span> <span class="op">&lt;-</span> <span class="va">post_observations</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">unit</span> <span class="op">==</span> <span class="fl">4</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="co"># 1. Relative phase calculation.</span></span>
+<span>  <span class="co"># Given the fact that we have the phase, we can just take the difference between the </span></span>
+<span>  <span class="co"># phase of the metronome unit and the phase of the subject unit</span></span>
+<span>  <span class="va">dummy_data1</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>time <span class="op">=</span> <span class="va">s1</span><span class="op">$</span><span class="va">time</span>, </span>
+<span>                           relphase.y <span class="op">=</span> <span class="va">m1</span><span class="op">$</span><span class="va">observations_generated</span> <span class="op">-</span> <span class="va">s1</span><span class="op">$</span><span class="va">observations_generated</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>    <span class="fu">mutate</span><span class="op">(</span>names <span class="op">=</span> <span class="st">"m1-s1"</span><span class="op">)</span></span>
+<span>  <span class="va">dummy_data1.l</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>relphase.lower <span class="op">=</span> <span class="va">m1</span><span class="op">$</span><span class="va">.lower</span> <span class="op">-</span> <span class="va">s1</span><span class="op">$</span><span class="va">.lower</span><span class="op">)</span></span>
+<span>  <span class="va">dummy_data1.u</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>relphase.upper <span class="op">=</span> <span class="va">m1</span><span class="op">$</span><span class="va">.upper</span> <span class="op">-</span> <span class="va">s1</span><span class="op">$</span><span class="va">.upper</span><span class="op">)</span> </span>
+<span>  </span>
+<span>  <span class="va">dummy_data2</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>time <span class="op">=</span> <span class="va">s2</span><span class="op">$</span><span class="va">time</span>, </span>
+<span>                           relphase.y <span class="op">=</span> <span class="va">m2</span><span class="op">$</span><span class="va">observations_generated</span> <span class="op">-</span> <span class="va">s2</span><span class="op">$</span><span class="va">observations_generated</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>    <span class="fu">mutate</span><span class="op">(</span>names <span class="op">=</span> <span class="st">"m2-s2"</span><span class="op">)</span></span>
+<span>  <span class="va">dummy_data2.l</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>relphase.lower <span class="op">=</span> <span class="va">m2</span><span class="op">$</span><span class="va">.lower</span> <span class="op">-</span> <span class="va">s2</span><span class="op">$</span><span class="va">.lower</span><span class="op">)</span> </span>
+<span>  <span class="va">dummy_data2.u</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>relphase.upper <span class="op">=</span> <span class="va">m2</span><span class="op">$</span><span class="va">.upper</span> <span class="op">-</span> <span class="va">s2</span><span class="op">$</span><span class="va">.upper</span><span class="op">)</span> </span>
+<span>  </span>
+<span>  <span class="va">y</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span><span class="op">(</span><span class="va">dummy_data1</span>,<span class="va">dummy_data2</span><span class="op">)</span></span>
+<span>  <span class="va">ymin</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span><span class="op">(</span><span class="va">dummy_data1.l</span>,<span class="va">dummy_data2.l</span><span class="op">)</span></span>
+<span>  <span class="va">ymax</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span><span class="op">(</span><span class="va">dummy_data1.u</span>,<span class="va">dummy_data2.u</span><span class="op">)</span></span>
+<span>  <span class="va">Observations_generated_relphase</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span><span class="va">y</span>,<span class="va">ymin</span>,<span class="va">ymax</span><span class="op">)</span></span>
+<span>  <span class="co"># remove dummy variables</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/rm.html">rm</a></span><span class="op">(</span><span class="va">dummy_data1</span>,<span class="va">dummy_data1.l</span>,<span class="va">dummy_data1.u</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/rm.html">rm</a></span><span class="op">(</span><span class="va">dummy_data2</span>,<span class="va">dummy_data2.l</span>,<span class="va">dummy_data2.u</span><span class="op">)</span></span></code></pre></div>
+<p>Here we generate the plot showing the relative phase:</p>
+<div class="sourceCode" id="cb71"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">cbPalette</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"#E69F00"</span>,<span class="st">"#56B4E9"</span>,<span class="st">"#E69F00"</span>,<span class="st">"#56B4E9"</span><span class="op">)</span></span>
+<span><span class="va">p0</span> <span class="op">&lt;-</span> <span class="fu">ggplot</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_lineribbon</span><span class="op">(</span>data <span class="op">=</span> <span class="va">Observations_generated_relphase</span>, </span>
+<span>                  <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="op">(</span><span class="va">time</span><span class="op">*</span><span class="va">aligned_beat_sec</span><span class="op">/</span><span class="fl">100.5</span><span class="op">)</span>,</span>
+<span>                      y <span class="op">=</span> <span class="op">(</span><span class="va">relphase.y</span><span class="op">)</span>,</span>
+<span>                      ymin <span class="op">=</span> <span class="op">(</span><span class="va">relphase.lower</span><span class="op">)</span>,</span>
+<span>                      ymax <span class="op">=</span> <span class="op">(</span><span class="va">relphase.upper</span><span class="op">)</span>,</span>
+<span>                      color <span class="op">=</span> <span class="va">names</span><span class="op">)</span>,alpha<span class="op">=</span><span class="fl">.5</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_point</span><span class="op">(</span>data <span class="op">=</span> <span class="va">Observations_relphase</span>,</span>
+<span>             <span class="fu">aes</span><span class="op">(</span>x<span class="op">=</span><span class="va">time</span>,<span class="co">#%%aligned_beat_sec,</span></span>
+<span>                 y<span class="op">=</span><span class="op">(</span><span class="va">relphase</span> <span class="op">-</span> <span class="op">(</span><span class="fl">2</span><span class="op">*</span><span class="va">pi</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>                 color <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">names_indicator</span><span class="op">)</span><span class="op">)</span>, shape <span class="op">=</span> <span class="fl">1</span>, size <span class="op">=</span> <span class="fl">2</span>, alpha <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">+</span></span>
+<span><span class="fu">scale_fill_manual</span><span class="op">(</span>values<span class="op">=</span><span class="va">cbPalette</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">scale_colour_manual</span><span class="op">(</span>labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"m1-s1"</span>, <span class="st">"m2-s2"</span><span class="op">)</span>, values<span class="op">=</span><span class="va">cbPalette</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="co">#ylim(-pi/2,+pi/2) + </span></span>
+<span>  <span class="fu">theme_bw</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu">ggtitle</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"model"</span>,<span class="va">string_plot</span><span class="op">)</span> <span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">xlab</span><span class="op">(</span><span class="st">"time [s]"</span><span class="op">)</span> <span class="op">+</span> <span class="fu">ylab</span><span class="op">(</span><span class="st">"relative phase"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">p0</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="09_chapTappers_2_files/figure-html/chapTappers2run10-1.png" width="672"></div>
+<p>We then calculate the instantaneous period from <code>states_generated</code>.</p>
+<div class="sourceCode" id="cb72"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span>  <span class="co"># 2. Instantaneous period of continuous generated observations</span></span>
+<span>  </span>
+<span>  <span class="va">m1</span> <span class="op">&lt;-</span> <span class="va">post_states</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">unit</span> <span class="op">==</span> <span class="fl">1</span><span class="op">)</span> </span>
+<span>  <span class="va">s1</span> <span class="op">&lt;-</span> <span class="va">post_states</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">unit</span> <span class="op">==</span> <span class="fl">2</span><span class="op">)</span></span>
+<span>  <span class="va">m2</span> <span class="op">&lt;-</span> <span class="va">post_states</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">unit</span> <span class="op">==</span> <span class="fl">3</span><span class="op">)</span></span>
+<span>  <span class="va">s2</span> <span class="op">&lt;-</span> <span class="va">post_states</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">unit</span> <span class="op">==</span> <span class="fl">4</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="va">m1_ip</span> <span class="op">&lt;-</span> <span class="va">m1</span> <span class="op">%&gt;%</span> <span class="fu">mutate</span><span class="op">(</span>states_generated <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">NA</span>,<span class="fu"><a href="https://rdrr.io/r/base/diff.html">diff</a></span><span class="op">(</span><span class="va">states_generated</span><span class="op">)</span><span class="op">)</span>,names <span class="op">=</span> <span class="st">"m1"</span><span class="op">)</span> </span>
+<span>  <span class="va">s1_ip</span> <span class="op">&lt;-</span> <span class="va">s1</span> <span class="op">%&gt;%</span> <span class="fu">mutate</span><span class="op">(</span>states_generated <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">NA</span>,<span class="fu"><a href="https://rdrr.io/r/base/diff.html">diff</a></span><span class="op">(</span><span class="va">states_generated</span><span class="op">)</span><span class="op">)</span>,names <span class="op">=</span> <span class="st">"s1"</span><span class="op">)</span></span>
+<span>  <span class="va">m2_ip</span> <span class="op">&lt;-</span> <span class="va">m2</span> <span class="op">%&gt;%</span> <span class="fu">mutate</span><span class="op">(</span>states_generated <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">NA</span>,<span class="fu"><a href="https://rdrr.io/r/base/diff.html">diff</a></span><span class="op">(</span><span class="va">states_generated</span><span class="op">)</span><span class="op">)</span>,names <span class="op">=</span> <span class="st">"m2"</span><span class="op">)</span></span>
+<span>  <span class="va">s2_ip</span> <span class="op">&lt;-</span> <span class="va">s2</span> <span class="op">%&gt;%</span> <span class="fu">mutate</span><span class="op">(</span>states_generated <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">NA</span>,<span class="fu"><a href="https://rdrr.io/r/base/diff.html">diff</a></span><span class="op">(</span><span class="va">states_generated</span><span class="op">)</span><span class="op">)</span>,names <span class="op">=</span> <span class="st">"s2"</span><span class="op">)</span></span>
+<span>  <span class="va">states_generated_instperiod</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span><span class="op">(</span><span class="va">m1_ip</span>,<span class="va">s1_ip</span>,<span class="va">m2_ip</span>,<span class="va">s2_ip</span><span class="op">)</span> </span>
+<span>  <span class="va">states_generated_instperiod</span><span class="op">$</span><span class="va">names</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">states_generated_instperiod</span><span class="op">$</span><span class="va">names</span>, levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"m1"</span>,<span class="st">"s1"</span>,<span class="st">"m2"</span>,<span class="st">"s2"</span><span class="op">)</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/rm.html">rm</a></span><span class="op">(</span><span class="va">m1_ip</span>,<span class="va">s1_ip</span>,<span class="va">m2_ip</span>,<span class="va">s2_ip</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="co"># #########################################</span></span>
+<span>  </span>
+<span>  </span>
+<span>  <span class="co">#2. Plot instantaneous phase</span></span>
+<span>  <span class="va">cbPalette</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"#E69F00"</span>,<span class="st">"#E69F00"</span>,<span class="st">"#56B4E9"</span>,<span class="st">"#56B4E9"</span><span class="op">)</span></span>
+<span>  <span class="va">p1</span> <span class="op">&lt;-</span>    <span class="fu">ggplot</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>    <span class="fu">geom_line</span><span class="op">(</span>data <span class="op">=</span> <span class="va">states_generated_instperiod</span>, </span>
+<span>              <span class="fu">aes</span><span class="op">(</span>x<span class="op">=</span><span class="va">time</span><span class="op">*</span><span class="va">aligned_beat_sec</span><span class="op">/</span><span class="fl">100.5</span>,</span>
+<span>                  y<span class="op">=</span><span class="op">(</span><span class="va">aligned_beat_sec</span><span class="op">/</span><span class="fl">100.5</span><span class="op">)</span><span class="op">*</span><span class="fl">2000</span><span class="op">*</span><span class="va">pi</span><span class="op">/</span><span class="op">(</span><span class="va">states_generated</span><span class="op">)</span>,color<span class="op">=</span><span class="va">names</span><span class="op">)</span>,linewidth<span class="op">=</span><span class="fl">1.5</span><span class="op">)</span>  <span class="op">+</span> </span>
+<span>    <span class="fu">theme_bw</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">scale_fill_manual</span><span class="op">(</span>values<span class="op">=</span><span class="va">cbPalette</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">scale_colour_manual</span><span class="op">(</span>labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"dm1"</span>, <span class="st">"ds1"</span>, <span class="st">"dm2"</span>, <span class="st">"ds2"</span><span class="op">)</span>, values<span class="op">=</span><span class="va">cbPalette</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="co"># ggtitle(paste("States (black) and generated states (color), model",s,"\n",ss) )+</span></span>
+<span>    <span class="fu">ylab</span><span class="op">(</span><span class="st">"inst. period"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">xlab</span><span class="op">(</span><span class="st">"time [s]"</span><span class="op">)</span></span>
+<span>  <span class="va">p1</span></span></code></pre></div>
+<div class="inline-figure"><img src="09_chapTappers_2_files/figure-html/chapTappers2run11-1.png" width="672"></div>
+<div class="sourceCode" id="cb73"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">#  make_fig(paste("Figures/chapTappers2_exampleRelphase_model_",sep=""), p0)</span></span>
+<span><span class="co">#  make_fig(paste("Figures/chapTappers2_exampleInstPeriod_model_",sep=""), p1)</span></span>
+<span>  </span>
+<span>  <span class="va">p01</span> <span class="op">&lt;-</span>  <span class="va">p0</span><span class="op">/</span><span class="va">p1</span> </span>
+<span>  <span class="va">p01</span></span></code></pre></div>
+<div class="inline-figure"><img src="09_chapTappers_2_files/figure-html/chapTappers2run11-2.png" width="672"></div>
+<p>The figure reveals a tapping period of <span class="math inline">\(s2\)</span> that is heavily entrained by <span class="math inline">\(s1\)</span>.</p>
+</div>
+<div id="running-all-models" class="section level2" number="8.4">
+<h2>
+<span class="header-section-number">8.4</span> Running all models<a class="anchor" aria-label="anchor" href="#running-all-models"><i class="fas fa-link"></i></a>
+</h2>
+<p>We are now ready to run all 380 models.
+We processed them all on a server, using the script shown in <code>Code/chapTappers2/chapTappers2_05_ModellingAllModels.R</code>.</p>
+<p>The outcome of this calculation is a <em>parameter dataset</em>, as shown in Table <a href="chapTappers2.html#tab:chapTappers2data1">8.1</a>.
+The labels <code>value</code> and <code>parameter</code> refer to values for parameters, that is, coupling strength and phase delay.</p>
+<div class="inline-table"><table class="table table-striped" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:chapTappers2data1">Table 8.1: </span>Dataset of parameters, from dynamic models fitted with tapping data
+</caption>
+<thead><tr>
+<th style="text-align:left;">
+.variable
+</th>
+<th style="text-align:right;">
+.value
+</th>
+<th style="text-align:right;">
+.lower
+</th>
+<th style="text-align:right;">
+.upper
+</th>
+<th style="text-align:right;">
+.width
+</th>
+<th style="text-align:left;">
+.point
+</th>
+<th style="text-align:left;">
+.interval
+</th>
+<th style="text-align:left;">
+codycy
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+ds1m1
+</td>
+<td style="text-align:right;">
+1.4580371
+</td>
+<td style="text-align:right;">
+1.2988521
+</td>
+<td style="text-align:right;">
+1.6231330
+</td>
+<td style="text-align:right;">
+0.95
+</td>
+<td style="text-align:left;">
+median
+</td>
+<td style="text-align:left;">
+qi
+</td>
+<td style="text-align:left;">
+U.dyad_1.cycle_1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ds1s2
+</td>
+<td style="text-align:right;">
+-1.4324668
+</td>
+<td style="text-align:right;">
+-1.7566559
+</td>
+<td style="text-align:right;">
+-1.0393976
+</td>
+<td style="text-align:right;">
+0.95
+</td>
+<td style="text-align:left;">
+median
+</td>
+<td style="text-align:left;">
+qi
+</td>
+<td style="text-align:left;">
+U.dyad_1.cycle_1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ds2m2
+</td>
+<td style="text-align:right;">
+1.4169068
+</td>
+<td style="text-align:right;">
+1.3411807
+</td>
+<td style="text-align:right;">
+1.4937437
+</td>
+<td style="text-align:right;">
+0.95
+</td>
+<td style="text-align:left;">
+median
+</td>
+<td style="text-align:left;">
+qi
+</td>
+<td style="text-align:left;">
+U.dyad_1.cycle_1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ds2s1
+</td>
+<td style="text-align:right;">
+-1.3811127
+</td>
+<td style="text-align:right;">
+-1.7524635
+</td>
+<td style="text-align:right;">
+-0.9648946
+</td>
+<td style="text-align:right;">
+0.95
+</td>
+<td style="text-align:left;">
+median
+</td>
+<td style="text-align:left;">
+qi
+</td>
+<td style="text-align:left;">
+U.dyad_1.cycle_1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ks1m1
+</td>
+<td style="text-align:right;">
+0.6535340
+</td>
+<td style="text-align:right;">
+0.5880515
+</td>
+<td style="text-align:right;">
+0.7639568
+</td>
+<td style="text-align:right;">
+0.95
+</td>
+<td style="text-align:left;">
+median
+</td>
+<td style="text-align:left;">
+qi
+</td>
+<td style="text-align:left;">
+U.dyad_1.cycle_1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ks2m2
+</td>
+<td style="text-align:right;">
+0.7921011
+</td>
+<td style="text-align:right;">
+0.7423919
+</td>
+<td style="text-align:right;">
+0.8544741
+</td>
+<td style="text-align:right;">
+0.95
+</td>
+<td style="text-align:left;">
+median
+</td>
+<td style="text-align:left;">
+qi
+</td>
+<td style="text-align:left;">
+U.dyad_1.cycle_1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+observation_std[1]
+</td>
+<td style="text-align:right;">
+0.0153236
+</td>
+<td style="text-align:right;">
+0.0129735
+</td>
+<td style="text-align:right;">
+0.0185862
+</td>
+<td style="text-align:right;">
+0.95
+</td>
+<td style="text-align:left;">
+median
+</td>
+<td style="text-align:left;">
+qi
+</td>
+<td style="text-align:left;">
+U.dyad_1.cycle_1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+observation_std[2]
+</td>
+<td style="text-align:right;">
+0.5612529
+</td>
+<td style="text-align:right;">
+0.4699874
+</td>
+<td style="text-align:right;">
+0.6841844
+</td>
+<td style="text-align:right;">
+0.95
+</td>
+<td style="text-align:left;">
+median
+</td>
+<td style="text-align:left;">
+qi
+</td>
+<td style="text-align:left;">
+U.dyad_1.cycle_1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+observation_std[3]
+</td>
+<td style="text-align:right;">
+0.0150518
+</td>
+<td style="text-align:right;">
+0.0127751
+</td>
+<td style="text-align:right;">
+0.0181303
+</td>
+<td style="text-align:right;">
+0.95
+</td>
+<td style="text-align:left;">
+median
+</td>
+<td style="text-align:left;">
+qi
+</td>
+<td style="text-align:left;">
+U.dyad_1.cycle_1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+observation_std[4]
+</td>
+<td style="text-align:right;">
+0.2614599
+</td>
+<td style="text-align:right;">
+0.2189621
+</td>
+<td style="text-align:right;">
+0.3181776
+</td>
+<td style="text-align:right;">
+0.95
+</td>
+<td style="text-align:left;">
+median
+</td>
+<td style="text-align:left;">
+qi
+</td>
+<td style="text-align:left;">
+U.dyad_1.cycle_1
+</td>
+</tr>
+</tbody>
+</table></div>
+<!-- In what follows, we work with models having $Rhat > 1.05$ for all parameters^[The Rhat function in `rstan` (the R interface to the Stan engine) produces the R-hat convergence diagnostic, which compares the between- and within-chain estimates for model parameters and other univariate quantities of interest. If chains have not mixed well (ie, the between- and within-chain estimates don't agree), R-hat is larger than 1. We use four chains by default and using the model if R-hat is less than 1.05 for all parameters, as recommended in the `rstan` package.]. --><!-- Using this criterium, we found that 6.8% of the models did not fully converge. --><!-- In what follows, we work with fully converged models, which are 354 out of the fitted 380 models. --><!-- Table XXXX gives a list of the models that fail the $Rhat > 1.05$ criterion. --><!-- ```{r chapTappers2notselected, echo=FALSE} --><!-- knitr::kable(dat, caption = "Dataset of parameters, from dynamic models fitted with tapping data", booktabs=T, label = NA ) %>% --><!--   kable_styling("striped", font_size = 11) --><!-- # \@ref(tab:chapTappers2notselected) --><!-- ``` --><div id="global-histograms" class="section level3 unnumbered">
+<h3>Global histograms<a class="anchor" aria-label="anchor" href="#global-histograms"><i class="fas fa-link"></i></a>
+</h3>
+<p>Let’s have a look at the posteriors of the parameters over all models.
+For each model we take the posterior distribution of the parameter and we take the mean (over all iterations of the mcmc-optimization) for
+coupling strength (k) phase delay (d), and fluctuation.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:chapTappers3distrKD"></span>
+<img src="Figures/chapTappers2_distrK.png" alt="Histograms show the mean of the posterior distribution of the parameter, over all 380 state-space models. Left panel the coupling strength; middle panel the phase delay; right panel the fluctuation." width="69%"><img src="Figures/chapTappers2_distrD.png" alt="Histograms show the mean of the posterior distribution of the parameter, over all 380 state-space models. Left panel the coupling strength; middle panel the phase delay; right panel the fluctuation." width="69%"><img src="Figures/chapTappers2_distrObserved.png" alt="Histograms show the mean of the posterior distribution of the parameter, over all 380 state-space models. Left panel the coupling strength; middle panel the phase delay; right panel the fluctuation." width="69%"><p class="caption">
+Figure 8.5: Histograms show the mean of the posterior distribution of the parameter, over all 380 state-space models. Left panel the coupling strength; middle panel the phase delay; right panel the fluctuation.
+</p>
+</div>
+<p>Figure <a href="chapTappers2.html#fig:chapTappers3distrKD">8.5</a> (top panel) shows the compling strength parameters <span class="math inline">\(ks1m1\)</span> and <span class="math inline">\(ks2m2\)</span> for the conditions U and C. The values for the uncoupled condition (U) overall suggest a high adherence-coupling strength in line with our expectations, although some performances show an adherence-coupling strength &lt; .7, which could be considered poor. The latter suggest that tappings have been interpreted as spurious interactions with the other subject.</p>
+<p>The values for the coupled condition (C) shows a flat distribution suggesting that subjects differ in their response to entrainment. Values even go below .4, suggesting a loss of adherence, meaning that the partner is followed instead of the own metronome. However, we also have some coupling strengths close to 1, suggesting that influence has been neglected. Overall, it seems that the mean may be about .7, meaning that overall, entrainment happens.</p>
+<p>Figure <a href="chapTappers2.html#fig:chapTappers3distrKD">8.5</a> (middle panel) shows the phase delays.
+First consider the phase delays to the metronome (<span class="math inline">\(ds1m1, ds2m2\)</span>). The values are mainly positive suggesting anticipation, both in U and C.
+Next consider the phase delays to the partner. These seem to center around zero, both in U and C, meaning that the delay to the partner is on average zero. This is reasonable if we think that both have a similar delay to the metronome.</p>
+<p>Figure <a href="chapTappers2.html#fig:chapTappers3distrKD">8.5</a> (lower panel) shows the fluctation, or standard deviation of the observation parameter. Recall that the mean of the observation parameter is the state value. Obviously, for metronomes, the fluctuation is zero, because there is no difference between the observation and the state. However, for subjects, we observe an average fluctuation of about .3 above or below the phase value of the state, with some models having a fluctuation of 1 or more. As this value is a standard deviation, it implies that 95% of all data points are situated in the interval <span class="math inline">\([0.588 (= 1.96 * .3,-0.588]\)</span> around the states.</p>
+<!-- A summary is found in table \@ref(tab:chapTappers2_parmsMeanStd), with mean and standard deviation per parameter per condition.  -->
+<!-- ```{r chapTappers2_parmsMeanStd, echo=FALSE} -->
+<!--   df <- Posterior %>%   -->
+<!--     #dplyr::filter(condition %in% c("1PU","2PC")) %>% -->
+<!--     #mutate(condition = ifelse(condition == "1PU","uncoupled condition (U)","coupled condition (C)")) -->
+<!--     group_by(condition, codycy) %>% -->
+<!--     summarize(mean = mean(.value),standard_deviation = std(.value)) -->
+<!-- knitr::kable(df, caption = "Summary of parameters", booktabs=T, label = NA ) %>% -->
+<!--   kable_styling("striped", font_size = 11) -->
+<!--   # \@ref(tab:chapTappers2_parmsMeanStd) -->
+<!-- ``` -->
+</div>
+<div id="histograms-uncoupled-condition-u" class="section level3 unnumbered">
+<h3>Histograms uncoupled condition (U)<a class="anchor" aria-label="anchor" href="#histograms-uncoupled-condition-u"><i class="fas fa-link"></i></a>
+</h3>
+<p>A more detailed view is showh in
+figure <a href="chapTappers2.html#fig:chapTappers2real1cs1K">8.6</a>.
+The top panel shows the posterior distributions of the retained models in terms of median and <span class="math inline">\(.25/.75\)</span> quantiles over all cycles. The bottom panel shows a summary over cycles.
+The same can be done for the delay parameters, as shown in figure <a href="chapTappers2.html#fig:chapTappers2real1cs1D">8.7</a>.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:chapTappers2real1cs1K"></span>
+<img src="Figures/chapTappers2_Overview_postdistr_K.png" alt="Estimated coupling strength in the uncoupled condition (U) (top row) and coupled condition (C) (bottom row), all dyads (numbered 1, 2, ...) and cycles are shown" width="100%"><p class="caption">
+Figure 8.6: Estimated coupling strength in the uncoupled condition (U) (top row) and coupled condition (C) (bottom row), all dyads (numbered 1, 2, …) and cycles are shown
+</p>
+</div>
+<p>Figure <a href="chapTappers2.html#fig:chapTappers2real1cs1K">8.6</a> now shows details of the coupling strength parameters per dyad and per cycle. In condition U, some dyads have low coupling strength values, such as dyads 1, 4, 6, 13, 14. Typically, one subject has a bad score, but in dyad 1 and 14, both subjects have low scores.
+In condition C, the situation can be very different per dyad.
+Good performers (with high coupling strength values in U), either reveal entrainment as in dyad 2, 3, 5, 12,17, 19, 20, or no entrainment as in dyad 9 and 18. The latter meas that subjects largely resist the influence of observing the partner. Then, a good performing dyad (in U) can reveal asymmetric entrainment, meaning that one subject adheres to the own metronome, while the other subject is fully entrained, as in dyad 8.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:chapTappers2real1cs1D"></span>
+<img src="Figures/chapTappers2_Overview_postdistr_D.png" alt="Estimated phase delays" width="100%"><p class="caption">
+Figure 8.7: Estimated phase delays
+</p>
+</div>
+<p>Figure <a href="chapTappers2.html#fig:chapTappers2real1cs1D">8.7</a> reveals some abberation in dyad_1 and 6.
+It may be due to a bad converge of the modelling.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:chapTappers2real1cs1E"></span>
+<img src="Figures/chapTappers2_Overview_postdistr_Observation_std.png" alt="Estimated fluctuation" width="100%"><p class="caption">
+Figure 8.8: Estimated fluctuation
+</p>
+</div>
+<p>Finaly, figure <a href="chapTappers2.html#fig:chapTappers2real1cs1D">8.7</a> shows that fluctuation is high in some dyacs, such as dyad 1, 6, 11, or individual cycles.</p>
+<p>The conclusion is that dyads show particular individualities which can be identified based on posterior distributions of parameters.</p>
+</div>
+<div id="leader-follower" class="section level3 unnumbered">
+<h3>Leader-follower<a class="anchor" aria-label="anchor" href="#leader-follower"><i class="fas fa-link"></i></a>
+</h3>
+<p>Based on the same parameter dataset it is possible to get a view on the leader-follower relationship.
+Figure <a href="chapTappers2.html#fig:chapTappers2LF">8.9</a> suggest that both conditions have a normal distribution around zero. The mean and standard deviation is -0.005 (0.13) for U and 0.07 (0.25) for C. Values above zero mean that subject 1 is leading, below zero subject 2 is leading. In condition C, dyad_8 pops up, indicating that subject 1 is leading.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:chapTappers2LF"></span>
+<img src="Figures/chapTappers2_LeaderFollower.png" alt="Leader-folllower values. Above zero means that subject 1 is leading, below zero: subject 2." width="100%"><p class="caption">
+Figure 8.9: Leader-folllower values. Above zero means that subject 1 is leading, below zero: subject 2.
+</p>
+</div>
+<p>Recall that the leader-follower relation (LF) is a difference based on the adherence coupling strength of subjects in a dyad. This value doesn’t capture whether both subjects had a good performance.
+For example, we know that the coupling strength values in dyad_1 are low for both subjects,
+but the difference is small because both subjects have low values.</p>
+<p>Overall, the standard deviation is three times larger in C, meaning that due to entrainment there is a larger variability in leader-follower relationships.
+And LF values in C are more pronounced than in U.
+For example, in dyads 8, 14, 15, 17 and 19, the values are mostly positive, whereas in dyads 9, and certainly 13, the values are mostly negative, meaning that subjects become more consistent in being leader or follower over cycles, due to entrainment!</p>
+</div>
+</div>
+<div id="regression-2" class="section level2" number="8.5">
+<h2>
+<span class="header-section-number">8.5</span> Regression<a class="anchor" aria-label="anchor" href="#regression-2"><i class="fas fa-link"></i></a>
+</h2>
+<p>Finally, we ran a simple regression model on the data shown in
+figure <a href="chapTappers2.html#fig:chapTappers3distrKD">8.5</a>.
+The goal is to estimate the means of the posterior distribution defined by conditions and coupling strengths.</p>
+<div id="syntax-specification" class="section level3 unnumbered">
+<h3>Syntax specification<a class="anchor" aria-label="anchor" href="#syntax-specification"><i class="fas fa-link"></i></a>
+</h3>
+<p>We have the syntax of this model specified as:</p>
+<div class="sourceCode" id="cb74"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span>  <span class="va">form_K00</span> <span class="op">=</span> <span class="fu">bf</span><span class="op">(</span><span class="va">.value</span> <span class="op">~</span> <span class="va">condition</span> <span class="op">*</span> <span class="va">.variable</span> <span class="op">+</span> <span class="op">(</span> <span class="fl">1</span> <span class="op">+</span> <span class="va">condition</span> <span class="op">*</span> <span class="va">.variable</span><span class="op">|</span> <span class="va">dyad</span><span class="op">:</span><span class="va">cycle</span><span class="op">)</span>,</span>
+<span>     <span class="va">sigma</span> <span class="op">~</span> <span class="va">condition</span> <span class="op">*</span> <span class="va">.variable</span> <span class="op">+</span> <span class="op">(</span> <span class="fl">1</span> <span class="op">+</span> <span class="va">condition</span> <span class="op">*</span> <span class="va">.variable</span><span class="op">|</span> <span class="va">dyad</span><span class="op">:</span><span class="va">cycle</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<p>This is a distributional model that estimates the parameters (<span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span>) of a skew-normal distribution for the data. The response is called <code>.value</code>, which refers to the mean of the distributions of <span class="math inline">\(ks1m1\)</span> and <span class="math inline">\(ks2m2\)</span> obtained by the state-space modelling of 380 performances. We have
+<code>condition</code> (U, C) and <code>.variable</code> (<span class="math inline">\(ks1m1\)</span> and <span class="math inline">\(ks2m2\)</span>) as predictors, with <code>dyad:cycle</code> as group-level predictor.
+The latter implies that cycles within each dyad are modeled as a random variable.</p>
+<p>For phase delays we use a similar model assuming a gaussian distribution.</p>
+<div class="sourceCode" id="cb75"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span>  <span class="va">form_D00</span> <span class="op">=</span> <span class="fu">bf</span><span class="op">(</span><span class="va">parameter</span> <span class="op">~</span> <span class="va">condition</span> <span class="op">*</span> <span class="va">names</span> <span class="op">+</span> <span class="op">(</span> <span class="fl">1</span> <span class="op">|</span> <span class="va">dyad</span><span class="op">:</span><span class="va">cycle</span><span class="op">)</span>,</span>
+<span>                <span class="va">sigma</span> <span class="op">~</span> <span class="va">condition</span> <span class="op">*</span> <span class="va">names</span> <span class="op">+</span> <span class="op">(</span> <span class="fl">1</span>  <span class="op">|</span> <span class="va">dyad</span><span class="op">:</span><span class="va">cycle</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div id="results" class="section level3 unnumbered">
+<h3>Results<a class="anchor" aria-label="anchor" href="#results"><i class="fas fa-link"></i></a>
+</h3>
+<p>Figure <a href="chapTappers2.html#fig:chapTappers2models">8.10</a> shows the posterior predictions for coupling strength and phase delay parameters.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:chapTappers2models"></span>
+<img src="Figures/chapTappers2_modelK00.png" alt="Estimated parameters per condition, excluding the group effects of cycle and dyad. (Top panel) Coupling strength. (Bottom panel) Phase delays" width="100%"><img src="Figures/chapTappers2_modelD00.png" alt="Estimated parameters per condition, excluding the group effects of cycle and dyad. (Top panel) Coupling strength. (Bottom panel) Phase delays" width="100%"><img src="Figures/chapTappers2_modelObservation_std00.png" alt="Estimated parameters per condition, excluding the group effects of cycle and dyad. (Top panel) Coupling strength. (Bottom panel) Phase delays" width="100%"><p class="caption">
+Figure 8.10: Estimated parameters per condition, excluding the group effects of cycle and dyad. (Top panel) Coupling strength. (Bottom panel) Phase delays
+</p>
+</div>
+<p>Table <a href="chapTappers2.html#tab:chapTappers2modelAllmeans">8.2</a> shows a summary of the parameters.
+They can be used to generate the states using the state equation of the state-space model (see below).</p>
+<div class="inline-table"><table class="table table-striped" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:chapTappers2modelAllmeans">Table 8.2: </span>Estimated phase delay per condition
+</caption>
+<thead><tr>
+<th style="text-align:left;">
+condition
+</th>
+<th style="text-align:left;">
+.variable
+</th>
+<th style="text-align:right;">
+.epred
+</th>
+<th style="text-align:right;">
+.lower
+</th>
+<th style="text-align:right;">
+.upper
+</th>
+<th style="text-align:right;">
+.width
+</th>
+<th style="text-align:left;">
+.point
+</th>
+<th style="text-align:left;">
+.interval
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+U
+</td>
+<td style="text-align:left;">
+ks1m1
+</td>
+<td style="text-align:right;">
+0.8756405
+</td>
+<td style="text-align:right;">
+0.8639550
+</td>
+<td style="text-align:right;">
+0.8859813
+</td>
+<td style="text-align:right;">
+0.95
+</td>
+<td style="text-align:left;">
+median
+</td>
+<td style="text-align:left;">
+qi
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+U
+</td>
+<td style="text-align:left;">
+ks2m2
+</td>
+<td style="text-align:right;">
+0.8709483
+</td>
+<td style="text-align:right;">
+0.8587126
+</td>
+<td style="text-align:right;">
+0.8815726
+</td>
+<td style="text-align:right;">
+0.95
+</td>
+<td style="text-align:left;">
+median
+</td>
+<td style="text-align:left;">
+qi
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+C
+</td>
+<td style="text-align:left;">
+ks1m1
+</td>
+<td style="text-align:right;">
+0.7148045
+</td>
+<td style="text-align:right;">
+0.6872085
+</td>
+<td style="text-align:right;">
+0.7384519
+</td>
+<td style="text-align:right;">
+0.95
+</td>
+<td style="text-align:left;">
+median
+</td>
+<td style="text-align:left;">
+qi
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+C
+</td>
+<td style="text-align:left;">
+ks2m2
+</td>
+<td style="text-align:right;">
+0.6606508
+</td>
+<td style="text-align:right;">
+0.6280653
+</td>
+<td style="text-align:right;">
+0.6890558
+</td>
+<td style="text-align:right;">
+0.95
+</td>
+<td style="text-align:left;">
+median
+</td>
+<td style="text-align:left;">
+qi
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+U
+</td>
+<td style="text-align:left;">
+ds1m1
+</td>
+<td style="text-align:right;">
+0.6208855
+</td>
+<td style="text-align:right;">
+0.5504630
+</td>
+<td style="text-align:right;">
+0.6934722
+</td>
+<td style="text-align:right;">
+0.95
+</td>
+<td style="text-align:left;">
+median
+</td>
+<td style="text-align:left;">
+qi
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+U
+</td>
+<td style="text-align:left;">
+ds1s2
+</td>
+<td style="text-align:right;">
+0.0721905
+</td>
+<td style="text-align:right;">
+-0.0218829
+</td>
+<td style="text-align:right;">
+0.1658751
+</td>
+<td style="text-align:right;">
+0.95
+</td>
+<td style="text-align:left;">
+median
+</td>
+<td style="text-align:left;">
+qi
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+U
+</td>
+<td style="text-align:left;">
+ds2m2
+</td>
+<td style="text-align:right;">
+0.5893482
+</td>
+<td style="text-align:right;">
+0.5260284
+</td>
+<td style="text-align:right;">
+0.6533308
+</td>
+<td style="text-align:right;">
+0.95
+</td>
+<td style="text-align:left;">
+median
+</td>
+<td style="text-align:left;">
+qi
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+U
+</td>
+<td style="text-align:left;">
+ds2s1
+</td>
+<td style="text-align:right;">
+0.0762515
+</td>
+<td style="text-align:right;">
+-0.0216827
+</td>
+<td style="text-align:right;">
+0.1765294
+</td>
+<td style="text-align:right;">
+0.95
+</td>
+<td style="text-align:left;">
+median
+</td>
+<td style="text-align:left;">
+qi
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+C
+</td>
+<td style="text-align:left;">
+ds1m1
+</td>
+<td style="text-align:right;">
+1.0073670
+</td>
+<td style="text-align:right;">
+0.9201138
+</td>
+<td style="text-align:right;">
+1.0932382
+</td>
+<td style="text-align:right;">
+0.95
+</td>
+<td style="text-align:left;">
+median
+</td>
+<td style="text-align:left;">
+qi
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+C
+</td>
+<td style="text-align:left;">
+ds1s2
+</td>
+<td style="text-align:right;">
+-0.1351580
+</td>
+<td style="text-align:right;">
+-0.2070064
+</td>
+<td style="text-align:right;">
+-0.0625426
+</td>
+<td style="text-align:right;">
+0.95
+</td>
+<td style="text-align:left;">
+median
+</td>
+<td style="text-align:left;">
+qi
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+C
+</td>
+<td style="text-align:left;">
+ds2m2
+</td>
+<td style="text-align:right;">
+0.8775837
+</td>
+<td style="text-align:right;">
+0.7982669
+</td>
+<td style="text-align:right;">
+0.9559944
+</td>
+<td style="text-align:right;">
+0.95
+</td>
+<td style="text-align:left;">
+median
+</td>
+<td style="text-align:left;">
+qi
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+C
+</td>
+<td style="text-align:left;">
+ds2s1
+</td>
+<td style="text-align:right;">
+-0.2205365
+</td>
+<td style="text-align:right;">
+-0.2991018
+</td>
+<td style="text-align:right;">
+-0.1427503
+</td>
+<td style="text-align:right;">
+0.95
+</td>
+<td style="text-align:left;">
+median
+</td>
+<td style="text-align:left;">
+qi
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+U
+</td>
+<td style="text-align:left;">
+observation_std[1]
+</td>
+<td style="text-align:right;">
+0.0122724
+</td>
+<td style="text-align:right;">
+0.0113701
+</td>
+<td style="text-align:right;">
+0.0131796
+</td>
+<td style="text-align:right;">
+0.95
+</td>
+<td style="text-align:left;">
+median
+</td>
+<td style="text-align:left;">
+qi
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+U
+</td>
+<td style="text-align:left;">
+observation_std[2]
+</td>
+<td style="text-align:right;">
+0.3294644
+</td>
+<td style="text-align:right;">
+0.3066520
+</td>
+<td style="text-align:right;">
+0.3535474
+</td>
+<td style="text-align:right;">
+0.95
+</td>
+<td style="text-align:left;">
+median
+</td>
+<td style="text-align:left;">
+qi
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+U
+</td>
+<td style="text-align:left;">
+observation_std[3]
+</td>
+<td style="text-align:right;">
+0.0120555
+</td>
+<td style="text-align:right;">
+0.0111277
+</td>
+<td style="text-align:right;">
+0.0129924
+</td>
+<td style="text-align:right;">
+0.95
+</td>
+<td style="text-align:left;">
+median
+</td>
+<td style="text-align:left;">
+qi
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+U
+</td>
+<td style="text-align:left;">
+observation_std[4]
+</td>
+<td style="text-align:right;">
+0.3115954
+</td>
+<td style="text-align:right;">
+0.2960701
+</td>
+<td style="text-align:right;">
+0.3277639
+</td>
+<td style="text-align:right;">
+0.95
+</td>
+<td style="text-align:left;">
+median
+</td>
+<td style="text-align:left;">
+qi
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+C
+</td>
+<td style="text-align:left;">
+observation_std[1]
+</td>
+<td style="text-align:right;">
+0.0118796
+</td>
+<td style="text-align:right;">
+0.0112611
+</td>
+<td style="text-align:right;">
+0.0125293
+</td>
+<td style="text-align:right;">
+0.95
+</td>
+<td style="text-align:left;">
+median
+</td>
+<td style="text-align:left;">
+qi
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+C
+</td>
+<td style="text-align:left;">
+observation_std[2]
+</td>
+<td style="text-align:right;">
+0.3913077
+</td>
+<td style="text-align:right;">
+0.3633872
+</td>
+<td style="text-align:right;">
+0.4208641
+</td>
+<td style="text-align:right;">
+0.95
+</td>
+<td style="text-align:left;">
+median
+</td>
+<td style="text-align:left;">
+qi
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+C
+</td>
+<td style="text-align:left;">
+observation_std[3]
+</td>
+<td style="text-align:right;">
+0.0116334
+</td>
+<td style="text-align:right;">
+0.0110031
+</td>
+<td style="text-align:right;">
+0.0122990
+</td>
+<td style="text-align:right;">
+0.95
+</td>
+<td style="text-align:left;">
+median
+</td>
+<td style="text-align:left;">
+qi
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+C
+</td>
+<td style="text-align:left;">
+observation_std[4]
+</td>
+<td style="text-align:right;">
+0.4245779
+</td>
+<td style="text-align:right;">
+0.4011930
+</td>
+<td style="text-align:right;">
+0.4495299
+</td>
+<td style="text-align:right;">
+0.95
+</td>
+<td style="text-align:left;">
+median
+</td>
+<td style="text-align:left;">
+qi
+</td>
+</tr>
+</tbody>
+</table></div>
+<p>So far we get a decent view on the parameters of the state-space models.
+We can go into more details and estimate the coupling strength parameters per dyad, by averaging over cycles. However, this will not contribute much to the knowledge we already have. Therefore, we skip it.</p>
+<!-- ### Estimating coupling strength per dyad {-} -->
+<!-- Figure \@ref(fig:chapTappers2modelK00dyads) is based on a repression model per dyad, to extract the mean and CI-95% per subject and condition. Now we get a rather clear picture of the estimated adherence-entrainment in each dyad. -->
+<!-- The red line marks a value of 0.765, which is obtained by taking the lower bound of 75% of all estimated mean coupling strength values in the uncoupled condition (U). Below that line, one could say that we have a spurious entrainment effect. -->
+<!-- When looking at the coupled condition (C), we could then argue that above that line, subjects don't entrain. -->
+<!-- Dyad_9 pops up as the dyad where both subjects don't entrain. In fact, this is by far the best dyad because the task was to non-entrain and this dyad succeeded. All the other dyads have one or two subjects who couldn't resist the influence of seeing the partner tapping. -->
+<!-- Dyad_8 is the one where one subjects doesn't entrain while the other subject is fully entrained. -->
+<!-- ```{r chapTappers2modelK00dyads, echo=FALSE, fig.align='center', fig.asp=.75, fig.cap='Estimated coupling strength per dyad', message=FALSE, warning=FALSE, out.width='100%'} -->
+<!--   knitr::include_graphics( -->
+<!--                           "Figures/chapTappers2_EstimatedParameters_perDyad.png") -->
+<!-- # \@ref(fig:chapTappers2modelK00dyads) -->
+<!-- ``` -->
+<!-- In a similar way, the phase delays can be calculated per dyad. If we would like to generate the phase functions per dyad we would need them. However, we will limit ourselves to generating the phase functions for the entire dyad population. -->
+</div>
+</div>
+<div id="plots-of-dynamic-models" class="section level2 unnumbered">
+<h2>Plots of dynamic models<a class="anchor" aria-label="anchor" href="#plots-of-dynamic-models"><i class="fas fa-link"></i></a>
+</h2>
+<p>In this section, we show the <em>relative phase</em> and <em>instantaneous period</em> representations of generated observations (=posterior predictions). Basically we put the above code chunks for generating them in one big function, called <code>do_plot_gen_obs</code> (see <code>Code/chapTappers2/chapTappers2_06_SSMPlotting.R</code>).</p>
+<p>We know already that when <span class="math inline">\(k\)</span> has a high adherence, <span class="math inline">\(\hat{\phi}\)</span> will be fluctuating along a straight horizontal line, whose distance to the metronome depends on <span class="math inline">\(d\)</span>. For example, the top panel of figure <a href="chapTappers2.html#fig:chapTappers2real1cs3">8.11</a> shows a high adherence of <span class="math inline">\(ks1m1= 0.85\)</span> and <span class="math inline">\(ks2m2= 0.74\)</span> (summarized as <span class="math inline">\(k= 0.84,0.74\)</span> in the figure) with anticipative bias: <span class="math inline">\(ds1m1= 0.69[rad], ds1s2= 1.37\)</span> and <span class="math inline">\(ds2m2= -0.28, ds2s1= -0.31\)</span> (summarized as <span class="math inline">\(d= 0.69, 1.37, -0.28, -0.31\)</span>). Finally we also have the fluctuation which is 0.23 and 0.37 for <span class="math inline">\(s1\)</span> and <span class="math inline">\(s2\)</span> (summarized as <span class="math inline">\(fluct= 0.23, 0.37\)</span>). The latter gives an overall idea of the thickness of the gray band around the states, which depends on the real observations, shown as circles.
+The bottom panel shows the instantaneous period of the states.</p>
+<p>The parameters <span class="math inline">\(k\)</span> and <span class="math inline">\(d\)</span> can be used to generate the function with a simple ode-simulator <a href="http://odetappers.shinyapps.io/odetappers2/" class="uri">http://odetappers.shinyapps.io/odetappers2/</a>.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:chapTappers2real1cs3"></span>
+<img src="Figures/chapTappers2_C.dyad_9.cycle_8.png" alt="Posterior predictions" width="100%"><p class="caption">
+Figure 8.11: Posterior predictions
+</p>
+</div>
+<p>Figure <a href="chapTappers2.html#fig:chapTappers2real1cs4">8.12</a> shows the generated observations of dyad_2 cycle_6. Now we have <span class="math inline">\(k=0.6,0.48\)</span> and <span class="math inline">\(d=0.45,-0.35,0.37,-0.37\)</span>. Note that we could have rotated the axis of the figure in the top panel. It would show a better fit of the generated observations with the real observations.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:chapTappers2real1cs4"></span>
+<img src="Figures/chapTappers2_C.dyad_2.cycle_6.png" alt="Posterior predictions" width="100%"><p class="caption">
+Figure 8.12: Posterior predictions
+</p>
+</div>
+<p>An extreme example of asymmetric entrainment is shown in figure <a href="chapTappers2.html#fig:chapTappers2real1cs6">8.13</a>.
+In that performance, <span class="math inline">\(s2\)</span> is almost completely following <span class="math inline">\(s1\)</span>. The instantaneous period of <span class="math inline">\(s2\)</span> becomes almost equal to the instantaneous period of <span class="math inline">\(s1\)</span>.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:chapTappers2real1cs6"></span>
+<img src="Figures/chapTappers2_C.dyad_8.cycle_8.png" alt="Posterior predictions" width="100%"><p class="caption">
+Figure 8.13: Posterior predictions
+</p>
+</div>
+<!-- Hysteresis can be observed in the relative phase representations, when the relative phases of $\phi_{ODEs1m2}$ and $\phi_{ODEs1m2}$ cross. -->
+<p>When tapping data contain a lot of fluctuation, or irregularities, it may be difficult to find a proper solution at all. Consider a particular example in Figure <a href="chapTappers2.html#fig:chapTappers2real1cs7">8.14</a>.
+The solution has already great difficulties at the beginning of the cycle. It may be due to the priors starting value, which is rather narrowly defined.
+Our model assumes that the start is around zero, but here it is around 2 or -2.
+The state-space model tracks <span class="math inline">\(s2\)</span> but not <span class="math inline">\(s1\)</span>.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:chapTappers2real1cs7"></span>
+<img src="Figures/chapTappers2_C.dyad_1.cycle_5.png" alt="Posterior predictions" width="100%"><p class="caption">
+Figure 8.14: Posterior predictions
+</p>
+</div>
+<p>However, there is a way to check the models via Rhat, a diagnostic of the sampling behavior applied by Stan. Rhat should be <span class="math inline">\(&lt; 1.05\)</span>. Here we check <code>C.dyad_1.cycle_5</code> and we observe high Rhat values.</p>
+<div class="sourceCode" id="cb76"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span>  <span class="va">fit</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"Fitted/chapTappers2_"</span>, <span class="st">"C.dyad_1.cycle_5"</span>, <span class="st">".rds"</span>, sep<span class="op">=</span><span class="st">""</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit</span><span class="op">)</span><span class="op">$</span><span class="va">summary</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span>n<span class="op">=</span><span class="fl">10</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">Rhat</span><span class="op">)</span></span></code></pre></div>
+<pre><code>##                         Rhat
+## ks1m1              12.831067
+## ks2m2               2.944094
+## ds1m1              12.457047
+## ds2m2               2.330697
+## ds1s2               1.820453
+## ds2s1               4.471217
+## observation_std[1]  1.002823
+## observation_std[2]  2.905088
+## observation_std[3]  1.001673
+## observation_std[4]  2.305922</code></pre>
+<p>A check of all Rhat values for these 10 parameters reveals that 29 out of 380 models, the Markov Chain Monte Carlo (MCMC) chains did not converge properly. Although it does not necessarily mean that the model should be immediately rejected, high values are suspicious.
+The table shows the line number on the right (n=380), the <code>mRhat</code> value, showing the mean of the Rhat of the relevant parameters per model, and the identifier for the model. Clearly the majority of the models having high mRhat are in condition C, with high values for dyad_1 and dyad_6.</p>
+<div class="sourceCode" id="cb78"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">RhatMean</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span><span class="op">(</span><span class="st">"Fitted/chapTappers2_RhatMean.rds"</span><span class="op">)</span></span>
+<span><span class="va">w</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">RhatMean</span><span class="op">$</span><span class="va">mRhat</span> <span class="op">&gt;</span> <span class="fl">1.05</span><span class="op">)</span></span>
+<span><span class="co">#RhatMean[w,]</span></span>
+<span></span>
+<span> <span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="va">RhatMean</span><span class="op">[</span><span class="va">w</span>,<span class="op">]</span>,  booktabs<span class="op">=</span><span class="cn">T</span>, label <span class="op">=</span> <span class="cn">NA</span>, </span>
+<span>             caption <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"Rhat diagnostics"</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">kable_styling</span><span class="op">(</span><span class="st">"striped"</span>, font_size <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-table"><table class="table table-striped" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+(#tab:chapTappers2_table)Rhat diagnostics
+</caption>
+<thead><tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+mRhat
+</th>
+<th style="text-align:left;">
+id
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+7
+</td>
+<td style="text-align:right;">
+3.519622
+</td>
+<td style="text-align:left;">
+U.dyad_1.cycle_7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+40
+</td>
+<td style="text-align:right;">
+1.075442
+</td>
+<td style="text-align:left;">
+U.dyad_4.cycle_10
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+54
+</td>
+<td style="text-align:right;">
+1.091636
+</td>
+<td style="text-align:left;">
+U.dyad_6.cycle_4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+130
+</td>
+<td style="text-align:right;">
+2.039216
+</td>
+<td style="text-align:left;">
+U.dyad_14.cycle_10
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+164
+</td>
+<td style="text-align:right;">
+3.469505
+</td>
+<td style="text-align:left;">
+U.dyad_18.cycle_4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+191
+</td>
+<td style="text-align:right;">
+1.618204
+</td>
+<td style="text-align:left;">
+C.dyad_1.cycle_1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+192
+</td>
+<td style="text-align:right;">
+4.374989
+</td>
+<td style="text-align:left;">
+C.dyad_1.cycle_2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+194
+</td>
+<td style="text-align:right;">
+1.715957
+</td>
+<td style="text-align:left;">
+C.dyad_1.cycle_4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+195
+</td>
+<td style="text-align:right;">
+4.407008
+</td>
+<td style="text-align:left;">
+C.dyad_1.cycle_5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+196
+</td>
+<td style="text-align:right;">
+3.029709
+</td>
+<td style="text-align:left;">
+C.dyad_1.cycle_6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+198
+</td>
+<td style="text-align:right;">
+3.315164
+</td>
+<td style="text-align:left;">
+C.dyad_1.cycle_8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+200
+</td>
+<td style="text-align:right;">
+2.555433
+</td>
+<td style="text-align:left;">
+C.dyad_1.cycle_10
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+204
+</td>
+<td style="text-align:right;">
+1.050993
+</td>
+<td style="text-align:left;">
+C.dyad_2.cycle_4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+241
+</td>
+<td style="text-align:right;">
+1.094782
+</td>
+<td style="text-align:left;">
+C.dyad_6.cycle_1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+244
+</td>
+<td style="text-align:right;">
+5.716697
+</td>
+<td style="text-align:left;">
+C.dyad_6.cycle_4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+245
+</td>
+<td style="text-align:right;">
+5.466790
+</td>
+<td style="text-align:left;">
+C.dyad_6.cycle_5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+247
+</td>
+<td style="text-align:right;">
+2.244794
+</td>
+<td style="text-align:left;">
+C.dyad_6.cycle_7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+250
+</td>
+<td style="text-align:right;">
+4.820872
+</td>
+<td style="text-align:left;">
+C.dyad_6.cycle_10
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+253
+</td>
+<td style="text-align:right;">
+1.123882
+</td>
+<td style="text-align:left;">
+C.dyad_8.cycle_3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+271
+</td>
+<td style="text-align:right;">
+1.069631
+</td>
+<td style="text-align:left;">
+C.dyad_10.cycle_1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+287
+</td>
+<td style="text-align:right;">
+7.694897
+</td>
+<td style="text-align:left;">
+C.dyad_11.cycle_7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+300
+</td>
+<td style="text-align:right;">
+1.084792
+</td>
+<td style="text-align:left;">
+C.dyad_12.cycle_10
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+312
+</td>
+<td style="text-align:right;">
+1.185211
+</td>
+<td style="text-align:left;">
+C.dyad_14.cycle_2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+322
+</td>
+<td style="text-align:right;">
+2.207567
+</td>
+<td style="text-align:left;">
+C.dyad_15.cycle_2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+328
+</td>
+<td style="text-align:right;">
+1.068165
+</td>
+<td style="text-align:left;">
+C.dyad_15.cycle_8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+340
+</td>
+<td style="text-align:right;">
+1.066824
+</td>
+<td style="text-align:left;">
+C.dyad_16.cycle_10
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+341
+</td>
+<td style="text-align:right;">
+1.062776
+</td>
+<td style="text-align:left;">
+C.dyad_17.cycle_1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+361
+</td>
+<td style="text-align:right;">
+1.051900
+</td>
+<td style="text-align:left;">
+C.dyad_19.cycle_1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+362
+</td>
+<td style="text-align:right;">
+1.197535
+</td>
+<td style="text-align:left;">
+C.dyad_19.cycle_2
+</td>
+</tr>
+</tbody>
+</table></div>
+<!-- check? --><!-- ```{r chapTappers2_fig} --><!-- model_id = "U.dyad_4.cycle_10" --><!-- fig <- do_plot_gen_obs(model_id) --><!-- fig --><!-- ``` -->
+</div>
+<div id="generating-observations-from-the-average" class="section level2 unnumbered">
+<h2>Generating observations from the average<a class="anchor" aria-label="anchor" href="#generating-observations-from-the-average"><i class="fas fa-link"></i></a>
+</h2>
+<p>In an earlier stage we obtained mean values for fitted parameters of condition C.
+Here, we plug these mean values into the state equations.
+It gives us a idea of how an average dyad of our population experiences entrainment.</p>
+<div class="sourceCode" id="cb79"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">dydt</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">t</span>, <span class="va">y</span>, <span class="va">parms</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/with.html">with</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">as.list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">y</span>, <span class="va">parms</span><span class="op">)</span><span class="op">)</span>, <span class="op">{</span></span>
+<span>    <span class="va">p600</span> <span class="op">=</span> <span class="fl">2</span><span class="op">*</span><span class="va">pi</span><span class="op">*</span><span class="fl">1000</span><span class="op">/</span><span class="fl">600</span></span>
+<span>    <span class="va">p610</span>  <span class="op">=</span> <span class="fl">2</span><span class="op">*</span><span class="va">pi</span><span class="op">*</span><span class="fl">1000</span><span class="op">/</span><span class="fl">609.375</span></span>
+<span>    <span class="va">dm1</span> <span class="op">=</span> <span class="va">p600</span></span>
+<span>    <span class="va">ds1</span> <span class="op">=</span> <span class="va">p600</span>  <span class="op">+</span> </span>
+<span>      <span class="fl">.5</span><span class="op">*</span><span class="op">(</span><span class="va">ks1m1</span><span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/base/Trig.html">sin</a></span><span class="op">(</span><span class="va">m1</span> <span class="op">-</span> <span class="va">s1</span> <span class="op">+</span> <span class="va">ds1m1</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>            <span class="op">(</span><span class="fl">1</span><span class="op">-</span><span class="va">ks1m1</span><span class="op">)</span><span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/base/Trig.html">sin</a></span><span class="op">(</span><span class="va">s2</span> <span class="op">-</span> <span class="va">s1</span> <span class="op">+</span> <span class="va">ds1s2</span><span class="op">)</span> <span class="op">)</span></span>
+<span>    </span>
+<span>    <span class="va">dm2</span> <span class="op">=</span> <span class="va">p610</span>  </span>
+<span>    <span class="co">#Eigenfrequency s2, m2 (600 * 609.375/9.375) /1000 = 39</span></span>
+<span>    <span class="va">ds2</span> <span class="op">=</span> <span class="va">p610</span>    <span class="op">+</span> </span>
+<span>      <span class="fl">.5</span><span class="op">*</span><span class="op">(</span><span class="va">ks2m2</span><span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/base/Trig.html">sin</a></span><span class="op">(</span><span class="va">m2</span> <span class="op">-</span> <span class="va">s2</span> <span class="op">+</span> <span class="va">ds2m2</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>            <span class="op">(</span><span class="fl">1</span><span class="op">-</span><span class="va">ks2m2</span><span class="op">)</span><span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/base/Trig.html">sin</a></span><span class="op">(</span><span class="va">s1</span> <span class="op">-</span> <span class="va">s2</span> <span class="op">+</span> <span class="va">ds2s1</span><span class="op">)</span> <span class="op">)</span></span>
+<span>    <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">dm1</span>,<span class="va">ds1</span>,<span class="va">dm2</span>,<span class="va">ds2</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span>  <span class="op">}</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="va">dt</span> <span class="op">=</span> <span class="fl">1</span><span class="op">/</span><span class="fl">1000</span></span>
+<span><span class="va">time_points</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">39</span>, by <span class="op">=</span> <span class="va">dt</span><span class="op">)</span></span>
+<span><span class="va">state</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>m1 <span class="op">=</span> <span class="fl">0</span>, s1 <span class="op">=</span> <span class="fl">0</span>, m2 <span class="op">=</span> <span class="fl">0</span>, s2 <span class="op">=</span> <span class="fl">0</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># plug in the estimated parameter values here:</span></span>
+<span><span class="va">parm</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>ks1m1 <span class="op">=</span> <span class="fl">0.72</span>, ks2m2 <span class="op">=</span> <span class="fl">0.65</span>, </span>
+<span>         ds1m1 <span class="op">=</span> <span class="fl">0</span>, ds2m2 <span class="op">=</span> <span class="fl">0</span>, </span>
+<span>         ds1s2 <span class="op">=</span> <span class="fl">0</span>, ds2s1 <span class="op">=</span> <span class="fl">0</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">solution</span> <span class="op">&lt;-</span> <span class="fu">ode</span><span class="op">(</span>y <span class="op">=</span> <span class="va">state</span>, times <span class="op">=</span> <span class="va">time_points</span>, func <span class="op">=</span> <span class="va">dydt</span>, parms <span class="op">=</span> <span class="va">parm</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="va">solution</span> <span class="op">&lt;-</span> <span class="va">solution</span> <span class="op">%&gt;%</span> <span class="fu">mutate</span><span class="op">(</span></span>
+<span>  dm1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">NA</span>,<span class="fu"><a href="https://rdrr.io/r/base/diff.html">diff</a></span><span class="op">(</span><span class="va">m1</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>  ds1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">NA</span>,<span class="fu"><a href="https://rdrr.io/r/base/diff.html">diff</a></span><span class="op">(</span><span class="va">s1</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>  dm2 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">NA</span>,<span class="fu"><a href="https://rdrr.io/r/base/diff.html">diff</a></span><span class="op">(</span><span class="va">m2</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>  ds2 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">NA</span>,<span class="fu"><a href="https://rdrr.io/r/base/diff.html">diff</a></span><span class="op">(</span><span class="va">s2</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">p0</span> <span class="op">&lt;-</span> <span class="va">solution</span> <span class="op">%&gt;%</span> <span class="fu">group_by</span><span class="op">(</span><span class="va">time</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">ggplot</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_line</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x<span class="op">=</span> <span class="va">time</span>,y <span class="op">=</span> <span class="fu">do_rotate</span><span class="op">(</span><span class="va">m1</span><span class="op">-</span><span class="va">s1</span><span class="op">)</span><span class="op">)</span>, color<span class="op">=</span><span class="st">"#56B4E9"</span>,size<span class="op">=</span><span class="fl">1</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_line</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x<span class="op">=</span> <span class="va">time</span>,y <span class="op">=</span> <span class="fu">do_rotate</span><span class="op">(</span><span class="va">m2</span><span class="op">-</span><span class="va">s2</span><span class="op">)</span><span class="op">)</span>, color <span class="op">=</span> <span class="st">"#E69F00"</span>,size<span class="op">=</span><span class="fl">1</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">ylim</span><span class="op">(</span><span class="op">-</span><span class="va">pi</span>,<span class="va">pi</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">theme_bw</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">labs</span><span class="op">(</span>x<span class="op">=</span><span class="st">"time of one cycle"</span>, y <span class="op">=</span> <span class="st">"rel. phase"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">labs</span><span class="op">(</span>y<span class="op">=</span><span class="st">"relative phase"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="va">solution</span> <span class="op">%&gt;%</span> <span class="fu">group_by</span><span class="op">(</span><span class="va">time</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">ggplot</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_line</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x<span class="op">=</span> <span class="va">time</span>,y <span class="op">=</span> <span class="va">ds1</span><span class="op">)</span>,color<span class="op">=</span><span class="st">"#56B4E9"</span>,size<span class="op">=</span><span class="fl">1</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_line</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x<span class="op">=</span> <span class="va">time</span>,y <span class="op">=</span> <span class="va">ds2</span><span class="op">)</span>,color <span class="op">=</span> <span class="st">"#E69F00"</span>,size<span class="op">=</span><span class="fl">1</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_vline</span><span class="op">(</span>xintercept <span class="op">=</span> <span class="fl">39</span><span class="op">/</span><span class="fl">2</span>, color <span class="op">=</span> <span class="st">"#D55E00"</span>, linetype <span class="op">=</span> <span class="st">"dotted"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">labs</span><span class="op">(</span>x<span class="op">=</span><span class="st">"time of one cycle"</span>, y <span class="op">=</span> <span class="st">"inst. frequency"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="co">#ylim(585,635) +</span></span>
+<span>  <span class="fu">theme_bw</span><span class="op">(</span><span class="op">)</span> </span>
+<span></span>
+<span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="va">solution</span> <span class="op">%&gt;%</span> <span class="fu">group_by</span><span class="op">(</span><span class="va">time</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">ggplot</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_line</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x<span class="op">=</span> <span class="va">time</span>,y <span class="op">=</span> <span class="va">ds2</span> <span class="op">-</span> <span class="va">ds1</span><span class="op">)</span>,color <span class="op">=</span> <span class="st">"black"</span>,size<span class="op">=</span><span class="fl">1</span>, linetype <span class="op">=</span> <span class="st">"dotted"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_vline</span><span class="op">(</span>xintercept <span class="op">=</span> <span class="fl">36.6</span><span class="op">/</span><span class="fl">2</span>, color <span class="op">=</span> <span class="st">"#D55E00"</span>, linetype <span class="op">=</span> <span class="st">"dotted"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">labs</span><span class="op">(</span>x<span class="op">=</span><span class="st">"time of one cycle"</span>, y <span class="op">=</span> <span class="st">"freq difference"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">theme_bw</span><span class="op">(</span><span class="op">)</span> </span>
+<span></span>
+<span><span class="va">p0</span> <span class="op">/</span> <span class="va">p1</span> <span class="op">/</span> <span class="va">p2</span></span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:chapTappers2dynEq2"></span>
+<img src="09_chapTappers_2_files/figure-html/chapTappers2dynEq2-1.png" alt="Generated phase-functions of average dyad interaction. (Top panel) Relative phase. (Middle panel) Instantaneous frequency. (Bottom panel) instantaneous frequency difference" width="100%"><p class="caption">
+Figure 8.15: Generated phase-functions of average dyad interaction. (Top panel) Relative phase. (Middle panel) Instantaneous frequency. (Bottom panel) instantaneous frequency difference
+</p>
+</div>
+<div class="sourceCode" id="cb80"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># \@ref(fig:chapTappers2dynEq2)</span></span></code></pre></div>
+<p>The results are shown in figure <a href="chapTappers2.html#fig:chapTappers2dynEq2">8.15</a>.
+The top panel shows a relative phase representation.
+The middle panel shows the instantaneous frequency.
+The bottom panel shows the instantaneous frequency difference.
+We show the frequency rather than the period because we’ll compare it with a recurrence analysis.</p>
+<div id="smooth-regression-of-relative-phase" class="section level3 unnumbered">
+<h3>Smooth regression of relative phase<a class="anchor" aria-label="anchor" href="#smooth-regression-of-relative-phase"><i class="fas fa-link"></i></a>
+</h3>
+<p>In this section we try a good old smooth regression approach on the data represented as relative phase. Would it not give us a smooth curve, capturing the underlying dynamic of the tapping? Similar to the smooth regression modelling used in chapters <a href="chapDancer.html#chapDancer">4</a> and <a href="chapExoskeletons.html#chapExoskeletons">6</a>?</p>
+<p>Here we use the following model specification:</p>
+<p>with <code>relphase</code> being the relative phase of subject and metronome, <code>subjectcondition</code> is the interaction of two subject and two conditions, and <code>dyad:cycle</code> is a group-level variable of cycle per dyad, and <code>kappa</code> is the second parameter of the <code>von_mises</code> model fitting function.</p>
+<p>Figure <a href="chapTappers2.html#fig:chapTappersSmoothRegression">8.16</a> shows the smooth regression solution.
+Recall that the vertical axis is the relative phase and the horizontal axis is the time of one cycle.
+The figure suggests a flat line for the uncoupled condition (U) for both subjects.
+In contrast, the figure shows curved lines for the coupled condition (C), suggesting entrainment.
+The curve is asymmetrical in the sense that it is delayed with respect to the metronomes anti-phase point.
+Moreover, we also observe an anticipation in the sense that the curves are below zero.
+Thanks to the explorations with the dynamic model in the previous chapter, we meanwhile know how this works.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:chapTappersSmoothRegression"></span>
+<img src="Figures/chapTappers2_SmoothRegression_RelPhase.png" alt="Overview of all raw tapping data, squeezed to one cycle, in the coupled condition (C)." width="100%"><p class="caption">
+Figure 8.16: Overview of all raw tapping data, squeezed to one cycle, in the coupled condition (C).
+</p>
+</div>
+<p>Smooth regression has limitations mainly because it is purely descriptive, based on an expansion of data in a hyper-space of spline functions. Our goal is to show that our state-space model can replicate this figure, using dynamic parameters that can be interpreted as coupling strength and phase delay.
+In fact, our result comes close to it, see the top panel of figure <a href="chapTappers2.html#fig:chapTappers2dynEq2">8.15</a>.</p>
+</div>
+<div id="recurrence-analysis" class="section level3 unnumbered">
+<h3>Recurrence analysis<a class="anchor" aria-label="anchor" href="#recurrence-analysis"><i class="fas fa-link"></i></a>
+</h3>
+<p>An alternative approach, the tapping data has been subjected to a recurrence analysis (Rosso et al.,2023). In that analysis, the phase at sample time <span class="math inline">\(\phi_t\)</span> is expanded into a phase vector, with <span class="math inline">\(d\)</span> and delay <span class="math inline">\(\tau\)</span> defining the expansion. We have:</p>
+<p><span class="math display">\[
+\hat{\phi}_t = &lt;\phi_{t + (d-1)\tau}&gt;
+\]</span>
+with <span class="math inline">\(\hat{\phi}_t \in R^d\)</span> having
+<span class="math inline">\(d\)</span> as an estimated embedding dimension, and
+<span class="math inline">\(\tau\)</span> as an estimated delay of phases.</p>
+<p>The time-delayed versions of the phase can be thought of as the coordinates of a point in a
+<span class="math inline">\(d\)</span>-dimensional space.
+For example, if we choose <span class="math inline">\(d=3\)</span> and <span class="math inline">\(\tau=1\)</span>, the time-delayed versions of the phase at time <span class="math inline">\(t=1\)</span> are <span class="math inline">\(x(1),x(2)\)</span>, and <span class="math inline">\(x(3)\)</span>. These three values can be thought of as the <span class="math inline">\(x,y,z\)</span> coordinates of a point in a three-dimensional space.</p>
+<p>A matrix <span class="math inline">\(R_{t,s}^{d,\tau}\)</span> is then defined as
+<span class="math display">\[
+R_{t,s}^{d,\tau} = \Theta(\epsilon - \left\| x_t - x_s \right\|), \quad x_t \in \mathbb{R}^d, \quad t, s = 1, \ldots, T
+\]</span>
+where <span class="math inline">\(\epsilon\)</span> is a threshold distance, <span class="math inline">\(\Theta\)</span> is the Heaviside function, and <span class="math inline">\(\left\| . \right\|\)</span> is the length of the vector difference, which can be interpreted as phase difference, or instantaneous frequency.
+The matrix contains <span class="math inline">\(1\)</span> when the difference of phase-vectors <span class="math inline">\(x_t\)</span> and <span class="math inline">\(x_s\)</span> falls within the ball defined by <span class="math inline">\(\epsilon\)</span>, and <span class="math inline">\(0\)</span> otherwise.</p>
+<p>Given matrix <span class="math inline">\(R_{t,s}^{d,\tau}\)</span>, the sum over all samples <span class="math inline">\(t\)</span> results in counts at each sample instance <span class="math inline">\(s\)</span>.
+Accordingly, the resulting graph can be interpreted as a histogram of <em>phase differences</em>.</p>
+<p>In a joint recurrence analysis with two subjects, such as in figure <a href="chapTappers2.html#fig:chapTappersRecurrenceAnalysis">8.17</a>, the matrix is first calculated for both subjects separately, giving <span class="math inline">\(Rs1_{t,s}^{d,\tau}\)</span> and <span class="math inline">\(Rs2_{t,s}^{d,\tau}\)</span>, whose notation can be simplified as <span class="math inline">\(Rs1\)</span> and <span class="math inline">\(Rs2\)</span>.</p>
+<p>Taking the intersection <span class="math inline">\(Rs1 \cap Rs2\)</span> (where cells are <span class="math inline">\(1\)</span> if both <span class="math inline">\(Rs1\)</span> and <span class="math inline">\(Rs2\)</span> have a <span class="math inline">\(1\)</span>, and <span class="math inline">\(0\)</span> otherwise) and then summing rows, we obtain a histogram that represents the <em>instantaneous frequency difference</em> among subjects. In figure <a href="chapTappers2.html#fig:chapTappersRecurrenceAnalysis">8.17</a> the 10 cycles, and 19 dyads are folded into one single cycle.</p>
+<p>Figure <a href="chapTappers2.html#fig:chapTappersRecurrenceAnalysis">8.17</a> (from Rosso et al., 2023) shows the result for all dyads, with time series squeezed to one cycle. As this figure is a histogram, it shows the number of times that the two subjects had the same phase difference (up to a tolerance <span class="math inline">\(\epsilon\)</span>) at the same time, within the time interval corresponding to the bin.
+With two subjects having different instantaneous frequencies, the synchronization between the two subjects will be unstable. As the frequency differences between them will vary over time, and the peaks in the histogram will be wider.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:chapTappersRecurrenceAnalysis"></span>
+<img src="Figures/chapTappers2_MattiaFigure2.jpg" alt="Recurrence analysis. Only the blue lines have to be considered. They show the uncoupled (1P Uncoupled) and coupled (2P Coupled) conditions." width="100%"><p class="caption">
+Figure 8.17: Recurrence analysis. Only the blue lines have to be considered. They show the uncoupled (1P Uncoupled) and coupled (2P Coupled) conditions.
+</p>
+</div>
+<p>Recurrence analysis has limitations mainly because it is purely descriptive as it doesn’t capture the parameters of the dynamic model. Likewise, our goal is to develop a dynamic model that could replicate this figure, using dynamic parameters that can be interpreted as coupling strength and phase delay.</p>
+<p>The lower panel of figure <a href="chapTappers2.html#fig:chapTappers2dynEq2">8.15</a> shows that our result comes close to the recurrence analysis.</p>
+</div>
+<div id="summary" class="section level3 unnumbered">
+<h3>Summary<a class="anchor" aria-label="anchor" href="#summary"><i class="fas fa-link"></i></a>
+</h3>
+<p>To summarize, we started from 380 dyadic finger tapping performances using data of Rosso et al. (2024). For each model, we estimated the parameters of a state-space model on the data. The configuration of the state-space model was developed in the previous chapter.</p>
+<p>The hypothesis that the uncoupled condition (U) has a higher adherence coupling strength than the coupled condition (C) is confirmed. The adherence coupling strengths in the uncoupled condition are close to 0.87, while in the coupled condition it is close to <span class="math inline">\(ks1m1 = 0.71\)</span> and <span class="math inline">\(ks2m2 =  0.66\)</span>.
+This result implies that overall, when two subjects are seeing each other tapping, they have a dramatic reduction in adherence coupling strength, despite the request to adhere to the own metronome. This implies a considerable entrainment coupling strength to the other subject.</p>
+<p>Apparently, in the coupled condition (C) on average (over all dyads) subject <span class="math inline">\(s2\)</span> has a lower adherence coupling strength of about 5% to the own metronome <span class="math inline">\(m2\)</span>, compared to <span class="math inline">\(s1\)</span>. It is plausible that <span class="math inline">\(s1\)</span> is in the advantage due to the tapping speed.</p>
+<p>Then, using the fitted parameters we generated continuous observations based on generated continuous states, and these can be compared with discrete tapping data. Using averages of all the parameters, it is possible to generate data as in @ref(fig:chapTappers2_dynEq2). The curves represent relative phase, instantaneous frequency or instantaneous period, and instantaneous frequency difference. A high similarity with smooth regression solutions and recurrence analysis performed on the entire population reveals the power of the state-space approach.</p>
+</div>
+</div>
+<div id="conclusion-6" class="section level2" number="8.6">
+<h2>
+<span class="header-section-number">8.6</span> Conclusion<a class="anchor" aria-label="anchor" href="#conclusion-6"><i class="fas fa-link"></i></a>
+</h2>
+<p>In this chapter, we explored how synchronized finger tapping can be entrained by seeing a partner tapping differently. The fact that non-voluntary entrainment can override the intended audio-based synchronization shows that entrainment is a extremely powerful phenomenon.</p>
+<p>The conclusion is that entrainment may be hard to resist. It seems as if the brain is determined to solve incongruent feedback, to such a degree that resistance to entrainment might require a specific training targetted at neglecting cause of incongruency.</p>
+<p>Entrainment is believed to play a crucial role in activities that require joint collaboration, such as in joint music playing. In that context, entrainment is an added value to a dynamic adaptation of activities. Entrainment fits well with the idea of self-augmented interaction, where it can be seen as a facilitator for augmentation.</p>
+<p>We showed that entrainment can be understood, basically, as a control of competing dynamic forces, informed by hearing and seeing. Statistical modeling helped us to understand entrainment as a state-space system describing the causal flow in timing. This ends our journey in non-linear regression.</p>
+
+</div>
+</div>
+
+  <div class="chapter-nav">
+<div class="prev"><a href="chapTappers1.html"><span class="header-section-number">7</span> Two finger tappers’ entrainment (Part 1)</a></div>
+<div class="next"><a href="chapConclusion.html"><span class="header-section-number">9</span> Conclusion</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <h2>Provide your feedback</h2>
+    <!--<p>Now is a great time to provide feedback</p>-->
+        <ul class="list-unstyled">
+<!--<li><a href="https://forms.gle/nq9RmbxJyZXQgc948">Provide feedback (5 min)</a></li>--><li><a href="https://www.ugent.be/lw/kunstwetenschappen/ipem/en/services/asil">art and science interaction lab</a></li>
+        </ul>
+<hr>
+<nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#chapTappers2"><span class="header-section-number">8</span> Two finger tappers’ entrainment (Part 2)</a></li>
+<li><a class="nav-link" href="#theory-4"><span class="header-section-number">8.1</span> Theory</a></li>
+<li>
+<a class="nav-link" href="#setup"><span class="header-section-number">8.2</span> Setup</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#raw-tapping-data">Raw tapping data</a></li></ul>
+</li>
+<li><a class="nav-link" href="#data-from-state-space-model"><span class="header-section-number">8.3</span> Data from state-space model</a></li>
+<li><a class="nav-link" href="#running-a-single-model-with-stan">Running a single model with Stan</a></li>
+<li>
+<a class="nav-link" href="#running-all-models"><span class="header-section-number">8.4</span> Running all models</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#global-histograms">Global histograms</a></li>
+<li><a class="nav-link" href="#histograms-uncoupled-condition-u">Histograms uncoupled condition (U)</a></li>
+<li><a class="nav-link" href="#leader-follower">Leader-follower</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#regression-2"><span class="header-section-number">8.5</span> Regression</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#syntax-specification">Syntax specification</a></li>
+<li><a class="nav-link" href="#results">Results</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#plots-of-dynamic-models">Plots of dynamic models</a></li>
+<li>
+<a class="nav-link" href="#generating-observations-from-the-average">Generating observations from the average</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#smooth-regression-of-relative-phase">Smooth regression of relative phase</a></li>
+<li><a class="nav-link" href="#recurrence-analysis">Recurrence analysis</a></li>
+<li><a class="nav-link" href="#summary">Summary</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#conclusion-6"><span class="header-section-number">8.6</span> Conclusion</a></li>
+</ul>
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/mlIpem/ExploringMusicInteractionWithR/blob/main/09_chapTappers_2.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/mlIpem/ExploringMusicInteractionWithR/edit/main/09_chapTappers_2.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Exploring music interactions</strong>" was written by Marc Leman. It was last built on 2024-12-19.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

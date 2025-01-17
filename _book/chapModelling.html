@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 2 Modelling | Exploring music interactions</title>
+<meta name="author" content="Marc Leman">
+<meta name="description" content="Statistical modelling aims at establishing a connection between data and theory, basically by capturing the data as estimated parameters of an assumed distribution. Responses showing a normal...">
+<meta name="generator" content="bookdown 0.41 with bs4_book()">
+<meta property="og:title" content="Chapter 2 Modelling | Exploring music interactions">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://www.ugent.be/chapModelling.html">
+<meta property="og:image" content="https://www.ugent.be/images/cover.jpeg">
+<meta property="og:description" content="Statistical modelling aims at establishing a connection between data and theory, basically by capturing the data as estimated parameters of an assumed distribution. Responses showing a normal...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 2 Modelling | Exploring music interactions">
+<meta name="twitter:description" content="Statistical modelling aims at establishing a connection between data and theory, basically by capturing the data as estimated parameters of an assumed distribution. Responses showing a normal...">
+<meta name="twitter:image" content="https://www.ugent.be/images/cover.jpeg">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><link href="libs/Lato-0.4.9/font.css" rel="stylesheet">
+<link href="libs/Roboto_Mono-0.4.9/font.css" rel="stylesheet">
+<link href="libs/Montserrat-0.4.9/font.css" rel="stylesheet">
+<script src="libs/bs3compat-0.8.0/transition.js"></script><script src="libs/bs3compat-0.8.0/tabs.js"></script><script src="libs/bs3compat-0.8.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+<script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-99618359-1', 'auto');
+      ga('send', 'pageview');
+
+    </script><!-- Google tag (gtag.js) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-CDTTJLM7N4"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-CDTTJLM7N4');
+    </script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="style/style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h2>
+        <a href="index.html" title="">Exploring music interactions</a>
+      </h2>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome</a></li>
+<li><a class="" href="preface.html">Preface</a></li>
+<li><a class="" href="chapTheory.html"><span class="header-section-number">1</span> Theory</a></li>
+<li><a class="active" href="chapModelling.html"><span class="header-section-number">2</span> Modelling</a></li>
+<li><a class="" href="chapListener.html"><span class="header-section-number">3</span> Listener appreciation</a></li>
+<li><a class="" href="chapDancer.html"><span class="header-section-number">4</span> Dancer synchronization</a></li>
+<li><a class="" href="chapViolinist.html"><span class="header-section-number">5</span> Violin player visual feedback</a></li>
+<li><a class="" href="chapExoskeletons.html"><span class="header-section-number">6</span> Two violin players’ haptic feedback</a></li>
+<li><a class="" href="chapTappers1.html"><span class="header-section-number">7</span> Two finger tappers’ entrainment (Part 1)</a></li>
+<li><a class="" href="chapTappers2.html"><span class="header-section-number">8</span> Two finger tappers’ entrainment (Part 2)</a></li>
+<li><a class="" href="chapConclusion.html"><span class="header-section-number">9</span> Conclusion</a></li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/mlIpem/ExploringMusicInteractionWithR">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="chapModelling" class="section level1" number="2">
+<h1>
+<span class="header-section-number">2</span> Modelling<a class="anchor" aria-label="anchor" href="#chapModelling"><i class="fas fa-link"></i></a>
+</h1>
+<p>Statistical modelling aims at establishing a connection between data and theory, basically by capturing the data as estimated parameters of an assumed distribution. Responses showing a normal distribution would thus be modelled by mapping predictors onto the parameters of the normal distribution, that is, its mean and standard deviation (or variation). Not only better and more accurate conclusions can be drawn using modelling, it can also clarify the key theoretical insights. And once these and other parameters of the statistical model are known, a model can predict data. Statistical modelling thus drives the domain forwards in terms of a better understanding of the data’s underlying parameters.</p>
+<p>This chapter depends on the following scripts for data preparation, plotting, modelling and model plotting:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="st">"Code/chapAll_00_Initialization.R"</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="st">"Code/chapAll_01_Functions.R"</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="st">"Code/chapModelling/chapModelling_02_DataPreparation.R"</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="st">"Code/chapModelling/chapModelling_03_DataPlotting.R"</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="st">"Code/chapModelling/chapModelling_04_Modelling.R"</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="st">"Code/chapModelling/chapModelling_05_ModelPlotting.R"</span><span class="op">)</span></span></code></pre></div>
+<div id="bayesian-epistemology" class="section level2" number="2.1">
+<h2>
+<span class="header-section-number">2.1</span> Bayesian epistemology<a class="anchor" aria-label="anchor" href="#bayesian-epistemology"><i class="fas fa-link"></i></a>
+</h2>
+<p>In this book we adopt an overall Bayesian epistemology to knowledge acquisition.
+It applies to subjects interacting with the environment.
+The best way to introduce this approach is by means of a graph – and a simple example.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:chapTheoryBayesianModel1"></span>
+<img src="Figures/chapModelling_BayesianModel.jpg" alt="Bayesian model" width="100%"><p class="caption">
+Figure 2.1: Bayesian model
+</p>
+</div>
+<p>Consider figure <a href="chapModelling.html#fig:chapTheoryBayesianModel1">2.1</a> and its graphical description of a human subject (left circle), observing a pattern (middle circle), and making an inference about the state that caused that pattern (right circle).</p>
+<div id="from-pattern-to-state" class="section level3 unnumbered">
+<h3>From pattern to state<a class="anchor" aria-label="anchor" href="#from-pattern-to-state"><i class="fas fa-link"></i></a>
+</h3>
+<p>Say, you see a dog approaching and you’re not sure about its attitude. It could be aggressive or friendly, on a scale from -1 to +1, with 0 being neutral. You do have a <em>prior belief</em> that the dog will be rather angry, and you are almost sure about it. This belief is expressed as a Gaussian distribution with a mean value of -0.7 and a standard deviation of 0.2. Then you observe the dog at different instances. However, given your belief, the attitude, as observed, seems more friendly and so you get a new probability distribution based on observations with respect to your belief, called: the <em>likelihood</em>. Its distribution is more positive, but you are uncertain: its mean is 0.3 points higher on the attitude-scale, its standard deviation is 0.5. Accordingly, the true mean is -0.4 and the std is 0.5.</p>
+<p>With this information at hand, you can update your prior belief and construct a posterior belief about the dogs attitude, just by combining the two distributions. As a result, the new belief will be that the dog is more neutral and less angry than you thought before, but you are less sure about this attitude than you were before. Based on simulations, we obtain the result that its mean will be -0.5511 (more shifted to neutral attitude, but still angry) with a standard deviation of 0.2698 (which is more than the prior belief). This posterior belief becomes our prior belief for new observations.</p>
+<p>The simulation works with samples generated from a Gaussian, or normal, distribution.</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">prior_distribution</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">10000</span>,<span class="op">-</span><span class="fl">0.7</span>,<span class="fl">0.2</span><span class="op">)</span></span>
+<span><span class="va">likelihood_distribution</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">10000</span>,<span class="op">-</span><span class="fl">0.4</span>,<span class="fl">0.5</span><span class="op">)</span></span>
+<span><span class="va">prior_combined_with_likelihood_distribution</span> <span class="op">=</span> <span class="op">(</span><span class="va">prior_distribution</span> <span class="op">+</span> <span class="va">likelihood_distribution</span><span class="op">)</span><span class="op">/</span><span class="fl">2</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">prior_combined_with_likelihood_distribution</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## [1] -0.5564038</code></pre>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">std</span><span class="op">(</span><span class="va">prior_combined_with_likelihood_distribution</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## [1] 0.2705433</code></pre>
+<p>The dog approaches and you observe it more friendly than you expected on the basis of your (new) prior belief.
+As a result, our next posterior belief will shift more in the direction of friendly dog.</p>
+<p>Now, with a second variable added, say we also consider the posture of the dog on a scale from -2 to 2 (stiff versus relaxed), our normal distribution would become two-dimensional rather than one-dimensional. Our mean would be specified by two values, and so would our standard deviation define ellipses around that mean. Yet the reasoning would remain the same. There would be a prior and a likelihood. And the posterior would just combine two-dimensional distributions, which could be used as a new prior, that is, an expectation about the attitude-size.</p>
+<p>The dog example illustrates Bayesian reasoning (inferring the posterior from likelihood and prior), and the dynamic behind that reasoning (the posterior becomes the new prior), using the parameters of the Gaussian model. As you observe more data, you can continue to update your beliefs (priors) and refine your understanding of the world.</p>
+<p>Bayesian reasoning could be applied to music, with variables addressing musical properties, such as harmony, articulation or rhythm. It’s here that we’ll restrict ourselves to timing. Tempo in particular. The prior is then a belief about the tempo and the observations are durations between successive tics of a metronome, or finger taps from human subjects.
+Figure <a href="chapModelling.html#fig:chapTheoryBayesianModel1">2.1</a> also suggests that while this Bayesian reasoning about the true tempo is going it is possible to probe the subject’s experiences, for example with questionnaires or other measurements. Questionnaire could address the difficulty of the task, the aborbation of the task and many other issues. The measures could be physiological measures (sweath, temperature), or brain activation measures, as <em>indicators</em> of those experiences.
+A questionnaire assumes that the subject is somehow capable of translating experiences in verbal descriptions.</p>
+<p>In short, the way in which the subject infers about the dog, is also the way in which subjects infer about tempo. Interestingly, it is even the way in which we – researchers – infer about the data gathered from observations during experiments. Most often our prior belief is rather uninformative, but sometimes it can be informative, for example when we have knowledge about human tapping. We known that tapping to a metronme is anticipative: human tap before the metronome beat. Well, that information can be used as a prior belief when we interpret observations.</p>
+<p>Our general research strategy also has a Bayesian updating of a theory. Our theory about self-augmented interaction states is typically updated once we applied it to concrete case studies, and find new evidence relevant for a refinement.</p>
+</div>
+<div id="interactions" class="section level3 unnumbered">
+<h3>Interactions<a class="anchor" aria-label="anchor" href="#interactions"><i class="fas fa-link"></i></a>
+</h3>
+<p>As we focus in this book on self-augmented interactions, we have a special focus on interaction as such. We do believe that interaction is a factor that stirrs-up the augmentation.
+Since we assume Bayesian reasoning as a basis for interacting with the environment, it’s of interest to consider what happens when this environement is responsive. For example, when the environment is an AI-system, or another human. Let’s take it another human.</p>
+<p>Two subjects interacting with each other can be represented using the Bayesian scheme shown in <a href="chapModelling.html#fig:chapTheoryBayesianModel1">2.1</a>.
+Each subject has a state-of-being expressed via a pattern. Each subject observes the pattern from the other subject and each subject infers the state of the other subject.
+Figure <a href="chapModelling.html#fig:chapTheoryBayesianModel2">2.2</a> shows the states-of-being of two subjects represented as fully colored left and right cycles (state 1 and state 2).</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:chapTheoryBayesianModel2"></span>
+<img src="Figures/chapModelling_BayesianModel_2subjects.png" alt="Bayesian model for 2 subjects" width="100%"><p class="caption">
+Figure 2.2: Bayesian model for 2 subjects
+</p>
+</div>
+<p>It is likely that the subjects will be mutually influenced when interacting. As shown in chapters <a href="chapTappers1.html#chapTappers1">7</a> and <a href="chapTappers2.html#chapTappers2">8</a>, this mutual influence can be understood as a flow of information among the units such that states of those units change. They change because humans to adapt to each other. And this ability to adapt may, in some cases, become a factor that facilitates the formation of self-augmented interaction states. For example, if musicians manage to adapt to each others tempo, they might be able to maintain a stable tempo as duet. And that result could be considered a self-augmented interaction state.</p>
+<p>In short, the Bayesian epistemology applies to both the subjects interacting, as well as to the researcher who is studying this interaction. It even applies to our modelling approaches.</p>
+</div>
+</div>
+<div id="regression" class="section level2" number="2.2">
+<h2>
+<span class="header-section-number">2.2</span> Regression<a class="anchor" aria-label="anchor" href="#regression"><i class="fas fa-link"></i></a>
+</h2>
+<p>So let’s have a look at modelling, given this overall Bayesian epistemology.
+In what follows, we utilize <em>regression</em> as a tool for analysis.
+Regression analysis is based on the idea that a variable, known as the response or dependent variable, can be predicted from other variables, known as predictors or independent variables. To predict we estimate parameters of a mathematical model, such as the mean and the standard deviation of a Gaussian model.</p>
+<p>Following Buerckner (2018), we write
+<span class="math display" id="eq:chapModellingEqRegression2">\[\begin{equation}
+\begin{aligned}
+y &amp;\sim D(\theta_{p})\\
+\text{or}\\
+y_i &amp;\sim D(\theta_{1,i},\theta_{2,i}, ...)
+\end{aligned}
+\tag{2.1}
+\end{equation}\]</span>
+<!-- \@ref(eq:chapModellingEqRegression2) -->
+to express that the response <span class="math inline">\(y\)</span> is predicted by all parameters <span class="math inline">\(\theta_p\)</span> of a response distribution <span class="math inline">\(D\)</span>.
+In more detail it means that <span class="math inline">\(y\)</span> at the <span class="math inline">\(i\)</span>th observation is predicted by all parameters
+<span class="math inline">\(\theta_{1},\theta_{2}, ...\)</span>
+at the <span class="math inline">\(i\)</span>th observation. In a normal model, we have the mean and the standard deviation as the only parameters.</p>
+<p>Every parameter <span class="math inline">\(\theta_p\)</span> can then be regressed on its own predictor term <span class="math inline">\(\eta_p\)</span>,
+transformed by a so-called inverse link function <span class="math inline">\(f_p\)</span>. Per observation <span class="math inline">\(i\)</span>, we have
+<span class="math inline">\(\theta_{pi} = f_p(\eta_{pi})\)</span>.
+In a normal model, the inverse link function would be the identity function.</p>
+<p>Then, every <span class="math inline">\(\eta_p\)</span> is regressed as in:
+<span class="math display" id="eq:chapModellingEqRegression3">\[\begin{equation}
+\eta = X\beta + Zu + \sum_{k=1}^{K} s_k(x_{k})
+\tag{2.2}
+\end{equation}\]</span>
+<!-- \@ref(eq:chapModellingEqRegression3) -->
+where <span class="math inline">\(\beta\)</span> and <span class="math inline">\(u\)</span> are the respective coefficients at the population-level and at the group-level (also known as random variables),
+and <span class="math inline">\(X\)</span>, <span class="math inline">\(Z\)</span> are the corresponding design matrices.
+The terms <span class="math inline">\(s_k(x_k)\)</span> symbolize optional smooth functions of unspecified form based on covariates <span class="math inline">\(x_k\)</span> fitted via functions (e.g. splines, gaussian processes).</p>
+</div>
+<div id="data-as-indicator" class="section level2" number="2.3">
+<h2>
+<span class="header-section-number">2.3</span> Data as indicator<a class="anchor" aria-label="anchor" href="#data-as-indicator"><i class="fas fa-link"></i></a>
+</h2>
+<p>Let’s work out a regression example using timing data.
+Along the way, we’ll introduce some relevant concepts that will return in later chapters.</p>
+<p>Here we go.
+Consider the simple question whether humans can synchronize their finger <em>tapping</em> along with a regular metronome <em>ticking.</em>
+Can we use regression to say something about finger tapping?
+<!-- See Chapter \@ref(chapDanceMusic) for a study with dancers, or Chapter \@ref(chap:DriftingMetronomes) for a study with dyadic finger tapping. --></p>
+<div id="dataset" class="section level3 unnumbered">
+<h3>Dataset<a class="anchor" aria-label="anchor" href="#dataset"><i class="fas fa-link"></i></a>
+</h3>
+<p>Here we use data from Rosso et al. (2023), in which a subject is instructed to tap with the finger on the table, along with regular metronome tics, heard every <span class="math inline">\(0.6\)</span> seconds, during <span class="math inline">\(390\)</span> seconds.
+When the finger touches the measurement device on the table, a clock time gets registered for a tap.
+And it also registers the tic.
+The data can then be arranged as an array of time values at which the tap and tic appeared.
+The first six rows of the dataset look like:</p>
+<div class="inline-table"><table class="table table-striped" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:chapModellingHeadD1">Table 2.1: </span>Tic and tap times
+</caption>
+<thead><tr>
+<th style="text-align:right;">
+time
+</th>
+<th style="text-align:left;">
+names
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+0.12
+</td>
+<td style="text-align:left;">
+tap
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+0.60
+</td>
+<td style="text-align:left;">
+tic
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+0.64
+</td>
+<td style="text-align:left;">
+tap
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1.20
+</td>
+<td style="text-align:left;">
+tic
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1.21
+</td>
+<td style="text-align:left;">
+tap
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1.80
+</td>
+<td style="text-align:left;">
+tic
+</td>
+</tr>
+</tbody>
+</table></div>
+<p>The column <code>time</code> marks numerical time values while <code>names</code> is a factor with two levels: <code>tic</code> and <code>tap.</code>
+Another view on the dataset is given by:</p>
+<pre><code>## 'data.frame':    6 obs. of  2 variables:
+##  $ time : num  0.12 0.6 0.64 1.2 1.21 1.8
+##  $ names: Factor w/ 2 levels "tic","tap": 2 1 2 1 2 1</code></pre>
+<p>It just says that the object is a <code>data.frame</code> of 6 observations and 2 variables, <code>time</code> and <code>names</code>, and it shows the first values. As there are only 6 such values, we see them all.</p>
+<p>At this point it may be of interest to show what we do with data.
+The following code is found in `Code/chapModelling/chapModelling_02_DataPreparation.R```.</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">TicTap_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span><span class="op">(</span>file <span class="op">=</span> <span class="st">"Data/chapModelling_TicTap_Data.rds"</span><span class="op">)</span></span>
+<span><span class="va">d1</span> <span class="op">&lt;-</span> <span class="va">TicTap_data</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">names</span> <span class="op">==</span> <span class="st">"metronome"</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">mutate</span><span class="op">(</span>dtime <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.6</span>,<span class="fu"><a href="https://rdrr.io/r/base/diff.html">diff</a></span><span class="op">(</span><span class="va">time</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> </span>
+<span><span class="va">d2</span> <span class="op">&lt;-</span> <span class="va">TicTap_data</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">names</span> <span class="op">==</span> <span class="st">"subject"</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">mutate</span><span class="op">(</span>dtime <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">NA</span>,<span class="fu"><a href="https://rdrr.io/r/base/diff.html">diff</a></span><span class="op">(</span><span class="va">time</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> </span>
+<span><span class="va">DData</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span><span class="op">(</span><span class="va">d1</span>,<span class="va">d2</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">arrange</span><span class="op">(</span><span class="va">time</span><span class="op">)</span></span>
+<span><span class="va">w</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">DData</span><span class="op">$</span><span class="va">dtime</span><span class="op">&gt;</span><span class="fl">.9</span><span class="op">)</span></span>
+<span><span class="va">DData</span> <span class="op">&lt;-</span> <span class="va">DData</span><span class="op">[</span><span class="op">-</span><span class="va">w</span>,<span class="op">]</span></span></code></pre></div>
+<p>We read the content of a file that is stored in <code>Data/chapModelling_TicTap_Data.rds</code> and we store it in <code>TicTap_data</code>.
+<code>DData</code> is then created and we turn it into a table using an R-chunk that was already used above.
+It was hidden when the text was rendered.
+Here we explicitly show the chunk used above and generate the table, showing the time at which a tic or tap occurred:</p>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">DData</span> <span class="op">&lt;-</span> <span class="va">DData</span> <span class="op">%&gt;%</span> <span class="fu">mutate</span><span class="op">(</span>names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">names</span>, labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"tic"</span>,<span class="st">"tap"</span><span class="op">)</span><span class="op">)</span>, time <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">time</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">D1</span> <span class="op">&lt;-</span> <span class="va">DData</span> <span class="op">%&gt;%</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">time</span>, <span class="va">names</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="va">D1</span>, booktabs<span class="op">=</span><span class="cn">T</span>, label <span class="op">=</span> <span class="cn">NA</span>, caption <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"Tic and tap times"</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">kable_styling</span><span class="op">(</span><span class="st">"striped"</span>, font_size <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-table"><table class="table table-striped" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:chapModellingHeadD1rep">Table 2.2: </span>Tic and tap times
+</caption>
+<thead><tr>
+<th style="text-align:right;">
+time
+</th>
+<th style="text-align:left;">
+names
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+0.12
+</td>
+<td style="text-align:left;">
+tap
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+0.60
+</td>
+<td style="text-align:left;">
+tic
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+0.64
+</td>
+<td style="text-align:left;">
+tap
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1.20
+</td>
+<td style="text-align:left;">
+tic
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1.21
+</td>
+<td style="text-align:left;">
+tap
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1.80
+</td>
+<td style="text-align:left;">
+tic
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div id="period" class="section level3 unnumbered">
+<h3>Period<a class="anchor" aria-label="anchor" href="#period"><i class="fas fa-link"></i></a>
+</h3>
+Now, consider a simple analysis based on counting the periods of successive tics and successive taps (or inter-tic and inter-tap intervals). When we prepared <code>DData</code> we also calculated these periods and stored the values in <code>dtime.</code>
+The data look like this:
+<div class="inline-table"><table class="table table-striped" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:chapModellingPeriods">Table 2.3: </span>Periods: inter-tap and inter-tic intervals
+</caption>
+<thead><tr>
+<th style="text-align:left;">
+names
+</th>
+<th style="text-align:right;">
+time
+</th>
+<th style="text-align:right;">
+dtime
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+tap
+</td>
+<td style="text-align:right;">
+0.12
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+tic
+</td>
+<td style="text-align:right;">
+0.60
+</td>
+<td style="text-align:right;">
+0.600
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+tap
+</td>
+<td style="text-align:right;">
+0.64
+</td>
+<td style="text-align:right;">
+0.514
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+tic
+</td>
+<td style="text-align:right;">
+1.20
+</td>
+<td style="text-align:right;">
+0.601
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+tap
+</td>
+<td style="text-align:right;">
+1.21
+</td>
+<td style="text-align:right;">
+0.568
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+tic
+</td>
+<td style="text-align:right;">
+1.80
+</td>
+<td style="text-align:right;">
+0.600
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+tap
+</td>
+<td style="text-align:right;">
+1.82
+</td>
+<td style="text-align:right;">
+0.612
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+tap
+</td>
+<td style="text-align:right;">
+2.40
+</td>
+<td style="text-align:right;">
+0.582
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+tic
+</td>
+<td style="text-align:right;">
+2.40
+</td>
+<td style="text-align:right;">
+0.600
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+tic
+</td>
+<td style="text-align:right;">
+3.00
+</td>
+<td style="text-align:right;">
+0.598
+</td>
+</tr>
+</tbody>
+</table></div>
+<p>The values of <code>dtime</code> are based on the time difference between each successive tap, as well as the time difference between each successive tic.
+A histogram of the periods is then shown in figure <a href="chapModelling.html#fig:chapModellingTapping1">2.3</a>, left panel.
+The code for calculating these histograms is found in Code/chapModelling/chapModelling_03_DataPlotting.R</p>
+<div class="figure">
+<span style="display:block;" id="fig:chapModellingTapping1"></span>
+<img src="Figures/chapModelling_Tapping1.png" alt="Left panel, histogram of periods. Right panel, histogram of relative phases. The blue line shows the mean at -2.03[rad] according to the circular model. The ocre line shows the mean at -1.09[rad] according to the non-circular model. The red line shows the mean at -1.68[rad] according to the synchronization strength measure" width="100%"><p class="caption">
+Figure 2.3: Left panel, histogram of periods. Right panel, histogram of relative phases. The blue line shows the mean at -2.03[rad] according to the circular model. The ocre line shows the mean at -1.09[rad] according to the non-circular model. The red line shows the mean at -1.68[rad] according to the synchronization strength measure
+</p>
+</div>
+<p>In order to be able to count periods,
+small containers covering small ranges (= bins) are defined by setting a binwidth, in which periods of slightly different value fit.
+For our current purposes the binwidth is not that important but should be small enough and not too small, so that a good amount of periods fit in a bin.
+Whenever a measured period falls in such a bin, the bin count increases.
+The histogram on the left reveals that the metronome’s periods, shown in gray color, are not exactly <span class="math inline">\(0.6 ~s\)</span>, as expected, but close. This is due to very small differences (a few milliseconds) in tics whose origin is technical. Anyhow, these differences cannot be perceived by the human ear.</p>
+<p>The subject’s periods, shown in green color, fluctuate more broadly around this value.
+They appear as a normal distribution with a mean close to <span class="math inline">\(0.6 ~s\)</span> and a standard deviation of <span class="math inline">\(0.046~s\)</span>.
+More precisely:</p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">ms</span> <span class="op">&lt;-</span> <span class="va">DData</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">names</span> <span class="op">==</span> <span class="st">"tap"</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">drop_na</span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">summarise</span><span class="op">(</span>mu <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">dtime</span><span class="op">)</span>,sd <span class="op">=</span> <span class="fu">std</span><span class="op">(</span><span class="va">dtime</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="va">ms</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>    <span class="fu">kable_styling</span><span class="op">(</span><span class="st">"striped"</span>, font_size <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-table"><table class="table table-striped" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<thead><tr>
+<th style="text-align:right;">
+mu
+</th>
+<th style="text-align:right;">
+sd
+</th>
+</tr></thead>
+<tbody><tr>
+<td style="text-align:right;">
+0.5959834
+</td>
+<td style="text-align:right;">
+0.0457898
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<div id="relative-phase" class="section level3 unnumbered">
+<h3>Relative phase<a class="anchor" aria-label="anchor" href="#relative-phase"><i class="fas fa-link"></i></a>
+</h3>
+<p>More revealing, perhaps, is a view of the <em>relative phase</em>, shown in the histogram on the right.
+The data look like this:</p>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="va">RelPhase</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">mutate</span><span class="op">(</span>relphase <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">relphase</span>,<span class="fl">2</span><span class="op">)</span> <span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">time</span>,<span class="va">relphase</span><span class="op">)</span>  <span class="op">%&gt;%</span> <span class="fu">arrange</span><span class="op">(</span><span class="va">time</span><span class="op">)</span> </span>
+<span><span class="fu">kable</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span>, </span>
+<span>      booktabs<span class="op">=</span><span class="cn">T</span>, label <span class="op">=</span> <span class="cn">NA</span>, </span>
+<span>      caption <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"Data with relative phase"</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">kable_styling</span><span class="op">(</span><span class="st">"striped"</span>, font_size <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-table"><table class="table table-striped" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:chapModellingRelPhases">Table 2.4: </span>Data with relative phase
+</caption>
+<thead><tr>
+<th style="text-align:right;">
+time
+</th>
+<th style="text-align:right;">
+relphase
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+0.637
+</td>
+<td style="text-align:right;">
+0.38
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1.205
+</td>
+<td style="text-align:right;">
+0.03
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1.817
+</td>
+<td style="text-align:right;">
+0.16
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2.399
+</td>
+<td style="text-align:right;">
+6.25
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3.006
+</td>
+<td style="text-align:right;">
+0.06
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3.590
+</td>
+<td style="text-align:right;">
+6.16
+</td>
+</tr>
+</tbody>
+</table></div>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># \@ref(tab:chapModellingRelPhases)</span></span></code></pre></div>
+<p>To calculate the relative phase, let’s go back to the previous table showing tic and tap times from metronome and subject.
+The tap event at row <span class="math inline">\(n\)</span> (<span class="math inline">\(tap_n\)</span>) is considered within the two surrounding tic events closest in time, found at row <span class="math inline">\(m\)</span> and row <span class="math inline">\(m+\)</span> (the next row where we find a tic).
+The relative phase <span class="math inline">\(\phi\)</span> of <span class="math inline">\(tap_n\)</span> (called: <span class="math inline">\(\phi_n\)</span>) is then defined as the time interval from <span class="math inline">\(tic_m\)</span> to <span class="math inline">\(tap_n\)</span>, divided by the time interval from <span class="math inline">\(tic_{m}\)</span> to <span class="math inline">\(tic_{m+}\)</span>, multiplied by <span class="math inline">\(2\pi\)</span> to represent the ratio of time intervals in <span class="math inline">\(radians\)</span>, as in:</p>
+<p><span class="math display" id="eq:chapModellingEquationRelPhase">\[\begin{equation}
+\phi_n~= ~2\pi \left(\frac{tic_m - tap_n}{tic_m - tic_{m+}}\right)
+\tag{2.3}
+\end{equation}\]</span>
+<!-- \@ref(eq:chapModellingEquationRelPhase) --></p>
+<p>After the tic at <span class="math inline">\(0.6 s\)</span>, the first tap occurs at <span class="math inline">\(0.64 s\)</span>. The tap is in the tic interval <span class="math inline">\([0.60,1.20]s\)</span>,
+thus we have <span class="math inline">\(2\pi[(.6 - .64) / (.6 - 1.2)] = 0.42 [rad]\)</span>.
+With <a href="chapModelling.html#eq:chapModellingEquationRelPhase">(2.3)</a> we always get a value between 0 and <span class="math inline">\(2\pi\)</span>.
+To obtain a value in the range <span class="math inline">\([-\pi,+\pi]\)</span> it is necessary to rotate as in:</p>
+<p><span class="math display" id="eq:chapModellingEquationPhaseRotation">\[\begin{equation}
+\hat\phi_n = [(\phi_n + \pi)mod(2\pi)] -\pi
+\tag{2.4}
+\end{equation}\]</span>
+<!-- \@ref(eq:chapModellingEquationPhaseRotation) --></p>
+<p>where <span class="math inline">\(\hat\phi_n\)</span> is the rotated value, and <span class="math inline">\(mod\)</span> is the modulo operation <code>(A)modulo(B)</code>.
+Rotation has the effect that all values above <span class="math inline">\(\pi\)</span> go below <span class="math inline">\(0\)</span>.</p>
+<p>Accordingly, when <span class="math inline">\(tap_n\)</span> occurs in the half cycle after <span class="math inline">\(tic_m\)</span>, <span class="math inline">\(\hat\phi_n\)</span> is positive, indicating delay.
+When <span class="math inline">\(tap_n\)</span> occurs in the half cycle before <span class="math inline">\(tic_{m+}\)</span>, <span class="math inline">\(\hat\phi_n\)</span> is negative, indicating anticipation to <span class="math inline">\(tic_{m+}\)</span>.
+Rotating <span class="math inline">\(0.42 [rad]\)</span>, we do <span class="math inline">\((.42 + \pi)\)</span> modulo <span class="math inline">\((2 \pi)- \pi\)</span> and we get again <span class="math inline">\(0.42 [rad]\)</span>. In that case, rotation has no effect and
+that’s what we want. Only values above <span class="math inline">\(\pi\)</span> get rotated and re-appear below zero.
+If the value is 4[rad], rotation gives -2.28[rad].</p>
+<p>The obtained scale is a circular scale with <span class="math inline">\(0\pi\)</span> (equal to <span class="math inline">\(2\pi\)</span>) appearing in the middle of the interval spanned by <span class="math inline">\([-\pi,+\pi]\)</span>. It expresses the relative phase on a cycle marked by successive taps. The circularity implies that values slightly <span class="math inline">\(&gt;\pi\)</span> can also be considered slightly <span class="math inline">\(&lt;-\pi\)</span>.
+In the relative phase histogram of figure <a href="chapModelling.html#fig:chapModellingTapping1">2.3</a>, the peak has a negative value, meaning that, on average, the taps occur in the half cycle before a tic (all tics being at zero). The taps are anticipating the ticks.
+Note that the histogram has a distribution that looks normal but slightly skewed to the right.</p>
+</div>
+<div id="polar-representation" class="section level3 unnumbered">
+<h3>Polar representation<a class="anchor" aria-label="anchor" href="#polar-representation"><i class="fas fa-link"></i></a>
+</h3>
+<p>Interestingly, the relative phase can be represented as the angle of a unit length vector in polar representation.
+Accordingly, we construct the vector as:</p>
+<p><span class="math display" id="eq:chapModellingEquationVector1">\[\begin{equation}
+v = e^{(j\phi)}
+\tag{2.5}
+\end{equation}\]</span>
+<!-- \@ref(eq:chapModellingEquationVector1) -->
+where <span class="math inline">\(v\)</span> is the unit length vector with its angle equal to the relative phase <span class="math inline">\(\phi\)</span>.
+<span class="math inline">\(j\)</span> indicates that it is a complex number.</p>
+<p>Given a series of relative phases, we first turn them all into unit vectors.
+We sum all unit vectors and divide by the number of unit vectors.
+From the resultant vector <span class="math inline">\(V\)</span> we can then easily extract the polar coordinates, being the vector length <span class="math inline">\(R\)</span> and the angle <span class="math inline">\(\alpha\)</span>. That’s what we do here.</p>
+<p><span class="math display" id="eq:chapModellingEquationVector2">\[\begin{equation}
+V = \frac{1}{N}\sum_{n=1}^N v_n\\
+R = Mod(V)\\
+\alpha = Arg(V)
+\tag{2.6}
+\end{equation}\]</span>
+<!-- \@ref(eq:chapModellingEquationVector2) --></p>
+<p>For example, given the relative phases shown in table <a href="chapModelling.html#tab:chapModellingRelPhases">2.4</a>, we first turn them into unit vectors.
+These vectors point in several directions along the unit circle because their phases are all different from zero. The mean length is smaller than one.</p>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">V</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="fl">1i</span> <span class="op">*</span><span class="fl">0.38</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="fl">1i</span><span class="op">*</span><span class="fl">0.03</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="fl">1i</span><span class="op">*</span><span class="fl">0.16</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>        <span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1i</span><span class="op">*</span><span class="fl">0.03</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="fl">1i</span><span class="op">*</span><span class="fl">0.06</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1i</span><span class="op">*</span><span class="fl">0.13</span><span class="op">)</span><span class="op">)</span> <span class="op">/</span><span class="fl">6</span></span></code></pre></div>
+<p>R and <span class="math inline">\(\alpha\)</span> are given by</p>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/complex.html">Mod</a></span><span class="op">(</span><span class="va">V</span><span class="op">)</span> </span></code></pre></div>
+<pre><code>## [1] 0.9871149</code></pre>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/complex.html">Arg</a></span><span class="op">(</span><span class="va">V</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## [1] 0.077842</code></pre>
+</div>
+<div id="synchronization-strength-and-delay" class="section level3 unnumbered">
+<h3>Synchronization strength and delay<a class="anchor" aria-label="anchor" href="#synchronization-strength-and-delay"><i class="fas fa-link"></i></a>
+</h3>
+<p>When working with relative phase, the length <span class="math inline">\(R\)</span> can be interpreted as <em>synchronization strength</em>.
+If the tap is perfectly synchronized with the tic, then <span class="math inline">\(R = 1\)</span>.
+The angle <span class="math inline">\(\alpha\)</span> can be interpreted as <em>synchronization delay</em>.
+If the tap is not anticipated, or has no delay, then <span class="math inline">\(\alpha = 0 [rad]\)</span>.</p>
+<p>We can now return to the data from table <a href="chapModelling.html#tab:chapModellingPeriods">2.3</a> as shown in figure <a href="chapModelling.html#fig:chapModellingTapping1">2.3</a>, right panel.
+Taking all data into account, the synchronization strength <span class="math inline">\(R = 0.61\)</span> and the synchronization delay <span class="math inline">\(\alpha = -1.68[rad]\)</span>.
+The latter is shown in the right panel of figure <a href="chapModelling.html#fig:chapModellingTapping1">2.3</a> as dotted red line.</p>
+<p>At that point, the analysis could stop and conclusions could be drawn about the subject’s tapping variability.
+It has a <em>negative mean asynchrony</em>, indicating anticipation in tapping.</p>
+<p>This finding confirms what we know from literature. The finding that tapping proceeds ticking is in agreement with the theoretical assumption about the predictive brain. In this case, the brain handles motor prediction because the asymmetric delay lines of (longer) tactile feedback and (shorter) auditory feedback are compensated by tapping earlier, so that tactile feedback and auditory feedback arrive at the same time in the brain.</p>
+</div>
+</div>
+<div id="data-and-model" class="section level2" number="2.4">
+<h2>
+<span class="header-section-number">2.4</span> Data and model<a class="anchor" aria-label="anchor" href="#data-and-model"><i class="fas fa-link"></i></a>
+</h2>
+<p>Of course we don’t stop here.
+In fact, the fun just starts.
+The tapping events can be considered indicators of a continuous hidden process related to the brain’s prediction over time.
+Statistical models can make that hidden process visible.</p>
+<div id="circular-axis" class="section level3 unnumbered">
+<h3>Circular axis<a class="anchor" aria-label="anchor" href="#circular-axis"><i class="fas fa-link"></i></a>
+</h3>
+<p>Consider again the dataset shown in table <a href="chapModelling.html#tab:chapModellingRelPhases">2.4</a>.
+We get an interesting graphical representation by showing the relative phase as an event in time, as ilustrated in figure <a href="chapModelling.html#fig:chapModellingTapping0">2.4</a>, that is, with <code>time</code> on the horizontal axis and <code>relphase</code> on the vertical axis.
+The figure shows a particular tapping segment between 160 and 175 seconds.
+The dashed vertical lines show the tics.
+The circles show the taps at defined relative phase values, which depend on the tap time relative to the tic time.</p>
+<p>Some tics may be missing because the tic selected is always the first tic before the tap.
+For example, when the tap period is wider than the tic period, the first tic is not selected.
+Given <span class="math inline">\(tic_0, tap_1, tic_1, tic_2, tap_2\)</span>, then <span class="math inline">\(tic_1\)</span> will not be shown
+because <span class="math inline">\(tic_0\)</span> is the reference for <span class="math inline">\(tap_1\)</span> and <span class="math inline">\(tic_2\)</span> is the reference for <span class="math inline">\(tap_2\)</span>.
+Taps have a positive relative phase (i.e., delayed) when they fall in the first half-cycle after a tic.
+Taps have a negative relative phase (i.e., anticipated) when they fall in the first half-cycle before the next tic.
+Following that logic, the values on top of figure <a href="chapModelling.html#fig:chapModellingTapping0">2.4</a>,
+between about 163 and 167 seconds, form actually part of a U-shaped sequence of relative phase values, as the vertical axis is circular. . The code is found in <code>Code/chapModelling/chapModelling_03_DataPlotting.R</code>.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:chapModellingTapping0"></span>
+<img src="Figures/chapModelling_Tapping0.png" alt="Relative phase values over time, using a circular vertical axis" width="75%"><p class="caption">
+Figure 2.4: Relative phase values over time, using a circular vertical axis
+</p>
+</div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:chapModellingBrms1"></span>
+<img src="Figures/chapModelling_Brms1.png" alt="Relative phase values over time fitted, using a circular model (blue), a non-circular model (ochre)" width="75%"><p class="caption">
+Figure 2.5: Relative phase values over time fitted, using a circular model (blue), a non-circular model (ochre)
+</p>
+</div>
+<p>A complete tapping sequence is shown in figure <a href="chapModelling.html#fig:chapModellingBrms1">2.5</a>.
+The code is found in <code>Code/chapModelling/chapModelling_05_ModelPlotting.R</code>.
+The continuous lines are smooths generated by two different smooth regression models, either taking into account the circularity of the response (= blue line), or not (= ochre line). Smooths are in fact curves that go through the data in an optimal fluent way, whose resolution we can define.
+Given our knowledge about the circularity of the relative phase, the ochre line one is just wrong.</p>
+<p>How did we obtain this figure?</p>
+</div>
+<div id="smooth-regression" class="section level3 unnumbered">
+<h3>Smooth regression<a class="anchor" aria-label="anchor" href="#smooth-regression"><i class="fas fa-link"></i></a>
+</h3>
+<p>The description of the smooth regression model below is based on the <code>lme4</code>-syntax, used in most R-packages for statistics.
+It is defined by a relation between response and predictor as:
+<!-- $$ -->
+<!-- relphase \sim 1 + s(time, k=30) -->
+<!-- $$ --></p>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">relphase</span> <span class="op">~</span> <span class="fl">1</span> <span class="op">+</span> <span class="fu">s</span><span class="op">(</span><span class="va">time</span>, k<span class="op">=</span><span class="fl">30</span><span class="op">)</span></span></code></pre></div>
+<p>The formula says that the relative phase <code>relphase</code> is distributed as an offset (indicated by 1) plus a smooth over time using a basis of <span class="math inline">\(k=30\)</span> spline-functions.
+Each relative phase value <span class="math inline">\(\phi_i\)</span>, occurring at a particular time <span class="math inline">\(t\)</span>, is equal to an offset plus a linear combination of 30 spline-functions values evaluated at <span class="math inline">\(t\)</span>, plus some residual noise.
+The splines capture the correlation among relative phase values over time.
+Obviously, the model should come up with fitted splines for all <span class="math inline">\(\phi_i\)</span> at once.</p>
+<p>As the values of <span class="math inline">\(\phi_n\)</span> have a value on a circular axis defined by the interval <span class="math inline">\([-\pi,+\pi]\)</span>, the regression model has to be <em>fitted</em> with a proper circular link function (family=“von_mises”), so that the predictor gets correctly mapped to the circular axis of the response.
+Accordingly, the formula in the <code>brms</code>-package is:
+<!-- $$ -->
+<!-- formula \leftarrow relphase \sim1 + s(time, k=30), family =  "von\_mises"  -->
+<!-- $$ --></p>
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">formula</span> <span class="op">=</span> <span class="fu">bf</span><span class="op">(</span><span class="va">relphase</span> <span class="op">~</span> <span class="fl">1</span> <span class="op">+</span> <span class="fu">s</span><span class="op">(</span><span class="va">time</span>, k<span class="op">=</span><span class="fl">30</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">family</span> <span class="op">=</span> <span class="st">"von_mises"</span></span></code></pre></div>
+<p>If <code>family</code> is not specified, the model assumes that <code>relphase</code> is non-circular; it’s the ochre model.
+The non-circular model (ochre) is strongly affected by the values close to <span class="math inline">\(\pi\)</span>.
+It considers these as high positive values so that the time-independent mean goes up.
+In contrast, the circular model (blue) considers the points near <span class="math inline">\(\pi\)</span> on the circular axis so that the mean is lower and more in line with the other estimates.
+The time-independent means are shown as vertical (blue and ochre) lines on the histogram in figure <a href="chapModelling.html#fig:chapModellingTapping1">2.3</a> (right panel).</p>
+<p>Readers interested in the code can have a look at
+<code>Code/chapModelling/chapModelling_04_Modelling.R</code>.
+Basically, it contains this:</p>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># response and smooth over time</span></span>
+<span><span class="va">form</span> <span class="op">=</span> <span class="fu">bf</span><span class="op">(</span><span class="va">relphase</span> <span class="op">~</span> <span class="fl">1</span> <span class="op">+</span> <span class="fu">s</span><span class="op">(</span><span class="va">time</span>, k<span class="op">=</span><span class="fl">50</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co"># circular distribution</span></span>
+<span><span class="va">fam</span> <span class="op">=</span> <span class="st">"von_mises"</span></span>
+<span><span class="co"># get priors</span></span>
+<span><span class="va">priors</span> <span class="op">=</span> <span class="fu">get_prior</span><span class="op">(</span>formula <span class="op">=</span> <span class="va">form</span>,data <span class="op">=</span> <span class="va">RelPhase</span>, family <span class="op">=</span> <span class="va">fam</span><span class="op">)</span></span>
+<span><span class="co"># run the model with the dataset RelPhase and </span></span>
+<span><span class="co"># the above defined form, priors, and fam</span></span>
+<span><span class="va">B1</span> <span class="op">&lt;-</span> <span class="fu">run_model_cmdstanr</span><span class="op">(</span><span class="va">RelPhase</span>, <span class="va">form</span>, <span class="va">priors</span>, <span class="va">fam</span><span class="op">)</span></span></code></pre></div>
+<p><code>run_model_cmdstanr()</code> is a custom function defined in <code>Code/chapAll_00_Functions.R</code>, shown here:</p>
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">run_model_cmdstanr</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">Data</span>, <span class="va">form</span>, <span class="va">fam</span>, <span class="va">priors</span><span class="op">)</span><span class="op">{</span>   <span class="co">#  }, priors){</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">form</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>,<span class="va">fam</span>,sep<span class="op">=</span><span class="st">"\n"</span><span class="op">)</span><span class="op">)</span></span>
+<span>  <span class="va">fit</span> <span class="op">&lt;-</span> <span class="fu">brms</span><span class="fu">::</span><span class="fu"><a href="https://paulbuerkner.com/brms/reference/brm.html">brm</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">Data</span>,</span>
+<span>             formula <span class="op">=</span> <span class="va">form</span>,</span>
+<span>             family <span class="op">=</span> <span class="va">fam</span>,</span>
+<span>             prior <span class="op">=</span> <span class="va">priors</span>,</span>
+<span>             iter <span class="op">=</span> <span class="fl">6000</span>, warmup <span class="op">=</span> <span class="fl">3000</span>,</span>
+<span>             <span class="co">#control = list(adapt_delta = 0.995,  max_treedepth = 12),</span></span>
+<span>             init <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>             thin <span class="op">=</span> <span class="fl">2</span>,</span>
+<span>             chains <span class="op">=</span> <span class="fl">4</span>,</span>
+<span>             backend <span class="op">=</span> <span class="st">"cmdstanr"</span>,</span>
+<span>             threads <span class="op">=</span> <span class="fu">threading</span><span class="op">(</span><span class="fl">4</span><span class="op">)</span>,</span>
+<span>             silent <span class="op">=</span> <span class="fl">0</span></span>
+<span>             <span class="co">#save_pars = save_pars(all = TRUE),</span></span>
+<span>             <span class="co">#sample_prior = TRUE #,</span></span>
+<span>             <span class="co">#file = filen</span></span>
+<span>  <span class="op">)</span></span>
+<span>  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">fit</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code></pre></div>
+<p>I calls <code>brm</code> from the R-package <code>brms</code>. It compiles a program in Stan and runs 6000 sampling iterations for finding the solution of the equation. The output is stored in <code>fit</code>.
+A simple way to see what is in <code>fit</code> is to load the model, and use <code>conditional_effets()</code> function from the R-package <code>brms</code>.</p>
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/load.html">load</a></span><span class="op">(</span><span class="st">"Fitted/chapModelling_modelB1_k50.rda"</span><span class="op">)</span></span>
+<span><span class="fu">conditional_effects</span><span class="op">(</span><span class="va">B1</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="03_chapModelling_files/figure-html/unnamed-chunk-5-1.png" width="672"></div>
+<p>It shows the blue model of figure <a href="chapModelling.html#fig:chapModellingBrms1">2.5</a>.
+As said, our figure <a href="chapModelling.html#fig:chapModellingBrms1">2.5</a> is calculated in <code>Code/chapModelling/chapModelling_05_ModelPlotting.R</code>.</p>
+<p>In what follows, we try to avoid too much code in the text.
+Instead, when deemed relevant, we’ll point the reader to the relevant code script in R.</p>
+</div>
+<div id="uncertainty" class="section level3 unnumbered">
+<h3>Uncertainty<a class="anchor" aria-label="anchor" href="#uncertainty"><i class="fas fa-link"></i></a>
+</h3>
+<p>Let us proceed with explaining uncertainty in
+figure <a href="chapModelling.html#fig:chapModellingBrms1">2.5</a>.
+The figure shows the predicted mean and its uncertainty over time.
+Taking the average over time, the means are at -2.03[rad] according to the circular model and at -1.09[rad] according to the non-circular model.
+Since we know that the time between tics is <span class="math inline">\(0.6 s\)</span>, the anticipated time is
+<span class="math inline">\((-2.03 / 2\pi) 0.6s = -0.194s\)</span> for the circular model
+and in the non-circular model it is <span class="math inline">\(-0.105s\)</span>.
+In the circular model the uncertainty is given by the critical interval (CI-95%) of <span class="math inline">\([-2.39,-1.75]\)</span>.
+CI-95% indicates that the mean would appear in that interval in 95% of the estimations.
+In the non-circular model, the uncertainty is given by the critical interval (CI-95%) of <span class="math inline">\([-1.18,-1.00]\)</span>.
+Clearly, both models have some uncertainty that is unresolved by the parameters of the regression model.</p>
+<p>The type of statistical modelling can be called: <em>circular-linear smooth regression</em>.
+With this name we stress the fact that the response is circular and the predictor is linear, and that we use smooths.
+Soon, we’ll work with circular-linear hierarchical distributional smooth regression.
+Don’t panic, we know already the circular-linear smooth regression!</p>
+</div>
+</div>
+<div id="predictions-of-tapping" class="section level2" number="2.5">
+<h2>
+<span class="header-section-number">2.5</span> Predictions of tapping<a class="anchor" aria-label="anchor" href="#predictions-of-tapping"><i class="fas fa-link"></i></a>
+</h2>
+<p>Given a model and its fitted parameters, it can be used to generate discrete tapping events.
+Recall that the fitted model gives us an estimation of a continuous hidden process.
+To create the discrete taps we have to make sure that the relative phase values match with the time values at which they occur.
+<!-- To obtain these time values, we first construct the phase of the tappings -->
+<!-- First, the model generates the relative phase, of taps versus tics at given time values corresponding to the tics. -->
+<!-- Then the tap phase is reconstructed using the given tic phase and the predicted relative phase, and turn that tap phase in the time values corresponding to the taps. -->
+<!-- The last step goes from continuous to discrete by selecting the tap phase that occurs at multiples of $2\pi$. --></p>
+<p>This is how we proceed:
+- First, we predict the relative phase <span class="math inline">\(\phi^{tap}_n\)</span> from the fitted model using a sampling rate of 100 samples per second.
+We thus get predictions of the relative phase <span class="math inline">\(\phi^{tap}_n\)</span> at time instances
+<span class="math inline">\(t_1=0[s], t_2= 0.01[s],...,t_N = 390[s]\)</span>, with <span class="math inline">\(n\)</span> as an index (<span class="math inline">\(n=1,2,...,N\)</span>) over samples and <span class="math inline">\(t_n\)</span> being the sample time.
+- Next, we calculate the generated tap phase <span class="math inline">\(\psi^{tap}_n\)</span> as the sum of (i) the tic phase <span class="math inline">\(\psi^{tic}_n\)</span>, (ii) the relative phase <span class="math inline">\(\phi^{tap}_n\)</span>, and (ii) some noise <span class="math inline">\(\epsilon_n\)</span>. This is expressed as:
+<span class="math display">\[
+\psi^{tap}_n = \psi_n^{tic} + \phi^{tap}_n + 2\pi\epsilon_n ~,~with \\
+\psi_n^{tic}=\frac{2\pi t_n}{0.6},~and\\
+\epsilon_n \sim  N(0,.05).
+\]</span>
+Note that <span class="math inline">\(\psi_n^{tic}\)</span> is the phase that corresponds with the time indication given by the metronome tic <span class="math inline">\(tic_n\)</span>.
+The division by <span class="math inline">\(0.6\)</span> guarantees that <span class="math inline">\(2\pi\)</span> (= the maximum phase of the metronome tic) occurs at multiples of <span class="math inline">\(t_n=0.6~[s]\)</span>.
+The noise added to the predicted relative phase comes from a normal distribution with zero mean and 0.05 standard deviation.</p>
+<ul>
+<li>Finally, to get the discrete tap values <span class="math inline">\(\psi^{tap}_{\hat n}\)</span> we select all the samples <span class="math inline">\(n\)</span> at which
+<span class="math inline">\(\psi^{tap}_n\)</span> modulo <span class="math inline">\(2 \pi\)</span> is a maximum.
+We then get the time value at which <span class="math inline">\(\psi^{tap}_{\hat n}\)</span> occurs:</li>
+</ul>
+<p><span class="math display">\[
+\psi^{tap}_{\hat n} = max(mod(\psi^{tap}_{n},2\pi))\\
+t^{tap}_{\hat n}  = \frac{0.6 \psi^{tap}_{\hat n}  }{2\pi}
+\]</span>
+with <span class="math inline">\(\psi^{tap}_{\hat n}\)</span> being the selected tap phase having <span class="math inline">\(2 \pi\)</span> as value, or close to this value, depending on the sampling rate, and <span class="math inline">\(t^{tap}_{\hat n}\)</span> being the time of the tap at <span class="math inline">\(\hat n\)</span>.
+The R code for calculating these predictions is found in <code>Code/chapModelling/chapModelling_05_ModelPlotting.R</code>.</p>
+<p>Well, let us show it here as well:</p>
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># 1. Prepare a data frame with equal samples</span></span>
+<span><span class="va">Newdata</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>time <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">100</span>, by<span class="op">=</span><span class="fl">0.01</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co"># 2. draw samples from the posterior in B1 with Newdata</span></span>
+<span><span class="va">pred1</span> <span class="op">&lt;-</span> <span class="va">B1</span> <span class="op">%&gt;%</span> <span class="fu">epred_draws</span><span class="op">(</span>newdata <span class="op">=</span> <span class="va">Newdata</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">median_qi</span><span class="op">(</span><span class="va">.epred</span><span class="op">)</span> </span>
+<span><span class="co"># 3. calculate discrete taps</span></span>
+<span><span class="va">pred2</span> <span class="op">&lt;-</span>  <span class="va">pred1</span> <span class="op">%&gt;%</span> <span class="fu">mutate</span><span class="op">(</span>phase.metro <span class="op">=</span> <span class="fl">2</span><span class="op">*</span><span class="va">pi</span><span class="op">*</span><span class="va">time</span><span class="op">/</span><span class="fl">.6</span>, <span class="co"># we have 2pi when time = .6</span></span>
+<span>                           epsilon2pi <span class="op">=</span>  <span class="fl">2</span><span class="op">*</span><span class="va">pi</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">time</span><span class="op">)</span>,<span class="fl">0</span>,<span class="fl">.05</span><span class="op">)</span>, </span>
+<span>                           <span class="co"># add a bit of noise to the .epred</span></span>
+<span>                           relphase <span class="op">=</span> <span class="va">.epred</span> <span class="op">+</span> <span class="va">epsilon2pi</span>,</span>
+<span>                           phase.tap <span class="op">=</span> <span class="va">phase.metro</span> <span class="op">+</span> <span class="va">relphase</span>,</span>
+<span>                           newtime <span class="op">=</span> <span class="va">phase.tap</span><span class="op">*</span><span class="fl">.6</span><span class="op">/</span><span class="op">(</span><span class="fl">2</span><span class="op">*</span><span class="va">pi</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co"># plot.ts(pred2$phase.tap[1:1000]%% (2*pi))</span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">findpeaks</span><span class="op">(</span><span class="va">pred2</span><span class="op">$</span><span class="va">phase.tap</span> <span class="op"><a href="https://rdrr.io/r/base/Arithmetic.html">%%</a></span> <span class="op">(</span><span class="fl">2</span><span class="op">*</span><span class="va">pi</span><span class="op">)</span>, minpeakdistance <span class="op">=</span> <span class="fl">56</span><span class="op">)</span></span>
+<span><span class="va">p</span> <span class="op">=</span> <span class="va">p</span><span class="op">[</span>,<span class="fl">2</span><span class="op">]</span></span>
+<span><span class="va">taps</span> <span class="op">&lt;-</span> <span class="va">pred2</span><span class="op">[</span><span class="va">p</span>,<span class="op">]</span> <span class="co">#%&gt;% mutate(phase.tap = 2*pi) </span></span>
+<span><span class="co"># 4. Only the first 100s</span></span>
+<span><span class="va">relPhase</span> <span class="op">&lt;-</span> <span class="va">RelPhase</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">time</span> <span class="op">&lt;=</span> <span class="fl">100</span><span class="op">)</span></span>
+<span><span class="co"># 5. Plotting</span></span>
+<span><span class="va">chapModellingB1predicted</span> <span class="op">&lt;-</span> <span class="fu">ggplot</span><span class="op">(</span><span class="va">pred2</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_lineribbon</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">time</span>, y <span class="op">=</span> <span class="va">.epred</span>, </span>
+<span>                      ymin <span class="op">=</span> <span class="va">.lower</span>, </span>
+<span>                      ymax <span class="op">=</span> <span class="va">.upper</span><span class="op">)</span>, alpha<span class="op">=</span><span class="fl">.4</span>, color <span class="op">=</span> <span class="st">"#56B4E9"</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="co">#geom_line(aes(x=time,y=.epred), color = "#56B4E9", alpha=1, size=1) +</span></span>
+<span>  <span class="co"># geom_point(aes(x=time,y=relphase)) +</span></span>
+<span>  <span class="fu">ylab</span><span class="op">(</span><span class="st">"relative phase"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_point</span><span class="op">(</span>data<span class="op">=</span><span class="va">relPhase</span>,<span class="fu">aes</span><span class="op">(</span>x<span class="op">=</span><span class="va">time</span>,y<span class="op">=</span><span class="va">relphase</span><span class="op">)</span>,shape<span class="op">=</span><span class="fl">1</span>,size<span class="op">=</span><span class="fl">2</span>, alpha<span class="op">=</span><span class="fl">.6</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_point</span><span class="op">(</span>data<span class="op">=</span><span class="va">taps</span>,<span class="fu">aes</span><span class="op">(</span>x<span class="op">=</span><span class="va">newtime</span>,y<span class="op">=</span> <span class="va">relphase</span><span class="op">)</span>, size<span class="op">=</span><span class="fl">2</span>, alpha<span class="op">=</span><span class="fl">.6</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">theme_bw</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">xlim</span><span class="op">(</span><span class="fl">0</span>,<span class="fl">100</span><span class="op">)</span></span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:chapModellingB1predicted"></span>
+<img src="Figures/chapModelling_B1predicted.png" alt="Simulated discrete taps, using the underlying process, shown for the first 100 seconds" width="100%"><p class="caption">
+Figure 2.6: Simulated discrete taps, using the underlying process, shown for the first 100 seconds
+</p>
+</div>
+<p>The hidden process and its generated taps up to the first 100 seconds are shown in figure <a href="chapModelling.html#fig:chapModellingB1predicted">2.6</a>.
+Obviously, the generated taps are not exactly similar to the original taps. However, they have a similar statistical structure.</p>
+<p>So sum up, we used a fitted model to give us so-called <em>counterfactual</em> predictions at equal time intervals.
+This counterfactual prediction will be often needed.
+It is straightforward once you get it.</p>
+<!-- Statistical modelling aims at better understanding the data. -->
+<!-- Given the natural variability in human behavior, the goal may be to find a mean value in a group of subjects, in order to compensate for random variability in an individual subject. -->
+<!-- Part of the proof may also involve statistical tests showing contrasts in parameters of the model and/or predicted values generated by the model.  -->
+<!-- With simple models contrasts can be tested on parameter values. With complex models, it's better to use the prediction values. -->
+<!-- Several concrete examples of *contrasts* are given in the chapters that follow.  -->
+<!-- Other parts of the proof may consists in showing that the modelling is indeed accurate and that parameters and predictions of the model are reliable. -->
+<!-- ## Modeling the latent process -->
+<!-- The above tapping example suggests that statistical modelling can be done at different levels of abstraction. -->
+<!-- In some cases, predictors are available but it is unclear how these are related with each other, that is, whether predictors are correlated (A and B), have a time arrow (A before B), and are based on a counterfactual relationship (if not A, then not B). -->
+<!-- The predictors can be simply combined in a linear model where the outcome of the model is based on weighted sums of predictors. -->
+<!-- Typically, such a model may give rise to a rather abstract predictive model, based solely on correlations of predictors. -->
+<!-- In fact, the example of figure \@ref(fig:chapModellingBrms1), showing the predicted latent process in blue, is rather abstract in the sense that it doesn't tell us anything about a causal process, such as the flow of information between subject and metronome. It merely fits the data as good as possible, using 30 spline-functions. -->
+<!-- Consequently, the latent process doesn't say much more than having fitted 30 spline-functions. -->
+<!-- It doesn't say anything about the causal connection of the subject with the metronome. -->
+<!-- Sometimes, there may be some idea of how variables are causally related. (However, most of the time there is no such idea). -->
+<!-- That knowledge can then be expressed in a model definition such that the causal flow gets reflected in the model.  -->
+<!-- The approach is much more powerful but it is not always easy to build such a model, due to the complexity and lack of knowledge of the assumed processes. -->
+<!-- However, if a causal model can be built, then the estimated parameters can be directly interpreted in terms of causal flows. Such models are powerful and cool.  -->
+<!-- For example, the processes behind finger tapping data can be modeled using a system of oscillators and a set of differential equations of how they behave over time. -->
+<!-- Given the data, the control parameters of the differential equations can be estimated and the behavior can be understood in terms of control parameters. -->
+<!-- When that is possible, the modelling may give new insights that are otherwise hard to get. -->
+<!-- An example of this type of modelling will be shown in chapter XXXX. -->
+</div>
+<div id="note-about-bayesian-statistics" class="section level2" number="2.6">
+<h2>
+<span class="header-section-number">2.6</span> Note about Bayesian statistics<a class="anchor" aria-label="anchor" href="#note-about-bayesian-statistics"><i class="fas fa-link"></i></a>
+</h2>
+<p>The Bayesian approach in statistics has many advantages, but also some disadvantages.
+Among the advantages is the flexibility of working with the fitted model. Once fitted, all kinds of combinations of parameters and counterfactuals can be investigated by drawing samples from the model’s posterior.</p>
+<p>The disadvantage is the time it takes to compute the the fitted model.
+As mentioned and illustrated with a drawing in figure <a href="chapModelling.html#fig:chapTheoryBayesianModel1">2.1</a>, the estimation process in Bayesian data modelling revolves around optimizing a <em>likelihood function</em>, that is, a function in which likelihood and priors are included. The goal is to find the values of the parameters that maximize this likelihood function, thereby providing the best fit to the observed data. This optimization can be viewed from a Bayesian perspective, where the goal is to find the <em>posterior distribution</em> of the parameters given data and <em>prior beliefs</em>.</p>
+<p>The powerful technique used in Bayesian optimization is Hamiltonian Monte Carlo (HMC) sampling. HMC combines principles from Hamiltonian dynamics and Monte Carlo sampling to explore the parameter space more efficiently than traditional optimization methods. However, the computational cost is considerable.</p>
+</div>
+<div id="conclusion-1" class="section level2" number="2.7">
+<h2>
+<span class="header-section-number">2.7</span> Conclusion<a class="anchor" aria-label="anchor" href="#conclusion-1"><i class="fas fa-link"></i></a>
+</h2>
+<p>In this chapter we introduced smooth regression and applied it to a simple dataset of tic and tap events, showing that timing is a delicate matter.
+In addition we showed that, based on the estimated parameters of a regression model, it is possible to generate counterfactual tap events.
+This approach offers many possibilities that will be further explored in the next chapters.</p>
+<!-- ## References -->
+<!-- Buerckner (2018), -->
+<!-- Buerckner (2017, 2018, 2021), -->
+<!-- Rosso et al. (2023) -->
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="chapTheory.html"><span class="header-section-number">1</span> Theory</a></div>
+<div class="next"><a href="chapListener.html"><span class="header-section-number">3</span> Listener appreciation</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <h2>Provide your feedback</h2>
+    <!--<p>Now is a great time to provide feedback</p>-->
+        <ul class="list-unstyled">
+<!--<li><a href="https://forms.gle/nq9RmbxJyZXQgc948">Provide feedback (5 min)</a></li>--><li><a href="https://www.ugent.be/lw/kunstwetenschappen/ipem/en/services/asil">art and science interaction lab</a></li>
+        </ul>
+<hr>
+<nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#chapModelling"><span class="header-section-number">2</span> Modelling</a></li>
+<li>
+<a class="nav-link" href="#bayesian-epistemology"><span class="header-section-number">2.1</span> Bayesian epistemology</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#from-pattern-to-state">From pattern to state</a></li>
+<li><a class="nav-link" href="#interactions">Interactions</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#regression"><span class="header-section-number">2.2</span> Regression</a></li>
+<li>
+<a class="nav-link" href="#data-as-indicator"><span class="header-section-number">2.3</span> Data as indicator</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#dataset">Dataset</a></li>
+<li><a class="nav-link" href="#period">Period</a></li>
+<li><a class="nav-link" href="#relative-phase">Relative phase</a></li>
+<li><a class="nav-link" href="#polar-representation">Polar representation</a></li>
+<li><a class="nav-link" href="#synchronization-strength-and-delay">Synchronization strength and delay</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#data-and-model"><span class="header-section-number">2.4</span> Data and model</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#circular-axis">Circular axis</a></li>
+<li><a class="nav-link" href="#smooth-regression">Smooth regression</a></li>
+<li><a class="nav-link" href="#uncertainty">Uncertainty</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#predictions-of-tapping"><span class="header-section-number">2.5</span> Predictions of tapping</a></li>
+<li><a class="nav-link" href="#note-about-bayesian-statistics"><span class="header-section-number">2.6</span> Note about Bayesian statistics</a></li>
+<li><a class="nav-link" href="#conclusion-1"><span class="header-section-number">2.7</span> Conclusion</a></li>
+</ul>
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/mlIpem/ExploringMusicInteractionWithR/blob/main/03_chapModelling.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/mlIpem/ExploringMusicInteractionWithR/edit/main/03_chapModelling.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Exploring music interactions</strong>" was written by Marc Leman. It was last built on 2024-12-19.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>
